@@ -1,0 +1,170 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01A0HMRQFL5ZZ0jq7cxCMwSJ62OUERLRxMi",
+    "name": "CreateVariable",
+    "title": "CreateVariable",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "VarID",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A0KADJK862T4EdCYzx84BaDIMOP10D6V2",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "CreateVariable",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01A0HN2S9QP2L3Q5pc9DdyKqqHQf5qB9em6",
+        "name": "Generic CCS API Request",
+        "title": "GetVariableSchemaID",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_call_method": "GET",
+          "continue_on_failure": false,
+          "display_name": "GetVariableSchemaID",
+          "relative_url": "be-console/api/v1/schemas?schema_type=view\u0026base_type=datatype\u0026variable_type=true",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A0HYSULWNK21emHAm4sHYDg4Hz7fDEztX",
+        "name": "JSONPath Query",
+        "title": "ExtractVarSchemaID",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "ExtractVarSchemaID",
+          "input_json": "$activity.definition_activity_01A0HN2S9QP2L3Q5pc9DdyKqqHQf5qB9em6.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.[?(@.name == 'String')].schema_id",
+              "jsonpath_query_name": "VariableSchemaID",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A0I6OGP81LW6U4KGNjR0HDqjAKVU1WpNy",
+        "name": "Generic CCS API Request",
+        "title": "CreateVariable",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_body": "{\n  \"schema_id\": \"$activity.definition_activity_01A0HYSULWNK21emHAm4sHYDg4Hz7fDEztX.output.jsonpath_queries.VariableSchemaID$\",\n  \"title\": \"Test\",\n  \"properties\": {\n    \"scope\": \"global\",\n    \"is_required\": false,\n    \"name\": \"AOAutoVar\",\n    \"value\": \"AOAutoVar\"\n  }\n}",
+          "api_call_method": "POST",
+          "continue_on_failure": false,
+          "display_name": "CreateVariable",
+          "relative_url": "be-console/api/v1/variables",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A0IYM7S076S1S3iNE9mIuZOgPQa63X0eA",
+        "name": "JSONPath Query",
+        "title": "ExtractVariableID",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "ExtractVariableID",
+          "input_json": "$activity.definition_activity_01A0I6OGP81LW6U4KGNjR0HDqjAKVU1WpNy.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.id",
+              "jsonpath_query_name": "VariableID",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A0K7H21T4WM24pc1lLUGomQDkKXPS2hwB",
+        "name": "Set Variables",
+        "title": "Set Variables",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Set Variables",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_01A0HMRQFL5ZZ0jq7cxCMwSJ62OUERLRxMi.output.variable_workflow_01A0KADJK862T4EdCYzx84BaDIMOP10D6V2$",
+              "variable_value_new": "$activity.definition_activity_01A0IYM7S076S1S3iNE9mIuZOgPQa63X0eA.output.jsonpath_queries.VariableID$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_01A0II6OR0JCF5yWR2fuUXW7XvXivlY4r5S"
+    ]
+  },
+  "categories": {
+    "category_01A0II6OR0JCF5yWR2fuUXW7XvXivlY4r5S": {
+      "unique_name": "category_01A0II6OR0JCF5yWR2fuUXW7XvXivlY4r5S",
+      "name": "AO_Automation",
+      "title": "AO_Automation",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  }
+}
