@@ -1,0 +1,121 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01A15HWDO34N85aVXBJyZeD3f7yo1UZf8FZ",
+    "name": "Schedule-test",
+    "title": "Schedule-test",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Schedule-test",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01A15YOR2XEN31QqYG1uk73WrwppB7KqyF2",
+        "name": "To Upper",
+        "title": "To Upper",
+        "type": "core.string2upper",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "To Upper",
+          "skip_execution": false,
+          "source": "abc"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A27AT2V3SDR3XtvDFPJRoEgnqbUp6OngY",
+        "name": "Sanity Test Create Worklfow ",
+        "title": "Sanity Test Create Worklfow ",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "Sanity Test Create Worklfow ",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_01A22IC9I61S67OlajyK7wQcgailhqyruZv"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "triggers": {
+    "triggerschedule_01A15IK35K7JI29AOMNsVugvz8ec7NhG64b": {
+      "workflow_id": "definition_workflow_01A15HWDO34N85aVXBJyZeD3f7yo1UZf8FZ",
+      "name": "14085",
+      "title": "",
+      "lowercase_name": "schedule.14085",
+      "type": "schedule",
+      "base_type": "trigger",
+      "ref_id": "schedule_01A15C7ZILZMU6k6Sc5MKO8Uvv78DUuSCbV",
+      "version": "",
+      "disabled": false,
+      "unique_name": "triggerschedule_01A15IK35K7JI29AOMNsVugvz8ec7NhG64b",
+      "object_type": "triggerschedule"
+    }
+  },
+  "schedules": {
+    "schedule_01A15C7ZILZMU6k6Sc5MKO8Uvv78DUuSCbV": {
+      "unique_name": "schedule_01A15C7ZILZMU6k6Sc5MKO8Uvv78DUuSCbV",
+      "name": "Nextg-14085_sch",
+      "type": "basic.schedule",
+      "base_type": "schedule",
+      "properties": {
+        "calendar": "calendar_datelist_01A15AHJ98N9P0IMilBdJ4CeeUXwbEmjLsp",
+        "timezone": "US/Arizona",
+        "starttime": "10:30",
+        "interval_hours": 1,
+        "interval_minutes": 0,
+        "number_of_times": 2,
+        "display_name": "Nextg-14085_sch",
+        "description": ""
+      },
+      "version": "1.0.0",
+      "object_type": "schedule"
+    }
+  },
+  "calendars": {
+    "calendar_datelist_01A15AHJ98N9P0IMilBdJ4CeeUXwbEmjLsp": {
+      "unique_name": "calendar_datelist_01A15AHJ98N9P0IMilBdJ4CeeUXwbEmjLsp",
+      "name": "Nextg-14085cal",
+      "title": "Nextg-14085cal",
+      "schema_id": "015DW20QBM4HB7Bioul2fT1XaP1UQDb6hgu",
+      "base_type": "calendar",
+      "type": "calendar.datelist",
+      "properties": {
+        "date_list": [
+          "2019-09-13"
+        ]
+      },
+      "version": "1.0.0",
+      "object_type": "calendar_datelist"
+    }
+  },
+  "atomic_workflows": [
+    "definition_workflow_01A22IC9I61S67OlajyK7wQcgailhqyruZv"
+  ]
+}
