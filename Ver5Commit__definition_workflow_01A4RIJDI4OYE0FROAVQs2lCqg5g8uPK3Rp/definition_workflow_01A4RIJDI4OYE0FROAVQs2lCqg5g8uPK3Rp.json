@@ -8,6 +8,7 @@
     "variables": null,
     "properties": {
       "atomic": {
+        "atomic_group": "Shams",
         "is_atomic": true
       },
       "delete_workflow_instance": true,
