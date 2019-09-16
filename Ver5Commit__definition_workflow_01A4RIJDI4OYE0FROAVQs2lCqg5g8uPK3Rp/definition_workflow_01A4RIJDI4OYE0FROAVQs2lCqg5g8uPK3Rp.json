@@ -1,0 +1,51 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01A4RIJDI4OYE0FROAVQs2lCqg5g8uPK3Rp",
+    "name": "5._0_Workflow",
+    "title": "5._0_Workflow",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": true
+      },
+      "delete_workflow_instance": true,
+      "display_name": "5._0_Workflow",
+      "favorite": true,
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      },
+      "valid": "true"
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01A4RIK4KQJ2D2JujCgRUkP3xkpUmy0dxuz",
+        "name": "Find String",
+        "title": "Find String",
+        "type": "core.find_string",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Find String",
+          "searched_string": "test",
+          "skip_execution": false,
+          "source": "This is a test"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
