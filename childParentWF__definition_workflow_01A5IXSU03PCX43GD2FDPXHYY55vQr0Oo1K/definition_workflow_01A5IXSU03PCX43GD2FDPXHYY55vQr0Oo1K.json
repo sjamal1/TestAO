@@ -93,6 +93,24 @@
           "workflow_id": "definition_workflow_019ZPAAK0M50V1jcfopJmImDuzAiFFHrBu8"
         },
         "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A5J524JRXLA3cCYn3D2SvCR5TfupUG0po",
+        "name": "CreateCorewithNewVar",
+        "title": "CreateCorewithNewVar",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "CreateCorewithNewVar",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_019ZPAAK0M50V1jcfopJmImDuzAiFFHrBu8"
+        },
+        "object_type": "definition_activity"
       }
     ],
     "categories": [
