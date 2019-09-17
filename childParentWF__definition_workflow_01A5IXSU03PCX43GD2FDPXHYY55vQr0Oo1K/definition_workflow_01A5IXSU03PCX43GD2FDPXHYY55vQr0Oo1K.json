@@ -57,6 +57,24 @@
           "workflow_id": "definition_workflow_01A0HMRQFL5ZZ0jq7cxCMwSJ62OUERLRxMi"
         },
         "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A5J1INVP65E2J6B1V3LpiKMYpHyVfvSBm",
+        "name": "CreateVariable",
+        "title": "CreateVariable",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "CreateVariable",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_01A0HMRQFL5ZZ0jq7cxCMwSJ62OUERLRxMi"
+        },
+        "object_type": "definition_activity"
       }
     ],
     "categories": [
