@@ -111,6 +111,24 @@
           "workflow_id": "definition_workflow_019ZPAAK0M50V1jcfopJmImDuzAiFFHrBu8"
         },
         "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A5J680FBH6L0EplmjrwYbJsftXIClgGPJ",
+        "name": "TestCoreMultipleTable",
+        "title": "TestCoreMultipleTable",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "TestCoreMultipleTable",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_01A0C6SM1KLFX2dRiEHTKzVZznuo8FLiHCj"
+        },
+        "object_type": "definition_activity"
       }
     ],
     "categories": [
@@ -572,6 +590,84 @@
             "properties": {
               "continue_on_failure": false,
               "display_name": "calculate_date",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    },
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01A0C6SM1KLFX2dRiEHTKzVZznuo8FLiHCj",
+        "name": "TestCoreMultipleTable",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": null,
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "TestCoreMultipleTable",
+          "owner": "system",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "specify_on_workflow_start": false,
+            "target_default": true
+          },
+          "target": {
+            "execute_on_target_group": false,
+            "execute_on_workflow_target": false,
+            "no_target": true,
+            "specify_on_workflow_start": false
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01A0C711GLV804nJLrq7wF6RDGmBWEEGWX2",
+            "name": "json2xml",
+            "title": "Convert Json to Xml",
+            "type": "core.json2xml",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Convert Json to Xml",
+              "input_json": "{\n  \"firstName\": \"John\",\n  \"lastName\" : \"doe\",\n  \"age\"      : 26,\n  \"address\"  : {\n    \"streetAddress\": \"naist street\",\n    \"city\"         : \"Nara\",\n    \"postalCode\"   : \"630-0192\"\n  }\n}",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01A0C6Y31CO4L0iBBOwzUaTypLZrCP1DEEj",
+            "name": "calculate_date_time_difference",
+            "title": "Calculate Date Time Difference",
+            "type": "core.calculate_date_time_difference",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Calculate Date Time Difference",
+              "original_date": "2019-01-01T13:00:00-06:00",
+              "skip_execution": false,
+              "subtract_date": "2019-01-01T12:00:00-06:00"
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01A0C6V46DWOH7eMngoKc8Go6sJd6l59Jjo",
+            "name": "calculate_date",
+            "title": "Calculate Date",
+            "type": "core.calculate_date",
+            "base_type": "activity",
+            "properties": {
+              "adjustment": 3600,
+              "continue_on_failure": false,
+              "display_name": "Calculate Date",
+              "original_date": "2019-01-01T12:00:00-06:00",
               "skip_execution": false
             },
             "object_type": "definition_activity"
