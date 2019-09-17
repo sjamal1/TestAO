@@ -129,6 +129,42 @@
           "workflow_id": "definition_workflow_01A0C6SM1KLFX2dRiEHTKzVZznuo8FLiHCj"
         },
         "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A5J7X039ZYG3czgEYLGeL0T7ECKYzADQY",
+        "name": "Shams_secure_string",
+        "title": "Shams_secure_string",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "Shams_secure_string",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_01A5IQCAHDVHU2YQzcqFNggOwxBC5crojHK"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A5J7UOEEAB35exS8LIWCjTr1o08fVlNDi",
+        "name": "Shams_secure_string",
+        "title": "Shams_secure_string",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "Shams_secure_string",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_01A5IQCAHDVHU2YQzcqFNggOwxBC5crojHK"
+        },
+        "object_type": "definition_activity"
       }
     ],
     "categories": [
@@ -591,6 +627,72 @@
               "continue_on_failure": false,
               "display_name": "calculate_date",
               "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    },
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01A5IQCAHDVHU2YQzcqFNggOwxBC5crojHK",
+        "name": "Shams_secure_string",
+        "title": "Shams_secure_string",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.secure_string",
+            "properties": {
+              "value": "*****",
+              "scope": "local",
+              "name": "TestSec",
+              "type": "datatype.secure_string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01A5IRE2TVYO755xbZzMmCB3ZCJNdM10tQu",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "Shams_secure_string",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "specify_on_workflow_start": false,
+            "target_default": true
+          },
+          "target": {
+            "execute_on_target_group": false,
+            "execute_on_workflow_target": false,
+            "no_target": true,
+            "specify_on_workflow_start": false
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01A5IQL278O0X7Hpcy0QY7bS4Nk7jQTkJrS",
+            "name": "Set Variables",
+            "title": "TestSecure",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "TestSecure",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01A5IQCAHDVHU2YQzcqFNggOwxBC5crojHK.local.variable_workflow_01A5IRE2TVYO755xbZzMmCB3ZCJNdM10tQu$",
+                  "variable_value_new": "$workflow.definition_workflow_01A5IQCAHDVHU2YQzcqFNggOwxBC5crojHK.local.variable_workflow_01A5IRE2TVYO755xbZzMmCB3ZCJNdM10tQu$"
+                }
+              ]
             },
             "object_type": "definition_activity"
           }
