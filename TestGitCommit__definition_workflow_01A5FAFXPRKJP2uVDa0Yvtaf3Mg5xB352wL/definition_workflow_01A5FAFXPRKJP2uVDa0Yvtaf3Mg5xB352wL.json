@@ -8,16 +8,10 @@
     "variables": null,
     "properties": {
       "atomic": {
-        "atomic_group": "Shams",
-        "is_atomic": true
+        "is_atomic": false
       },
-      "delete_workflow_instance": true,
+      "delete_workflow_instance": false,
       "display_name": "NewAtomicWFTest",
-      "runtime_user": {
-        "override_target_runtime_user": false,
-        "specify_on_workflow_start": false,
-        "target_default": true
-      },
       "target": {
         "execute_on_target_group": false,
         "execute_on_workflow_target": false,
@@ -38,6 +32,26 @@
           "display_name": "To Lower",
           "skip_execution": false,
           "source": "ABC"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A5FOWJXCOFQ0SMcPG3oJD5UuTa9KzwgQd",
+        "name": "Replace String",
+        "title": "Replace String",
+        "type": "core.replacestring",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Replace String",
+          "input_string": "This is a test",
+          "replace_list": [
+            {
+              "replaced_string": "test",
+              "replacement_string": "best"
+            }
+          ],
+          "skip_execution": false
         },
         "object_type": "definition_activity"
       }
