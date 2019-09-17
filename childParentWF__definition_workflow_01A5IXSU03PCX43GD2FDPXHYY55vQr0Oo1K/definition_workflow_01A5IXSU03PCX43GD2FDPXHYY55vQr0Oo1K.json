@@ -75,6 +75,24 @@
           "workflow_id": "definition_workflow_01A0HMRQFL5ZZ0jq7cxCMwSJ62OUERLRxMi"
         },
         "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A5J2WY66CNW5LuGcMWIGmmZxuWkzePl6r",
+        "name": "CreateCorewithNewVar",
+        "title": "CreateCorewithNewVar",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "CreateCorewithNewVar",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_019ZPAAK0M50V1jcfopJmImDuzAiFFHrBu8"
+        },
+        "object_type": "definition_activity"
       }
     ],
     "categories": [
@@ -249,6 +267,300 @@
         ],
         "categories": [
           "category_01A0II6OR0JCF5yWR2fuUXW7XvXivlY4r5S"
+        ]
+      }
+    },
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_019ZPAAK0M50V1jcfopJmImDuzAiFFHrBu8",
+        "name": "CreateCorewithNewVar",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": null,
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "CreateCorewithNewVar",
+          "owner": "system",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "specify_on_workflow_start": false,
+            "target_default": true
+          },
+          "target": {
+            "execute_on_target_group": false,
+            "execute_on_workflow_target": false,
+            "no_target": true,
+            "specify_on_workflow_start": false
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_019ZPBI07FXOL1DhXoY5HtaxOarsmYON3Q6",
+            "name": "xsl_transform",
+            "title": "xsl_transform",
+            "type": "core.xsl_transform",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "xsl_transform",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_019ZPBFU21GHZ1pANNyLnFFTrGpO1m0MPkE",
+            "name": "xpathquery",
+            "title": "xpathquery",
+            "type": "core.xpathquery",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "xpathquery",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_019ZPBDNOTXN71RNKyU02wLxc9cUiM9cwfo",
+            "name": "trim_string",
+            "title": "trim_string",
+            "type": "core.trim_string",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "trim_string",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_019ZPBBIC7T105aPOX3W5xVEZLeVXLVXuEe",
+            "name": "string2upper",
+            "title": "string2upper",
+            "type": "core.string2upper",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "string2upper",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_019ZPB9A8Q9RS5yRML0AYyWvvcVBZkFtTny",
+            "name": "string2lower",
+            "title": "string2lower",
+            "type": "core.string2lower",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "string2lower",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_019ZPB744G9AE3UoT3sqW9kqAv4KTXLjgq4",
+            "name": "substring",
+            "title": "substring",
+            "type": "core.substring",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "substring",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_019ZPB4ZB2FUJ3tGaqOT0zRXeB0uHP8sYjN",
+            "name": "splitstring",
+            "title": "splitstring",
+            "type": "core.splitstring",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "splitstring",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_019ZPB2RZLRX72EPX4ivahYXoA3HFgC9unm",
+            "name": "sleep",
+            "title": "sleep",
+            "type": "core.sleep",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "sleep",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_019ZPB0QNOKH05a2FFVzN8Vnae0kxx5zeCY",
+            "name": "set_multiple_variables",
+            "title": "set_multiple_variables",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "set_multiple_variables",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_019ZPAYOU890L3dMOdH0qEUMo5fPRn5Vl7h",
+            "name": "replacestring",
+            "title": "replacestring",
+            "type": "core.replacestring",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "replacestring",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_019ZPAWJS3N517MrhyFWFmzTZAgR4Zz2J0A",
+            "name": "parse_date",
+            "title": "parse_date",
+            "type": "core.parse_date",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "parse_date",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_019ZPAUEQGPLF017S94idU2ZZ9gQqs0lijV",
+            "name": "matchregex",
+            "title": "matchregex",
+            "type": "core.matchregex",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "matchregex",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_019ZPAS5M0PIY3dthbFm2wHksPwhTEJoCJt",
+            "name": "jsonpathquery",
+            "title": "jsonpathquery",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "jsonpathquery",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_019ZPAPX5XH6X6PCjJH883YXjOWOQEqIhc4",
+            "name": "format_date",
+            "title": "format_date",
+            "type": "core.format_date",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "format_date",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_019ZPANJ7NVYJ4nqV1VYUqbzaO2X6EfN5TO",
+            "name": "find_string",
+            "title": "find_string",
+            "type": "core.find_string",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "find_string",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_019ZPALBRZMX34uyL8aN5f6QYbNNfroIRUz",
+            "name": "escape_regex",
+            "title": "escape_regex",
+            "type": "core.escape_regex",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "escape_regex",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_019ZPAJ6NAHN96uZObGnLUPvUGPnRQDF1hw",
+            "name": "xml2json",
+            "title": "xml2json",
+            "type": "core.xml2json",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "xml2json",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_019ZPAGZRVSH16KhE6M0RMJCJiUkoeFH3A2",
+            "name": "json2xml",
+            "title": "json2xml",
+            "type": "core.json2xml",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "json2xml",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_019ZPAEVUS9QQ1ccOLhkxlprewrJIKQCiS5",
+            "name": "calculate_date_time_difference",
+            "title": "calculate_date_time_difference",
+            "type": "core.calculate_date_time_difference",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "calculate_date_time_difference",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_019ZPACP7OJJD2meobGJqJWS7Vwou0LNbfy",
+            "name": "calculate_date",
+            "title": "calculate_date",
+            "type": "core.calculate_date",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "calculate_date",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
         ]
       }
     }
