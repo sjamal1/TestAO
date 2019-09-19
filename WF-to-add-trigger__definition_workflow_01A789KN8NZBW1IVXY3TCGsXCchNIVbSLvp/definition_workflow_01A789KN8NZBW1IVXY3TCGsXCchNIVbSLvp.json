@@ -1,0 +1,551 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01A789KN8NZBW1IVXY3TCGsXCchNIVbSLvp",
+    "name": "Regression _ Creating Trigger Schedule with workflow 5.0.3",
+    "title": "Regression _ Creating Trigger Schedule with workflow 5.0.3",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "Header: This Workflow Creates Calendar, schedule and workflows\n \n+Ve Test\n\n* It creates Recurring Calendar\n* Using Of  recurring calendars It creates Schedule\n* Then Creates Worklfow and adding Upper action to \n     worklfow  and validate\n* Now Adding Schedule to the workflow and executing the \n    workflow",
+      "display_name": "Regression _ Creating Trigger Schedule with workflow 5.0.3",
+      "favorite": false,
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01A789LIHIQPX7a0u63vpEeOG2HgQF0vJGo",
+        "name": "Generic CCS API Request",
+        "title": "GET Calendar Schema",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_call_method": "GET",
+          "continue_on_failure": true,
+          "display_name": "GET Calendar Schema",
+          "relative_url": "be-console/api/v1/schemas?schema_type=view\u0026base_type=calendar",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A789LU4ITTB7j4C7hAoCQcO4TbVDrqsrg",
+        "name": "JSONPath Query",
+        "title": "Extracting calendar schema's to create calendars",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Extracting calendar schema's to create calendars",
+          "input_json": "$activity.definition_activity_01A789LIHIQPX7a0u63vpEeOG2HgQF0vJGo.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.[?(@.title=='Date list calendar')].id",
+              "jsonpath_query_name": "Date List Calendar",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": ""
+            },
+            {
+              "jsonpath_query": "$.[?(@.title=='Group Calendar')].id",
+              "jsonpath_query_name": "Group Calendar",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": ""
+            },
+            {
+              "jsonpath_query": "$.[?(@.title=='Recurring Calendar')].id",
+              "jsonpath_query_name": "Recurring Calendar",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": ""
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A789M9UZ43U3APd6hIqa4KhJB5AuYk7UU",
+        "name": "Generic CCS API Request",
+        "title": "Create Recurring Calendar",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_body": "{\n  \"display_name\": \"Automation Create Recurring Calendar $activity.definition_activity_01A789LIHIQPX7a0u63vpEeOG2HgQF0vJGo.output.start_time$\",\n  \"name\": \"Automation Create Recurring Calendar $activity.definition_activity_01A789LIHIQPX7a0u63vpEeOG2HgQF0vJGo.output.start_time$\",\n  \"schema_id\": \"015DW20XK9ULG3sLXqdqt4pGEcPiszhehQX\",\n  \"properties\": {\n    \"date_range\": {\n      \"start_date\": \"2019-05-30\",\n      \"end_date\": \"2020-05-29\"\n    },\n    \"repeats\": {\n      \"period\": \"daily\",\n      \"every\": 1\n    }\n  }\n}",
+          "api_call_method": "POST",
+          "continue_on_failure": true,
+          "display_name": "Create Recurring Calendar",
+          "relative_url": "be-console/api/v1/calendars",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A789MS9JMSZ1l6xG4EKrTVie3OanwKJcS",
+        "name": "JSONPath Query",
+        "title": "Extracting  Recurring Calendar Id",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Extracting  Recurring Calendar Id",
+          "input_json": "$activity.definition_activity_01A789M9UZ43U3APd6hIqa4KhJB5AuYk7UU.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$..id",
+              "jsonpath_query_name": "Recurring calendar Id",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": ""
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A789N869AUV2tmtdxTIXbquvmlLNrTGlm",
+        "name": "Generic CCS API Request",
+        "title": "GET Schedule Schema",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_call_method": "GET",
+          "continue_on_failure": true,
+          "display_name": "GET Schedule Schema",
+          "relative_url": "be-console/api/v1/schemas?schema_type=view\u0026base_type=schedule",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A789NME1PZT0soG7V8Yo69kzybBynwE1a",
+        "name": "JSONPath Query",
+        "title": "Extracting Schedule schema",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Extracting Schedule schema",
+          "input_json": "$activity.definition_activity_01A789N869AUV2tmtdxTIXbquvmlLNrTGlm.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$..id",
+              "jsonpath_query_name": "Schedule Schema",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": ""
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A789O4A43UH3S4m8934t67eJBGKoyrNmA",
+        "name": "Generic CCS API Request",
+        "title": "Create Schedule",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_body": "{\n  \"name\": \"Automation Create Scedule $activity.definition_activity_01A789LIHIQPX7a0u63vpEeOG2HgQF0vJGo.output.start_time$\",\n  \"schema_id\": \"$activity.definition_activity_01A789NME1PZT0soG7V8Yo69kzybBynwE1a.output.jsonpath_queries.Schedule Schema$\",\n  \"properties\": {\n    \"timezone\": \"US/Central\",\n    \"calendar\": \"$activity.definition_activity_01A789MS9JMSZ1l6xG4EKrTVie3OanwKJcS.output.jsonpath_queries.Recurring calendar Id$\",\n    \"display_name\": \"Automation Create Scedule $activity.definition_activity_01A789LIHIQPX7a0u63vpEeOG2HgQF0vJGo.output.start_time$\",\n    \"starttime\": \"17:55\",\n    \"number_of_times\": 1,\n    \"interval_hours\": 0,\n    \"interval_minutes\": 0\n  }\n}",
+          "api_call_method": "POST",
+          "continue_on_failure": true,
+          "display_name": "Create Schedule",
+          "relative_url": "be-console/api/v1/schedules",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A789OSSC2HA60vWMc6CIPopI1GZdpU0wE",
+        "name": "JSONPath Query",
+        "title": "Extarcting Cretaed Schedule Id",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Extarcting Cretaed Schedule Id",
+          "input_json": "$activity.definition_activity_01A789O4A43UH3S4m8934t67eJBGKoyrNmA.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$..id",
+              "jsonpath_query_name": "Schedule Id",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": ""
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A789PAX2BW6046VUQwuDUd3jaANkTz69s",
+        "name": "Generic CCS API Request",
+        "title": "GET Workflow Schema",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_call_method": "GET",
+          "continue_on_failure": true,
+          "display_name": "GET Workflow Schema",
+          "relative_url": "be-console/api/v1/workflows",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A789POEFWAT6TKDUFxKGbIdYyqE2vVnZn",
+        "name": "JSONPath Query",
+        "title": "Extract workflow schema Id",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Extract workflow schema Id",
+          "input_json": "$activity.definition_activity_01A789PAX2BW6046VUQwuDUd3jaANkTz69s.output.response_body$$activity.definition_activity_01A789PAX2BW6046VUQwuDUd3jaANkTz69s.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.[1].schema_id",
+              "jsonpath_query_name": "workflow schema Id",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": ""
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A789Q7LH4RL04bWXzFTL5P8Afh8zldp12",
+        "name": "Generic CCS API Request",
+        "title": "Create workflow",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_body": "{\n  \"schema_id\": \"$activity.definition_activity_01A789POEFWAT6TKDUFxKGbIdYyqE2vVnZn.output.jsonpath_queries.workflow schema Id$\",\n  \"properties\": {\n    \"display_name\": \"Automation Create Workflow\",\n    \"atomic\": {\n      \"is_atomic\": false\n    },\n    \"delete_workflow_instance\": false,\n    \"favorite\": false,\n    \"target\": {\n      \"execute_on_target_group\": true,\n      \"execute_on_workflow_target\": false,\n      \"no_target\": false,\n      \"specify_on_workflow_start\": false\n    }\n  }\n}",
+          "api_call_method": "POST",
+          "continue_on_failure": true,
+          "display_name": "Create workflow",
+          "relative_url": "be-console/api/v1/workflows",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A789QP7OPVS5drefYBKTBOr4z5bPWBn4h",
+        "name": "JSONPath Query",
+        "title": "Extract Workflow Id",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Extract Workflow Id",
+          "input_json": "$activity.definition_activity_01A789Q7LH4RL04bWXzFTL5P8Afh8zldp12.output.response_body$$activity.definition_activity_01A789Q7LH4RL04bWXzFTL5P8Afh8zldp12.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$..id",
+              "jsonpath_query_name": "workflow_id",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": ""
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A789RALLFI81sELtj83sk2afdrLLQufbz",
+        "name": "Generic CCS API Request",
+        "title": "GET Upper Action Schema",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_call_method": "GET",
+          "continue_on_failure": true,
+          "display_name": "GET Upper Action Schema",
+          "relative_url": "be-console/api/v1/schemas/core.string2upper?schema_type=view",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A789RS7HU480nTax7XIiFfMjU1X0hONkx",
+        "name": "JSONPath Query",
+        "title": "Extracting upper action schema id",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Extracting upper action schema id",
+          "input_json": "$activity.definition_activity_01A789RALLFI81sELtj83sk2afdrLLQufbz.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$..schema_id",
+              "jsonpath_query_name": "Upper Action schema Id",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": ""
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A789S9IX0ID43FIh6lmatopa5Fr3yoApe",
+        "name": "Generic CCS API Request",
+        "title": "Adding Upper Action",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_body": "{\n  \"previous_action\": {\n    \"id\": \"$activity.definition_activity_01A789QP7OPVS5drefYBKTBOr4z5bPWBn4h.output.jsonpath_queries.workflow_id$\",\n    \"schema_id\": \"$activity.definition_activity_01A789POEFWAT6TKDUFxKGbIdYyqE2vVnZn.output.jsonpath_queries.workflow schema Id$\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\"\n  },\n  \"action\": {\n    \"schema_id\": \"$activity.definition_activity_01A789RS7HU480nTax7XIiFfMjU1X0hONkx.output.jsonpath_queries.Upper Action schema Id$\",\n    \"type\": \"core.string2upper\",\n    \"base_type\": \"activity\",\n    \"name\": \"To Upper\",\n    \"properties\": {\n      \"continue_on_failure\": false,\n      \"display_name\": \"To Upper\"\n    },\n    \"title\": \"To Upper\"\n  }\n}",
+          "api_call_method": "POST",
+          "continue_on_failure": true,
+          "display_name": "Adding Upper Action",
+          "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01A789QP7OPVS5drefYBKTBOr4z5bPWBn4h.output.jsonpath_queries.workflow_id$/actions",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A789STW6EMC5JNDSvVmBp5s9nPDpkLQY6",
+        "name": "JSONPath Query",
+        "title": "Extracting upper action Id",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Extracting upper action Id",
+          "input_json": "$activity.definition_activity_01A789S9IX0ID43FIh6lmatopa5Fr3yoApe.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$..id",
+              "jsonpath_query_name": "Upper action Id",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": ""
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A789T6VNXS46ufsvsA67S0e1mJGZoXbVO",
+        "name": "Generic CCS API Request",
+        "title": "Adding Source to Upper Action",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_body": "{\n  \"id\": \"$activity.definition_activity_01A789STW6EMC5JNDSvVmBp5s9nPDpkLQY6.output.jsonpath_queries.Upper action Id$\",\n  \"title\": \"To Upper\",\n  \"properties\": {\n    \"continue_on_failure\": false,\n    \"display_name\": \"To Upper\",\n    \"source\": \"This workflow created by automation\"\n  }\n}",
+          "api_call_method": "PUT",
+          "continue_on_failure": true,
+          "display_name": "Adding Source to Upper Action",
+          "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01A789QP7OPVS5drefYBKTBOr4z5bPWBn4h.output.jsonpath_queries.workflow_id$/actions/$activity.definition_activity_01A789STW6EMC5JNDSvVmBp5s9nPDpkLQY6.output.jsonpath_queries.Upper action Id$",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A789TMI0UQV2DQtjWo11KX4d5gFWdaTWQ",
+        "name": "Generic CCS API Request",
+        "title": "Updating Action",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_body": "{\n  \"valid\": true,\n  \"properties\": {\n    \"atomic\": {\n      \"is_atomic\": false\n    },\n    \"delete_workflow_instance\": false,\n    \"favorite\": false,\n    \"target\": {\n      \"no_target\": true\n    },\n    \"display_name\": \"Automation Create Workflow\"\n  }\n}",
+          "api_call_method": "PUT",
+          "continue_on_failure": true,
+          "display_name": "Updating Action",
+          "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01A789QP7OPVS5drefYBKTBOr4z5bPWBn4h.output.jsonpath_queries.workflow_id$",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A789U0HKAER35eNSRDlymSx2LOEGjxHdn",
+        "name": "Generic CCS API Request",
+        "title": "Validate worklfow",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_call_method": "POST",
+          "continue_on_failure": true,
+          "display_name": "Validate worklfow",
+          "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01A789QP7OPVS5drefYBKTBOr4z5bPWBn4h.output.jsonpath_queries.workflow_id$/validate",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A789UBZSOM17U8UnjnrCLgli03pXAQtw0",
+        "name": "Generic CCS API Request",
+        "title": "Adding Trigger to the workflow",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_body": "{\n  \"disabled\": false,\n  \"type\": \"schedule\",\n  \"name\": \"Trigger Schedule\",\n  \"ref_id\": \"$activity.definition_activity_01A789OSSC2HA60vWMc6CIPopI1GZdpU0wE.output.jsonpath_queries.Schedule Id$\",\n  \"title\": \"Schedule\"\n}",
+          "api_call_method": "POST",
+          "continue_on_failure": true,
+          "display_name": "Adding Trigger to the workflow",
+          "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01A789QP7OPVS5drefYBKTBOr4z5bPWBn4h.output.jsonpath_queries.workflow_id$/triggers",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A789UNJSI2D2uFhVrvnw9u16AuQJTttQM",
+        "name": "Generic CCS API Request",
+        "title": "Execute Workflow",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_call_method": "POST",
+          "continue_on_failure": true,
+          "display_name": "Execute Workflow",
+          "relative_url": "be-console/api/v1/workflows/ui/start?workflow_id=$activity.definition_activity_01A789QP7OPVS5drefYBKTBOr4z5bPWBn4h.output.jsonpath_queries.workflow_id$",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
