@@ -1,0 +1,55 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01A78X3S8R1EM5e3DW2cLWth4XFd8nRQ3v2",
+    "name": "shasms non atomic 1",
+    "title": "shasms non atomic 1",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "shasms non atomic 1",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01A78XJ8CGTXK65VlGoLsWWXPRz8QPDCUkF",
+        "name": "atomic 1 shams",
+        "title": "atomic 1 shams",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "atomic 1 shams",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_01A78VNMDWRHR2lFI50tquTH1ZyTP10O1Cb"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "atomic_workflows": [
+    "definition_workflow_01A78VNMDWRHR2lFI50tquTH1ZyTP10O1Cb"
+  ]
+}
