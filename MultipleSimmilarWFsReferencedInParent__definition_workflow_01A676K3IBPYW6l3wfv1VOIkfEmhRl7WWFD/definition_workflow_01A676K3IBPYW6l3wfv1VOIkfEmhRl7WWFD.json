@@ -1,0 +1,472 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01A676K3IBPYW6l3wfv1VOIkfEmhRl7WWFD",
+    "name": "ParentEM",
+    "title": "ParentEM",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "ParentEM",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01A676RDJ1C1K13EmwbcDU43Gj3xAvbXAzO",
+        "name": "NEXTG-14092",
+        "title": "NEXTG-14092",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "NEXTG-14092",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_01A6759QUP19Z3JF5CCYg7LMaDSCz5pKYFs"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A676V0Y57CM5SuP6xL3Hid69Egx23VLZm",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01A676V416ZLU2lEHc2ljMTxjqQyQ0hj9xr",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$global.variable_019V6ZX0GABBV0ZqgJzBQlS6pZXRXrauLPx.global.variable_019V6ZX0GABBV0ZqgJzBQlS6pZXRXrauLPx$",
+                "operator": "eq",
+                "right_operand": "12"
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01A676XGVA2RZ1GTMekiGwpS8S6yRZTVIR2",
+                "name": "NEXTG-14092",
+                "title": "NEXTG-14092",
+                "type": "workflow.sub_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "display_name": "NEXTG-14092",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "target": {
+                    "no_target": true
+                  },
+                  "workflow_id": "definition_workflow_01A6759QUP19Z3JF5CCYg7LMaDSCz5pKYFs"
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01A676V549QHH70LGwvhcEHGh92sXZ368kT",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$workflow.definition_workflow_01A676K3IBPYW6l3wfv1VOIkfEmhRl7WWFD.output.instance_id$",
+                "operator": "ne",
+                "right_operand": "123"
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01A676Z36LZ2H2V7VXvD28Wnh3cmnTmqeup",
+                "name": "NEXTG-14092",
+                "title": "NEXTG-14092",
+                "type": "workflow.sub_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "display_name": "NEXTG-14092",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "target": {
+                    "no_target": true
+                  },
+                  "workflow_id": "definition_workflow_01A6759QUP19Z3JF5CCYg7LMaDSCz5pKYFs"
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01A677C23E7O71JoQ9ynRH8dW7UZcMzn5Jx",
+        "name": "NEXTG-14092",
+        "title": "NEXTG-14092",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "NEXTG-14092",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_01A6759QUP19Z3JF5CCYg7LMaDSCz5pKYFs"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A677G2S2WGF41fawENIU19ES47EPAfBt6",
+        "name": "While Loop",
+        "title": "While Loop",
+        "type": "logic.while",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "While Loop",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01A677G5VYI4F0HqrCN2f9lrYwwzCFIDvaH",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$workflow.definition_workflow_01A676K3IBPYW6l3wfv1VOIkfEmhRl7WWFD.output.start_time$",
+                "operator": "eq",
+                "right_operand": "$global.variable_016R16YVJGCOS05dE0k5xWOpLcNUvmRIy8c.global.variable_016R16YVJGCOS05dE0k5xWOpLcNUvmRIy8c[0].Date$"
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01A677IN3359S2YY1HlQvEc5Cc18Qbhxvzw",
+                "name": "NEXTG-14092",
+                "title": "NEXTG-14092",
+                "type": "workflow.sub_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "display_name": "NEXTG-14092",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "target": {
+                    "no_target": true
+                  },
+                  "workflow_id": "definition_workflow_01A6759QUP19Z3JF5CCYg7LMaDSCz5pKYFs"
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01A677Q82006R6EyNiI1CGJNdDxTJTe4nmj",
+        "name": "NEXTG-14092",
+        "title": "NEXTG-14092",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "NEXTG-14092",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_01A6759QUP19Z3JF5CCYg7LMaDSCz5pKYFs"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "variables": {
+    "variable_015ONC3SNDIJ722EUOqjVRwx0nczoHUNWJl": {
+      "unique_name": "variable_015ONC3SNDIJ722EUOqjVRwx0nczoHUNWJl",
+      "properties": {
+        "value": 1,
+        "scope": "global",
+        "name": "Seconds",
+        "type": "datatype.integer",
+        "is_required": false
+      },
+      "object_type": "variable"
+    },
+    "variable_016R16YVJGCOS05dE0k5xWOpLcNUvmRIy8c": {
+      "unique_name": "variable_016R16YVJGCOS05dE0k5xWOpLcNUvmRIy8c",
+      "schema_id": "tabletype_016R14RP6E08D1vkpvIVQwvU6WjFgzVkeD0",
+      "properties": {
+        "value": [
+          {
+            "column_data": {
+              "Age": 5,
+              "Date": "2019-04-26T18:34:21.002350614Z",
+              "Height": 7.8,
+              "Name": "danny"
+            }
+          },
+          {
+            "column_data": {
+              "Height": 5
+            }
+          }
+        ],
+        "scope": "global",
+        "name": "TN - Bulk Insert Global",
+        "type": "datatype.table",
+        "is_required": false
+      },
+      "object_type": "variable"
+    },
+    "variable_019KEA2RTKQHW1iXxGP33kyUJpqwVYNnAkf": {
+      "unique_name": "variable_019KEA2RTKQHW1iXxGP33kyUJpqwVYNnAkf",
+      "schema_id": "tabletype_019KE8YF39E8R6PZnlP01pSeXtQ32Ee4q6c",
+      "properties": {
+        "value": [
+          {
+            "column_data": {
+              "Timezone": "America/Chicago"
+            }
+          }
+        ],
+        "scope": "global",
+        "name": "Available Timezones",
+        "type": "datatype.table",
+        "description": "A list of available timezones for the World Time API example.",
+        "is_required": false
+      },
+      "object_type": "variable"
+    },
+    "variable_019V6ZX0GABBV0ZqgJzBQlS6pZXRXrauLPx": {
+      "unique_name": "variable_019V6ZX0GABBV0ZqgJzBQlS6pZXRXrauLPx",
+      "properties": {
+        "value": "29",
+        "scope": "global",
+        "name": "TF_ENVID",
+        "type": "datatype.string",
+        "is_required": false
+      },
+      "object_type": "variable"
+    }
+  },
+  "table_types": {
+    "tabletype_016R14RP6E08D1vkpvIVQwvU6WjFgzVkeD0": {
+      "unique_name": "tabletype_016R14RP6E08D1vkpvIVQwvU6WjFgzVkeD0",
+      "data_type": "datatype.tabletype",
+      "display_name": "TN - BulkInsert",
+      "columns": [
+        {
+          "name": "Date",
+          "title": "Date",
+          "type": "date"
+        },
+        {
+          "maximum": 100,
+          "minimum": 1,
+          "name": "Height",
+          "title": "Height",
+          "type": "number"
+        },
+        {
+          "maxLength": 100,
+          "name": "Name",
+          "title": "Name",
+          "type": "string"
+        },
+        {
+          "maximum": 100,
+          "minimum": 1,
+          "name": "Age",
+          "title": "Age",
+          "type": "integer"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    },
+    "tabletype_019KE8YF39E8R6PZnlP01pSeXtQ32Ee4q6c": {
+      "unique_name": "tabletype_019KE8YF39E8R6PZnlP01pSeXtQ32Ee4q6c",
+      "data_type": "datatype.tabletype",
+      "display_name": "Timezones",
+      "description": "This is a list of available timezones for World Time API.",
+      "columns": [
+        {
+          "is_required": true,
+          "name": "Timezone",
+          "title": "Timezone",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01A6759QUP19Z3JF5CCYg7LMaDSCz5pKYFs",
+        "name": "NEXTG-14092",
+        "title": "NEXTG-14092",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": null,
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "NEXTG-14092",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "specify_on_workflow_start": false,
+            "target_default": true
+          },
+          "target": {
+            "execute_on_target_group": false,
+            "execute_on_workflow_target": false,
+            "no_target": true,
+            "specify_on_workflow_start": false
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01A675M6II7CL1utPjSKK5zWN0V6qtQm7fd",
+            "name": "Condition Block",
+            "title": "Condition Block",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Condition Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01A675M9O8HTT7hvHsGTvOjbskwICxOcbKe",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$global.variable_019KEA2RTKQHW1iXxGP33kyUJpqwVYNnAkf.global.variable_019KEA2RTKQHW1iXxGP33kyUJpqwVYNnAkf[-1].Timezone$",
+                    "operator": "eq",
+                    "right_operand": "11"
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01A675PFCQ1UZ6vZWfsPeRxPahbFheQIgK5",
+                    "name": "Sleep",
+                    "title": "Sleep",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep",
+                      "skip_execution": false,
+                      "sleep_interval": 12
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01A675MAXUBMM5jfiTvsBHGb1AurqtsnWPQ",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$global.variable_015ONC3SNDIJ722EUOqjVRwx0nczoHUNWJl.global.variable_015ONC3SNDIJ722EUOqjVRwx0nczoHUNWJl$",
+                    "operator": "lt",
+                    "right_operand": 60
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01A675RYI8T6M2th5S5rks7M0AKrXjyfLPp",
+                    "name": "Sleep",
+                    "title": "Sleep",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep",
+                      "skip_execution": false,
+                      "sleep_interval": 11
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    }
+  ]
+}
