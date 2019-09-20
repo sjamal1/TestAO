@@ -1,0 +1,905 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01A7MSMKE834P76cSfe9SXAm1F1AEsdmMAo",
+    "name": "RegressionToCreateCoreWF",
+    "title": "RegressionToCreateCoreWF",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "be-console/api/v1/schemas/core",
+          "scope": "local",
+          "name": "actionSchemaUrl",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A7MSOFTEYO82FJbCZMyYJcM1NEdnbMZzQ",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_015ICF0I7NO0C6WGjQyRPrquxRAGOZZH89S",
+        "properties": {
+          "value": [
+            {
+              "column_data": {
+                "ActionId": "{   \"id\": \"\",   \"title\": \"Calculate Date\",   \"properties\": {     \"continue_on_failure\": false,     \"display_name\": \"Calculate Date\",     \"skip_execution\": false,     \"original_date\": \"2019-01-01T12:00:00-06:00\",     \"adjustment\": 3600   } }"
+              }
+            },
+            {
+              "column_data": {
+                "ActionId": "{\"id\":\"\",\"title\":\"Calculate Date Time Difference\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Calculate Date Time Difference\",\"skip_execution\":false,\"original_date\":\"2019-01-01T13:00:00-06:00\",\"subtract_date\":\"2019-01-01T12:00:00-06:00\"}}"
+              }
+            },
+            {
+              "column_data": {
+                "ActionId": "{\"id\":\"\",\"title\":\"Convert Json to Xml\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Convert Json to Xml\",\"skip_execution\":false,\"input_json\":\"{\\n  \\\"firstName\\\": \\\"John\\\",\\n  \\\"lastName\\\" : \\\"doe\\\",\\n  \\\"age\\\"      : 26,\\n  \\\"address\\\"  : {\\n    \\\"streetAddress\\\": \\\"naist street\\\",\\n    \\\"city\\\"         : \\\"Nara\\\",\\n    \\\"postalCode\\\"   : \\\"630-0192\\\"\\n  }\\n}\"}}"
+              }
+            },
+            {
+              "column_data": {
+                "ActionId": " {\"id\":\"\",\"title\":\"Convert Xml to Json\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Convert Xml to Json\",\"skip_execution\":false,\"input_xml\":\"\u003cdoc\u003e\\n  \u003caddress\u003e\\n    \u003ccity\u003eNara\u003c/city\u003e\\n    \u003cpostalCode\u003e630-0192\u003c/postalCode\u003e\\n    \u003cstreetAddress\u003enaist street\u003c/streetAddress\u003e\\n  \u003c/address\u003e\\n  \u003cage\u003e26\u003c/age\u003e\\n  \u003cfirstName\u003eJohn\u003c/firstName\u003e\\n  \u003clastName\u003edoe\u003c/lastName\u003e\\n\u003c/doc\u003e\"}}"
+              }
+            },
+            {
+              "column_data": {
+                "ActionId": "{\"id\":\"\",\"title\":\"Escape Regex Metacharacters\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Escape Regex Metacharacters\",\"skip_execution\":false,\"source\":\"pand[ora]=panda\"}}"
+              }
+            },
+            {
+              "column_data": {
+                "ActionId": "{\"id\": \"\",\"title\": \"Find String\",\"properties\":{ \"continue_on_failure\": false,\"display_name\": \"Find String\",\"skip_execution\": false,\"source\": \"This is a test\",\"searched_string\": \"test\"}}"
+              }
+            },
+            {
+              "column_data": {
+                "ActionId": "{\"id\":\"\",\"title\":\"Format Date\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Format Date\",\"skip_execution\":false,\"use_custom_format\":false,\"original_date\":\"2019-01-01T12:00:00-06:00\",\"format_string\":\"Monday, 02-Jan-06 15:04:05 MST\"}}"
+              }
+            },
+            {
+              "column_data": {
+                "ActionId": "{\"id\":\"\",\"title\":\"JSONPath Query\",\"properties\":{\"action_timeout\":180,\"continue_on_failure\":false,\"display_name\":\"JSONPath Query\",\"skip_execution\":false,\"input_json\":\"{\\n  \\\"doc\\\": {\\n    \\\"address\\\": {\\n      \\\"city\\\": \\\"Nara\\\",\\n      \\\"postalCode\\\": \\\"630-0192\\\",\\n      \\\"streetAddress\\\": \\\"naist street\\\"\\n    },\\n    \\\"age\\\": \\\"26\\\",\\n    \\\"firstName\\\": \\\"John\\\",\\n    \\\"lastName\\\": \\\"doe\\\"\\n  }\\n}\",\"jsonpath_queries\":[{\"jsonpath_query_type\":\"string\",\"jsonpath_query\":\"$..firstName\",\"jsonpath_query_name\":\"firstname\"}]}}"
+              }
+            },
+            {
+              "column_data": {
+                "ActionId": "{\"id\":\"\",\"title\":\"Match Regular Expression\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Match Regular Expression\",\"skip_execution\":false,\"input_regex\":\"abc(bc)*\",\"input_string\":\"This is a test. I will try abc and abcbc will work but abbc won't be.\"}}"
+              }
+            },
+            {
+              "column_data": {
+                "ActionId": "{\"id\":\"\",\"title\":\"Parse Date\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Parse Date\",\"skip_execution\":false,\"use_custom_format\":false,\"format_string\":\"2006-01-02T15:04:05Z07:00\"}}"
+              }
+            },
+            {
+              "column_data": {
+                "ActionId": "{\"id\":\"\",\"title\":\"Replace String\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Replace String\",\"skip_execution\":false,\"input_string\":\"This isn't a test\",\"replace_list\":[{\"replaced_string\":\"isn't\",\"replacement_string\":\"is\"}]}}"
+              }
+            },
+            {
+              "column_data": {
+                "ActionId": "{\"id\":\"\",\"title\":\"Set Variables\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Set Variables\",\"skip_execution\":false,\"variables_to_update\":[{\"variable_to_update\":\"$workflow.019WO6TEO8EXN7Lvycbtar2u0AGeV5Q40Gk.local.019WOB34ZJAEF4xXZTRWzEfBubvVx8AT9BV$\",\"variable_value_new\":\"This is a test\"}]}}"
+              }
+            },
+            {
+              "column_data": {
+                "ActionId": "{\"id\":\"\",\"title\":\"Sleep\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Sleep\",\"skip_execution\":false,\"sleep_interval\":3}}"
+              }
+            },
+            {
+              "column_data": {
+                "ActionId": "{\"id\":\"\",\"title\":\"Split String\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Split String\",\"skip_execution\":false,\"input_string\":\"This is a test.\",\"boundaries\":[{\"boundary\":\"is\"}]}}"
+              }
+            },
+            {
+              "column_data": {
+                "ActionId": "{\"id\":\"\",\"title\":\"Substring\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Substring\",\"skip_execution\":false,\"source\":\"This is a test\",\"begin\":10,\"end\":15}}"
+              }
+            },
+            {
+              "column_data": {
+                "ActionId": "{\"id\":\"\",\"title\":\"To Lower\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"To Lower\",\"skip_execution\":false,\"source\":\"ABCDEFG\"}}"
+              }
+            },
+            {
+              "column_data": {
+                "ActionId": "{\"id\":\"\",\"title\":\"To Upper\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"To Upper\",\"skip_execution\":false,\"source\":\"abcdefg\"}}"
+              }
+            },
+            {
+              "column_data": {
+                "ActionId": "{\"id\":\"\",\"title\":\"Trim String\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Trim String\",\"skip_execution\":false,\"trim_leading\":true,\"trim_trailing\":true,\"source\":\"This is a, test\",\"characters_to_trim\":\"This\"}}"
+              }
+            },
+            {
+              "column_data": {
+                "ActionId": "{\"id\":\"\",\"title\":\"XPath Query\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"XPath Query\",\"skip_execution\":false,\"input_xml\":\"\u003c?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?\u003e\\n\u003cbookstore\u003e\\n  \u003cbook\u003e\\n    \u003ctitle lang=\\\"en\\\"\u003eHarry Potter\u003c/title\u003e\\n    \u003cprice\u003e29.99\u003c/price\u003e\\n  \u003c/book\u003e\\n  \u003cbook\u003e\\n    \u003ctitle lang=\\\"en\\\"\u003eLearning XML\u003c/title\u003e\\n    \u003cprice\u003e39.95\u003c/price\u003e\\n  \u003c/book\u003e\\n\u003c/bookstore\u003e\",\"xpath_queries\":[{\"xpath_query_type\":\"string\",\"xpath_query\":\"//book\",\"xpath_query_name\":\"book\"}]}}"
+              }
+            },
+            {
+              "column_data": {
+                "ActionId": "{\"id\":\"\",\"title\":\"XSL Transform\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"XSL Transform\",\"skip_execution\":false,\"document\":\"\u003c?xml version=\\\"1.0\\\"?\u003e\\n\u003c?xml-stylesheet type=\\\"text/xsl\\\" href=\\\"example.xsl\\\"?\u003e\\n\u003cArticle\u003e\\n  \u003cTitle\u003eMy Article\u003c/Title\u003e\\n  \u003cAuthors\u003e\\n    \u003cAuthor\u003eMr. Foo\u003c/Author\u003e\\n    \u003cAuthor\u003eMr. Bar\u003c/Author\u003e\\n  \u003c/Authors\u003e\\n  \u003cBody\u003eThis is my article text.\u003c/Body\u003e\\n\u003c/Article\u003e\",\"stylesheet\":\"\u003c?xml version=\\\"1.0\\\"?\u003e\\n\u003cxsl:stylesheet version=\\\"1.0\\\" xmlns:xsl=\\\"http://www.w3.org/1999/XSL/Transform\\\"\u003e\\n\\n  \u003cxsl:output method=\\\"text\\\"/\u003e\\n\\n  \u003cxsl:template match=\\\"/\\\"\u003e\\n    Article - \u003cxsl:value-of select=\\\"/Article/Title\\\"/\u003e\\n    Authors: \u003cxsl:apply-templates select=\\\"/Article/Authors/Author\\\"/\u003e\\n  \u003c/xsl:template\u003e\\n\\n  \u003cxsl:template match=\\\"Author\\\"\u003e\\n    - \u003cxsl:value-of select=\\\".\\\" /\u003e\\n  \u003c/xsl:template\u003e\\n\\n\u003c/xsl:stylesheet\u003e\"}}"
+              }
+            }
+          ],
+          "scope": "local",
+          "name": "UpdateActionJsons",
+          "type": "datatype.table",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A7MSOFTF5IF462CQyEqcgZmaKkB74F2wu",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_01A0BCNTWU3SQ4puHleQrtpoieVmmVCH3xz",
+        "properties": {
+          "value": [
+            {
+              "column_data": {
+                "ActivityJSON": "{\"id\": \"\",   \"title\": \"Calculate Date\",   \"properties\": {     \"continue_on_failure\": false,     \"display_name\": \"Calculate Date\",     \"skip_execution\": false,     \"original_date\": \"2019-01-01T12:00:00-06:00\",     \"adjustment\": 3600   } }",
+                "ActivityName": "calculate_date"
+              }
+            },
+            {
+              "column_data": {
+                "ActivityJSON": "{\"id\":\"\",\"title\":\"Calculate Date Time Difference\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Calculate Date Time Difference\",\"skip_execution\":false,\"original_date\":\"2019-01-01T13:00:00-06:00\",\"subtract_date\":\"2019-01-01T12:00:00-06:00\"}}",
+                "ActivityName": "calculate_date_time_difference"
+              }
+            },
+            {
+              "column_data": {
+                "ActivityJSON": "{\"id\":\"\",\"title\":\"Convert Json to Xml\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Convert Json to Xml\",\"skip_execution\":false,\"input_json\":\"{\\n  \\\"firstName\\\": \\\"John\\\",\\n  \\\"lastName\\\" : \\\"doe\\\",\\n  \\\"age\\\"      : 26,\\n  \\\"address\\\"  : {\\n    \\\"streetAddress\\\": \\\"naist street\\\",\\n    \\\"city\\\"         : \\\"Nara\\\",\\n    \\\"postalCode\\\"   : \\\"630-0192\\\"\\n  }\\n}\"}}",
+                "ActivityName": "json2xml"
+              }
+            },
+            {
+              "column_data": {
+                "ActivityJSON": "{\"id\":\"\",\"title\":\"Convert Xml to Json\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Convert Xml to Json\",\"skip_execution\":false,\"input_xml\":\"\u003cdoc\u003e\\n  \u003caddress\u003e\\n    \u003ccity\u003eNara\u003c/city\u003e\\n    \u003cpostalCode\u003e630-0192\u003c/postalCode\u003e\\n    \u003cstreetAddress\u003enaist street\u003c/streetAddress\u003e\\n  \u003c/address\u003e\\n  \u003cage\u003e26\u003c/age\u003e\\n  \u003cfirstName\u003eJohn\u003c/firstName\u003e\\n  \u003clastName\u003edoe\u003c/lastName\u003e\\n\u003c/doc\u003e\"}}",
+                "ActivityName": "xml2json"
+              }
+            },
+            {
+              "column_data": {
+                "ActivityJSON": " {\"id\":\"\",\"title\":\"Escape Regex Metacharacters\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Escape Regex Metacharacters\",\"skip_execution\":false,\"source\":\"pand[ora]=panda\"}}",
+                "ActivityName": "escape_regex"
+              }
+            },
+            {
+              "column_data": {
+                "ActivityJSON": "{\"id\": \"\",\"title\": \"Find String\",\"properties\":{ \"continue_on_failure\": false,\"display_name\": \"Find String\",\"skip_execution\": false,\"source\": \"This is a test\",\"searched_string\": \"test\"}}",
+                "ActivityName": "find_string"
+              }
+            },
+            {
+              "column_data": {
+                "ActivityJSON": "{\"id\":\"\",\"title\":\"Format Date\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Format Date\",\"skip_execution\":false,\"use_custom_format\":false,\"original_date\":\"2019-01-01T12:00:00-06:00\",\"format_string\":\"Monday, 02-Jan-06 15:04:05 MST\"}}",
+                "ActivityName": "format_date"
+              }
+            },
+            {
+              "column_data": {
+                "ActivityJSON": "{\"id\":\"\",\"title\":\"JSONPath Query\",\"properties\":{\"action_timeout\":180,\"continue_on_failure\":false,\"display_name\":\"JSONPath Query\",\"skip_execution\":false,\"input_json\":\"{\\n  \\\"doc\\\": {\\n    \\\"address\\\": {\\n      \\\"city\\\": \\\"Nara\\\",\\n      \\\"postalCode\\\": \\\"630-0192\\\",\\n      \\\"streetAddress\\\": \\\"naist street\\\"\\n    },\\n    \\\"age\\\": \\\"26\\\",\\n    \\\"firstName\\\": \\\"John\\\",\\n    \\\"lastName\\\": \\\"doe\\\"\\n  }\\n}\",\"jsonpath_queries\":[{\"jsonpath_query_type\":\"string\",\"jsonpath_query\":\"$..firstName\",\"jsonpath_query_name\":\"firstname\"}]}}",
+                "ActivityName": "jsonpathquery"
+              }
+            },
+            {
+              "column_data": {
+                "ActivityJSON": "{\"id\":\"\",\"title\":\"Match Regular Expression\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Match Regular Expression\",\"skip_execution\":false,\"input_regex\":\"abc(bc)*\",\"input_string\":\"This is a test. I will try abc and abcbc will work but abbc won't be.\"}}",
+                "ActivityName": "matchregex"
+              }
+            },
+            {
+              "column_data": {
+                "ActivityJSON": "{\"id\":\"\",\"title\":\"Parse Date\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Parse Date\",\"skip_execution\":false,\"use_custom_format\":false,\"format_string\":\"2006-01-02T15:04:05Z07:00\",\"input_string\":\"2019-01-01T12:00:00-06:00\"}}",
+                "ActivityName": "parse_date"
+              }
+            },
+            {
+              "column_data": {
+                "ActivityJSON": " {\"id\":\"\",\"title\":\"Replace String\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Replace String\",\"skip_execution\":false,\"input_string\":\"This isn't a test\",\"replace_list\":[{\"replaced_string\":\"isn't\",\"replacement_string\":\"is\"}]}}",
+                "ActivityName": "replacestring"
+              }
+            },
+            {
+              "column_data": {
+                "ActivityJSON": "{\"id\":\"\",\"title\":\"Set Variables\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Set Variables\",\"skip_execution\":false,\"variables_to_update\":[{\"variable_to_update\":\"$workflow..local.TestVar$\",\"variable_value_new\":\"This is a test\"}]}}",
+                "ActivityName": "set_multiple_variables"
+              }
+            },
+            {
+              "column_data": {
+                "ActivityJSON": "{\"id\":\"\",\"title\":\"Sleep\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Sleep\",\"skip_execution\":false,\"sleep_interval\":3}}",
+                "ActivityName": "sleep"
+              }
+            },
+            {
+              "column_data": {
+                "ActivityJSON": "{\"id\":\"\",\"title\":\"Split String\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Split String\",\"skip_execution\":false,\"input_string\":\"This is a test.\",\"boundaries\":[{\"boundary\":\"is\"}]}}",
+                "ActivityName": "splitstring"
+              }
+            },
+            {
+              "column_data": {
+                "ActivityJSON": " {\"id\":\"\",\"title\":\"Substring\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Substring\",\"skip_execution\":false,\"source\":\"This is a test\",\"begin\":10,\"end\":15}}",
+                "ActivityName": "substring"
+              }
+            },
+            {
+              "column_data": {
+                "ActivityJSON": "{\"id\":\"\",\"title\":\"To Lower\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"To Lower\",\"skip_execution\":false,\"source\":\"ABCDEFG\"}}",
+                "ActivityName": "string2lower"
+              }
+            },
+            {
+              "column_data": {
+                "ActivityJSON": "{\"id\":\"\",\"title\":\"To Upper\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"To Upper\",\"skip_execution\":false,\"source\":\"abcdefg\"}}",
+                "ActivityName": "string2upper"
+              }
+            },
+            {
+              "column_data": {
+                "ActivityJSON": "{\"id\":\"\",\"title\":\"Trim String\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Trim String\",\"skip_execution\":false,\"trim_leading\":true,\"trim_trailing\":true,\"source\":\"This is a, test\",\"characters_to_trim\":\"This\"}}",
+                "ActivityName": "trim_string"
+              }
+            },
+            {
+              "column_data": {
+                "ActivityJSON": "{\"id\":\"\",\"title\":\"XPath Query\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"XPath Query\",\"skip_execution\":false,\"input_xml\":\"\u003c?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?\u003e\\n\u003cbookstore\u003e\\n  \u003cbook\u003e\\n    \u003ctitle lang=\\\"en\\\"\u003eHarry Potter\u003c/title\u003e\\n    \u003cprice\u003e29.99\u003c/price\u003e\\n  \u003c/book\u003e\\n  \u003cbook\u003e\\n    \u003ctitle lang=\\\"en\\\"\u003eLearning XML\u003c/title\u003e\\n    \u003cprice\u003e39.95\u003c/price\u003e\\n  \u003c/book\u003e\\n\u003c/bookstore\u003e\",\"xpath_queries\":[{\"xpath_query_type\":\"string\",\"xpath_query\":\"//book\",\"xpath_query_name\":\"book\"}]}}",
+                "ActivityName": "xpathquery"
+              }
+            },
+            {
+              "column_data": {
+                "ActivityJSON": "{\"id\":\"\",\"title\":\"XSL Transform\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"XSL Transform\",\"skip_execution\":false,\"document\":\"\u003c?xml version=\\\"1.0\\\"?\u003e\\n\u003c?xml-stylesheet type=\\\"text/xsl\\\" href=\\\"example.xsl\\\"?\u003e\\n\u003cArticle\u003e\\n  \u003cTitle\u003eMy Article\u003c/Title\u003e\\n  \u003cAuthors\u003e\\n    \u003cAuthor\u003eMr. Foo\u003c/Author\u003e\\n    \u003cAuthor\u003eMr. Bar\u003c/Author\u003e\\n  \u003c/Authors\u003e\\n  \u003cBody\u003eThis is my article text.\u003c/Body\u003e\\n\u003c/Article\u003e\",\"stylesheet\":\"\u003c?xml version=\\\"1.0\\\"?\u003e\\n\u003cxsl:stylesheet version=\\\"1.0\\\" xmlns:xsl=\\\"http://www.w3.org/1999/XSL/Transform\\\"\u003e\\n\\n  \u003cxsl:output method=\\\"text\\\"/\u003e\\n\\n  \u003cxsl:template match=\\\"/\\\"\u003e\\n    Article - \u003cxsl:value-of select=\\\"/Article/Title\\\"/\u003e\\n    Authors: \u003cxsl:apply-templates select=\\\"/Article/Authors/Author\\\"/\u003e\\n  \u003c/xsl:template\u003e\\n\\n  \u003cxsl:template match=\\\"Author\\\"\u003e\\n    - \u003cxsl:value-of select=\\\".\\\" /\u003e\\n  \u003c/xsl:template\u003e\\n\\n\u003c/xsl:stylesheet\u003e\"}}",
+                "ActivityName": "xsl_transform"
+              }
+            }
+          ],
+          "scope": "local",
+          "name": "ActivityTable",
+          "type": "datatype.table",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A7MSOFTFAQM3O5CDhiP6OqD5kgStccR5H",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Test",
+          "scope": "local",
+          "name": "VariableToSet",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A7MSOFTFFQG7MfNG0ZQgBIRX1BmkO8hAg",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_0161T4YWDN19P5MHueu6kw5idq0U5JaiveX",
+        "properties": {
+          "value": [
+            {
+              "column_data": {
+                "activity_name": "calculate_date"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "calculate_date_time_difference"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "json2xml"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "xml2json"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "escape_regex"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "find_string"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "format_date"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "jsonpathquery"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "matchregex"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "parse_date"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "replacestring"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "set_multiple_variables"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "sleep"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "splitstring"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "substring"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "string2lower"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "string2upper"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "trim_string"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "xpathquery"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "xsl_transform"
+              }
+            }
+          ],
+          "scope": "local",
+          "name": "action_names_table",
+          "type": "datatype.table",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A7MSOFTFKWC6ybJCu3E6ui31PeKx3ef1U",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "InputVariable",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A7MSOFTE1IX5QZKj61Emrb7JnTycdPKjx",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "RegressionToCreateCoreWF",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01A7MSORLLBZ64uIbsROn9dDoOHG0ulzltC",
+        "name": "Generic CCS API Request",
+        "title": "GetWFSchemaID",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_call_method": "GET",
+          "continue_on_failure": false,
+          "display_name": "GetWFSchemaID",
+          "relative_url": "be-console/api/v1/schemas/generic.workflow?schema_type=view",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A7MSP1OT19W5HpryvDd3RJsSA4u1Fqh00",
+        "name": "JSONPath Query",
+        "title": "ExtractWFSchemaID",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "ExtractWFSchemaID",
+          "input_json": "$activity.definition_activity_01A7MSORLLBZ64uIbsROn9dDoOHG0ulzltC.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$..schema_id",
+              "jsonpath_query_name": "wf_schemaID",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A7MSPDBTRDW0p6T3fDwyTrXTFcQQy607B",
+        "name": "Generic CCS API Request",
+        "title": "CreateGenericWF",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_body": "{\n  \"schema_id\": \"$activity.definition_activity_01A7MSP1OT19W5HpryvDd3RJsSA4u1Fqh00.output.jsonpath_queries.wf_schemaID$\",\n  \"name\": \"$workflow.definition_workflow_01A7MSMKE834P76cSfe9SXAm1F1AEsdmMAo.input.variable_workflow_01A7MSOFTE1IX5QZKj61Emrb7JnTycdPKjx$\",\n  \"properties\": {\n    \"display_name\": \"$workflow.definition_workflow_01A7MSMKE834P76cSfe9SXAm1F1AEsdmMAo.input.variable_workflow_01A7MSOFTE1IX5QZKj61Emrb7JnTycdPKjx$\",\n    \"atomic\": {\n      \"is_atomic\": false\n    },\n    \"delete_workflow_instance\": false,\n    \"runtime_user\": {\n      \"override_target_runtime_user\": false,\n      \"specify_on_workflow_start\": false,\n      \"target_default\": true\n    },\n    \"target\": {\n      \"execute_on_target_group\": false,\n      \"execute_on_workflow_target\": false,\n      \"no_target\": true,\n      \"specify_on_workflow_start\": false\n    },\n    \"owner\": \"system\"\n  }\n}",
+          "api_call_method": "POST",
+          "continue_on_failure": false,
+          "display_name": "CreateGenericWF",
+          "relative_url": "be-console/api/v1/workflows",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A7MSPSEV5XM0g1rxpmW5uh4jtT2MnnzIC",
+        "name": "JSONPath Query",
+        "title": "ExtractWF_ID",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "ExtractWF_ID",
+          "input_json": "$activity.definition_activity_01A7MSPDBTRDW0p6T3fDwyTrXTFcQQy607B.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$..id",
+              "jsonpath_query_name": "workflow_id",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A7MTHLIC3IZ7BETG19TJKROYPNeRZ7zIN",
+        "name": "Generic CCS API Request",
+        "title": "GetStringVariableJSON",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_call_method": "GET",
+          "continue_on_failure": false,
+          "display_name": "GetStringVariableJSON",
+          "relative_url": "be-console/api/v1/schemas?schema_type=view\u0026base_type=datatype\u0026variable_type=true",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A7MUBBOB3CW2wlrYsY1f5HYwtZcT42Sup",
+        "name": "JSONPath Query",
+        "title": "ExtractStringVariableSchemaID",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "ExtractStringVariableSchemaID",
+          "input_json": "$activity.definition_activity_01A7MTHLIC3IZ7BETG19TJKROYPNeRZ7zIN.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.[?(@.name == 'String')].schema_id",
+              "jsonpath_query_name": "StringSchemaID",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A7MVC7RG02O1rDPbKthY3JgHRdxT79Vsn",
+        "name": "Generic CCS API Request",
+        "title": "CreateLocalStringVariable",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_body": "{\"variables\": [\n    {\n      \"schema_id\": \"$activity.definition_activity_01A7MUBBOB3CW2wlrYsY1f5HYwtZcT42Sup.output.jsonpath_queries.StringSchemaID$\",\n      \"title\": \"TestVar\",\n      \"properties\": {\n        \"scope\": \"local\",\n        \"is_required\": false,\n        \"name\": \"TestVar\",\n        \"value\": \"This is A test\"\n      }\n    }\n  ]\n}",
+          "api_call_method": "PUT",
+          "continue_on_failure": false,
+          "display_name": "CreateLocalStringVariable",
+          "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01A7MSPSEV5XM0g1rxpmW5uh4jtT2MnnzIC.output.jsonpath_queries.workflow_id$",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A7MSQ1YI9D71izW9m8EwQjBxv79gXJER9",
+        "name": "For Each",
+        "title": "For Each",
+        "type": "logic.for_each",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "For Each",
+          "skip_execution": false,
+          "source_array": "$workflow.definition_workflow_01A7MSMKE834P76cSfe9SXAm1F1AEsdmMAo.local.variable_workflow_01A7MSOFTFAQM3O5CDhiP6OqD5kgStccR5H$"
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01A7MSQBCMXSS4fZO8pCHD41Qn5AgeIGAmP",
+            "name": "Set Variables",
+            "title": "ResetActionSchemaUrlVar",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "ResetActionSchemaUrlVar",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01A7MSMKE834P76cSfe9SXAm1F1AEsdmMAo.local.variable_workflow_01A7MSOFTEYO82FJbCZMyYJcM1NEdnbMZzQ$",
+                  "variable_value_new": "be-console/api/v1/schemas/core"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01A7MSQIHNMFB7Cw5DgEqnd4WWpEsfDPnox",
+            "name": "Condition Block",
+            "title": "CheckIfJAVACore",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "CheckIfJAVACore",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01A7MSQOBYJTW57d4aYJsSMasiSMrVykwMK",
+                "name": "Condition Branch",
+                "title": "IfStringNotJSONPath",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_01A7MSQ1YI9D71izW9m8EwQjBxv79gXJER9.input.source_array[@].ActivityName$",
+                    "operator": "ne",
+                    "right_operand": "jsonpathquery"
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "IfStringNotJSONPath",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01A7MSQW8H4S40oAwPQNrOnrnM9Qz4i9Ey9",
+                    "name": "Set Variables",
+                    "title": "SetActionSchemaUrlToCore",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "SetActionSchemaUrlToCore",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01A7MSMKE834P76cSfe9SXAm1F1AEsdmMAo.local.variable_workflow_01A7MSOFTEYO82FJbCZMyYJcM1NEdnbMZzQ$",
+                          "variable_value_new": "$workflow.definition_workflow_01A7MSMKE834P76cSfe9SXAm1F1AEsdmMAo.local.variable_workflow_01A7MSOFTEYO82FJbCZMyYJcM1NEdnbMZzQ$.$activity.definition_activity_01A7MSQ1YI9D71izW9m8EwQjBxv79gXJER9.input.source_array[@].ActivityName$?schema_type=view"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01A7MSR4ENL22421UpL2QmZnV4vo5zHFxhS",
+                "name": "Condition Branch",
+                "title": "IfStringJSONPath",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_01A7MSQ1YI9D71izW9m8EwQjBxv79gXJER9.input.source_array[@].ActivityName$",
+                    "operator": "eq",
+                    "right_operand": "jsonpathquery"
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "IfStringJSONPath",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01A7MSRCVEBTD4EXZFLqVbw7MPAfObm15uF",
+                    "name": "Set Variables",
+                    "title": "SetActionSchemaToCoreJava",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "SetActionSchemaToCoreJava",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01A7MSMKE834P76cSfe9SXAm1F1AEsdmMAo.local.variable_workflow_01A7MSOFTEYO82FJbCZMyYJcM1NEdnbMZzQ$",
+                          "variable_value_new": "$workflow.definition_workflow_01A7MSMKE834P76cSfe9SXAm1F1AEsdmMAo.local.variable_workflow_01A7MSOFTEYO82FJbCZMyYJcM1NEdnbMZzQ$java.$activity.definition_activity_01A7MSQ1YI9D71izW9m8EwQjBxv79gXJER9.input.source_array[@].ActivityName$?schema_type=view"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01A7MSRPE8AV777y9lTrP2n5ydUDohV2G4N",
+            "name": "Generic CCS API Request",
+            "title": "GetCoreActionsSchema",
+            "type": "ccs.api_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "api_call_method": "GET",
+              "continue_on_failure": false,
+              "display_name": "GetCoreActionsSchema",
+              "relative_url": "$workflow.definition_workflow_01A7MSMKE834P76cSfe9SXAm1F1AEsdmMAo.local.variable_workflow_01A7MSOFTEYO82FJbCZMyYJcM1NEdnbMZzQ$",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01A7MSS0X1JC06UphuNQWj4wHjlGjS2DOaX",
+            "name": "JSONPath Query",
+            "title": "ExtractCoreActionSchemaID",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "ExtractCoreActionSchemaID",
+              "input_json": "$activity.definition_activity_01A7MSRPE8AV777y9lTrP2n5ydUDohV2G4N.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$..schema_id",
+                  "jsonpath_query_name": "core_action_schemaID",
+                  "jsonpath_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01A7MSSCRUYAK0XstwqrylDjA9V79y3RrsD",
+            "name": "Generic CCS API Request",
+            "title": "CreateCoreAction",
+            "type": "ccs.api_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "api_body": "{\n  \"previous_action\": {\n    \"id\": \"$activity.definition_activity_01A7MSPSEV5XM0g1rxpmW5uh4jtT2MnnzIC.output.jsonpath_queries.workflow_id$\"\n  },\n  \"action\": {\n    \"schema_id\": \"$activity.definition_activity_01A7MSS0X1JC06UphuNQWj4wHjlGjS2DOaX.output.jsonpath_queries.core_action_schemaID$\",\n    \"type\": \"core.$activity.definition_activity_01A7MSQ1YI9D71izW9m8EwQjBxv79gXJER9.input.source_array[@].ActivityName$\",\n    \"base_type\": \"activity\",\n    \"name\": \"$activity.definition_activity_01A7MSQ1YI9D71izW9m8EwQjBxv79gXJER9.input.source_array[@].ActivityName$\",\n    \"properties\": {\n      \"continue_on_failure\": false,\n      \"skip_execution\": false,\n      \"display_name\": \"$activity.definition_activity_01A7MSQ1YI9D71izW9m8EwQjBxv79gXJER9.input.source_array[@].ActivityName$\"\n    },\n    \"title\": \"$activity.definition_activity_01A7MSQ1YI9D71izW9m8EwQjBxv79gXJER9.input.source_array[@].ActivityName$\"\n  }\n}",
+              "api_call_method": "POST",
+              "continue_on_failure": false,
+              "display_name": "CreateCoreAction",
+              "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01A7MSPSEV5XM0g1rxpmW5uh4jtT2MnnzIC.output.jsonpath_queries.workflow_id$/actions",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01A7MSSSD3MUW0TKRfQNr7IPL4fE6EC121L",
+            "name": "JSONPath Query",
+            "title": "ExtractingCoreActionID",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "ExtractingCoreActionID",
+              "input_json": "$activity.definition_activity_01A7MSSCRUYAK0XstwqrylDjA9V79y3RrsD.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$..id",
+                  "jsonpath_query_name": "CoreActionID",
+                  "jsonpath_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01A7MST4BD0PK5D7lsw03mNYH4ZqeV2Zl1i",
+            "name": "Generic CCS API Request",
+            "title": "UpdateActions",
+            "type": "ccs.api_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "api_body": "$activity.definition_activity_01A7MSQ1YI9D71izW9m8EwQjBxv79gXJER9.input.source_array[@].ActivityJSON$",
+              "api_call_method": "PUT",
+              "continue_on_failure": false,
+              "display_name": "UpdateActions",
+              "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01A7MSPSEV5XM0g1rxpmW5uh4jtT2MnnzIC.output.jsonpath_queries.workflow_id$/actions/$activity.definition_activity_01A7MSSSD3MUW0TKRfQNr7IPL4fE6EC121L.output.jsonpath_queries.CoreActionID$",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+              }
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_01A0II6OR0JCF5yWR2fuUXW7XvXivlY4r5S"
+    ]
+  },
+  "categories": {
+    "category_01A0II6OR0JCF5yWR2fuUXW7XvXivlY4r5S": {
+      "unique_name": "category_01A0II6OR0JCF5yWR2fuUXW7XvXivlY4r5S",
+      "name": "AO_Automation",
+      "title": "AO_Automation",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  },
+  "table_types": {
+    "tabletype_015ICF0I7NO0C6WGjQyRPrquxRAGOZZH89S": {
+      "unique_name": "tabletype_015ICF0I7NO0C6WGjQyRPrquxRAGOZZH89S",
+      "data_type": "datatype.tabletype",
+      "display_name": "ActionIdsArray",
+      "columns": [
+        {
+          "is_required": true,
+          "name": "ActionId",
+          "title": "ActionId",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    },
+    "tabletype_0161T4YWDN19P5MHueu6kw5idq0U5JaiveX": {
+      "unique_name": "tabletype_0161T4YWDN19P5MHueu6kw5idq0U5JaiveX",
+      "data_type": "datatype.tabletype",
+      "display_name": "Activity Table Type",
+      "columns": [
+        {
+          "is_required": true,
+          "maxLength": 128,
+          "name": "activity_name",
+          "title": "Activity Name",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    },
+    "tabletype_01A0BCNTWU3SQ4puHleQrtpoieVmmVCH3xz": {
+      "unique_name": "tabletype_01A0BCNTWU3SQ4puHleQrtpoieVmmVCH3xz",
+      "data_type": "datatype.tabletype",
+      "display_name": "ShamsMultipleColumns",
+      "columns": [
+        {
+          "is_required": true,
+          "name": "ActivityJSON",
+          "title": "UpdateJSON",
+          "type": "string"
+        },
+        {
+          "is_required": true,
+          "name": "ActivityName",
+          "title": "Activity",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  }
+}
