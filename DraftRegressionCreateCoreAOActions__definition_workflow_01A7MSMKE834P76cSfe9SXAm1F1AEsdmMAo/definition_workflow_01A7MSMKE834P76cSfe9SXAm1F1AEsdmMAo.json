@@ -9,6 +9,143 @@
       {
         "schema_id": "datatype.string",
         "properties": {
+          "value": "Test",
+          "scope": "local",
+          "name": "VariableToSet",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A7MSOFTFFQG7MfNG0ZQgBIRX1BmkO8hAg",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_0161T4YWDN19P5MHueu6kw5idq0U5JaiveX",
+        "properties": {
+          "value": [
+            {
+              "column_data": {
+                "activity_name": "calculate_date"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "calculate_date_time_difference"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "json2xml"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "xml2json"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "escape_regex"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "find_string"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "format_date"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "jsonpathquery"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "matchregex"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "parse_date"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "replacestring"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "set_multiple_variables"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "sleep"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "splitstring"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "substring"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "string2lower"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "string2upper"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "trim_string"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "xpathquery"
+              }
+            },
+            {
+              "column_data": {
+                "activity_name": "xsl_transform"
+              }
+            }
+          ],
+          "scope": "local",
+          "name": "action_names_table",
+          "type": "datatype.table",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A7MSOFTFKWC6ybJCu3E6ui31PeKx3ef1U",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "InputVariable",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A7MSOFTE1IX5QZKj61Emrb7JnTycdPKjx",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
           "value": "be-console/api/v1/schemas/core",
           "scope": "local",
           "name": "actionSchemaUrl",
@@ -203,8 +340,8 @@
             },
             {
               "column_data": {
-                "ActivityJSON": "{\"id\":\"\",\"title\":\"Set Variables\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Set Variables\",\"skip_execution\":false,\"variables_to_update\":[{\"variable_to_update\":\"$workflow..local.TestVar$\",\"variable_value_new\":\"This is a test\"}]}}",
-                "ActivityName": "set_multiple_variables"
+                "ActivityJSON": "Replace",
+                "ActivityName": "SetVar"
               }
             },
             {
@@ -262,143 +399,6 @@
           "is_required": false
         },
         "unique_name": "variable_workflow_01A7MSOFTFAQM3O5CDhiP6OqD5kgStccR5H",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "Test",
-          "scope": "local",
-          "name": "VariableToSet",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01A7MSOFTFFQG7MfNG0ZQgBIRX1BmkO8hAg",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "tabletype_0161T4YWDN19P5MHueu6kw5idq0U5JaiveX",
-        "properties": {
-          "value": [
-            {
-              "column_data": {
-                "activity_name": "calculate_date"
-              }
-            },
-            {
-              "column_data": {
-                "activity_name": "calculate_date_time_difference"
-              }
-            },
-            {
-              "column_data": {
-                "activity_name": "json2xml"
-              }
-            },
-            {
-              "column_data": {
-                "activity_name": "xml2json"
-              }
-            },
-            {
-              "column_data": {
-                "activity_name": "escape_regex"
-              }
-            },
-            {
-              "column_data": {
-                "activity_name": "find_string"
-              }
-            },
-            {
-              "column_data": {
-                "activity_name": "format_date"
-              }
-            },
-            {
-              "column_data": {
-                "activity_name": "jsonpathquery"
-              }
-            },
-            {
-              "column_data": {
-                "activity_name": "matchregex"
-              }
-            },
-            {
-              "column_data": {
-                "activity_name": "parse_date"
-              }
-            },
-            {
-              "column_data": {
-                "activity_name": "replacestring"
-              }
-            },
-            {
-              "column_data": {
-                "activity_name": "set_multiple_variables"
-              }
-            },
-            {
-              "column_data": {
-                "activity_name": "sleep"
-              }
-            },
-            {
-              "column_data": {
-                "activity_name": "splitstring"
-              }
-            },
-            {
-              "column_data": {
-                "activity_name": "substring"
-              }
-            },
-            {
-              "column_data": {
-                "activity_name": "string2lower"
-              }
-            },
-            {
-              "column_data": {
-                "activity_name": "string2upper"
-              }
-            },
-            {
-              "column_data": {
-                "activity_name": "trim_string"
-              }
-            },
-            {
-              "column_data": {
-                "activity_name": "xpathquery"
-              }
-            },
-            {
-              "column_data": {
-                "activity_name": "xsl_transform"
-              }
-            }
-          ],
-          "scope": "local",
-          "name": "action_names_table",
-          "type": "datatype.table",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01A7MSOFTFKWC6ybJCu3E6ui31PeKx3ef1U",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "InputVariable",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01A7MSOFTE1IX5QZKj61Emrb7JnTycdPKjx",
         "object_type": "variable_workflow"
       }
     ],
@@ -569,7 +569,7 @@
         "base_type": "activity",
         "properties": {
           "action_timeout": 180,
-          "api_body": "{\"variables\": [\n    {\n      \"schema_id\": \"$activity.definition_activity_01A7MUBBOB3CW2wlrYsY1f5HYwtZcT42Sup.output.jsonpath_queries.StringSchemaID$\",\n      \"title\": \"TestVar\",\n      \"properties\": {\n        \"scope\": \"local\",\n        \"is_required\": false,\n        \"name\": \"TestVar\",\n        \"value\": \"This is A test\"\n      }\n    }\n  ]\n}",
+          "api_body": "{\"variables\": [\n    {\n      \"schema_id\": \"$activity.definition_activity_01A7MUBBOB3CW2wlrYsY1f5HYwtZcT42Sup.output.jsonpath_queries.StringSchemaID$\",\n      \"title\": \"TestVar\",\n      \"properties\": {\n        \"scope\": \"static\",\n        \"is_required\": false,\n        \"name\": \"TestVar\",\n        \"value\": \"This is A test\"\n      }\n    }\n  ]\n}",
           "api_call_method": "PUT",
           "continue_on_failure": false,
           "display_name": "CreateLocalStringVariable",
@@ -583,6 +583,93 @@
             "override_workflow_target": true,
             "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
           }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A7ZMXRNI6E23LcYPktX71S5JX4JWj6kkQ",
+        "name": "JSONPath Query",
+        "title": "GetStringVariableID",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "GetStringVariableID",
+          "input_json": "$activity.definition_activity_01A7MVC7RG02O1rDPbKthY3JgHRdxT79Vsn.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$..variables..id",
+              "jsonpath_query_name": "VariableID",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A87TRXSGTJL4Qhby2ZrqFwlXiXiz2bjrN",
+        "name": "Replace String",
+        "title": "CreatePayloadJSONForSetVar",
+        "type": "core.replacestring",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "CreatePayloadJSONForSetVar",
+          "input_string": "{\n\"id\": \"\",\n\"title\": \"Set Variables\",\n\"properties\": {\n\"continue_on_failure\": false,\n\"display_name\": \"Set Variables\",\n\"skip_execution\": false,\n\"variables_to_update\": [\n{\n\"variable_to_update\": \"$Variable1.static.Variable2$\",\n\"variable_value_new\": \"This is a Test\"\n}\n]\n}\n}",
+          "replace_list": [
+            {
+              "replaced_string": "Variable1",
+              "replacement_string": "workflow.$activity.definition_activity_01A7MSPSEV5XM0g1rxpmW5uh4jtT2MnnzIC.output.jsonpath_queries.workflow_id$"
+            },
+            {
+              "replaced_string": "Variable2",
+              "replacement_string": "$activity.definition_activity_01A7ZMXRNI6E23LcYPktX71S5JX4JWj6kkQ.output.jsonpath_queries.VariableID$"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A9G0H0PP6UJ1momKxxNwYfpdV9g9PV7U4",
+        "name": "Update Row in Table",
+        "title": "UpdateRowForSetVar",
+        "type": "core.updaterowintable",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "columns": [
+            {
+              "column_name": "ActivityJSON",
+              "column_type": "string"
+            },
+            {
+              "column_name": "ActivityName",
+              "column_type": "string"
+            }
+          ],
+          "continue_on_failure": false,
+          "display_name": "UpdateRowForSetVar",
+          "input_table": "$workflow.definition_workflow_01A7MSMKE834P76cSfe9SXAm1F1AEsdmMAo.local.variable_workflow_01A7MSOFTFAQM3O5CDhiP6OqD5kgStccR5H$",
+          "row": [
+            {
+              "key": "ActivityJSON",
+              "type": "string",
+              "value": "$activity.definition_activity_01A87TRXSGTJL4Qhby2ZrqFwlXiXiz2bjrN.output.result_string$"
+            },
+            {
+              "key": "ActivityName",
+              "type": "string",
+              "value": "set_multiple_variables"
+            }
+          ],
+          "rows": {
+            "rows_matching_criteria": true,
+            "where_clause": "ActivityName == 'SetVar'"
+          },
+          "skip_execution": false
         },
         "object_type": "definition_activity"
       },
