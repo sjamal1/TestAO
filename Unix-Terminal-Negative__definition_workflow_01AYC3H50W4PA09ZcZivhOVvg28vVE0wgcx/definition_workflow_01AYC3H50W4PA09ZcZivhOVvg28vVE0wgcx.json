@@ -1,0 +1,2218 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx",
+    "name": "RG Terminal/UNIX Automation_Negative",
+    "title": "RG Terminal/UNIX Automation_Negative",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 0,
+          "scope": "local",
+          "name": "Test Passed",
+          "type": "datatype.integer",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01AYC3H3Z0SO61YDBXwpq3XcH4TXIK0PhqD",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "/root/test2.sh",
+          "scope": "input",
+          "name": "TestFile",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01AZAN6GHPMPK7lULft4yRkRMoTlUxHBo2k",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_0172TK6NRMI8A3W1hJ6bDz2mADkoowSKtUH",
+        "properties": {
+          "value": [
+            {
+              "column_data": {
+                "Testcase": "UNIX - Test Read/Write File Actions"
+              }
+            }
+          ],
+          "scope": "local",
+          "name": "Failed Test Cases Table",
+          "type": "datatype.table",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01AYC3H3Z1FVJ2iLVWb6rX0txv5BbjqxXEi",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 0,
+          "scope": "output",
+          "name": "final test count - Failed",
+          "type": "datatype.integer",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01AYC3H3Z1QZU0AHoYs5G5vewrUxvGRIGPo",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "/root/test.sh",
+          "scope": "output",
+          "name": "output file",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01AYC3H3Z1A8N59a8grySXQBot0Z3pu6Nng",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 0,
+          "scope": "output",
+          "name": "Final count - succeeded",
+          "type": "datatype.integer",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01AYC3H3Z0YOM0oJjRNVPX5tcgggCU0T8hA",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_0172TK6NRMI8A3W1hJ6bDz2mADkoowSKtUH",
+        "properties": {
+          "value": [
+            {
+              "column_data": {
+                "Testcase": "Execute Unix/Terminal Command"
+              }
+            },
+            {
+              "column_data": {
+                "Testcase": "Execute Unix  Script"
+              }
+            },
+            {
+              "column_data": {
+                "Testcase": "Pass output variables to Terminal Child Process"
+              }
+            }
+          ],
+          "scope": "local",
+          "name": "Succeeded Test Cases Table",
+          "type": "datatype.table",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01AYC3H3Z1WL15ltlNGFVvRdlWVquqWNVJI",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Results",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01AYC3H3Z0CWS7H3Cy1pCTz3WjEgYgmjp1m",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 0,
+          "scope": "local",
+          "name": "Test Failed",
+          "type": "datatype.integer",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01AYC3H3Z1LDZ2WMXcDpBAvdzMjvwEMG2nJ",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 1,
+          "scope": "local",
+          "name": "loop count",
+          "type": "datatype.integer",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01AYC3H3Z14JK1iJhgYK5NWEz4Q2RIBv1CI",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "RG Terminal/UNIX Automation_Negative",
+      "favorite": false,
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01AYC3UCSPT0V3bLzYpJ7cG9FJXBzcklFtR",
+        "name": "Write File",
+        "title": "Initialize automation status file",
+        "type": "terminal.write_file",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "content": "cat /dev/null \u003e automation_status",
+          "continue_on_failure": true,
+          "display_name": "Initialize automation status file",
+          "encoding": "utf-8",
+          "file_name": "/root/automation_status",
+          "options": "overwrite",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_016WX9Z5O4JJ01vd3BCqgczZFYl1HSiFMDd"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01AYC3UXAKU057KCQwWsEKGR2Hwn5LNTmJN",
+        "name": "Delete from Table",
+        "title": "Delete any rows from succeeded test case table",
+        "type": "core.deleterowfromtable",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Delete any rows from succeeded test case table",
+          "input_table": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1WL15ltlNGFVvRdlWVquqWNVJI$",
+          "rows": {
+            "all_rows": true,
+            "rows_matching_criteria": false
+          },
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01AYC3VPBX5DK5V1PNIsDKaDA4q9GbRv6el",
+        "name": "Delete from Table",
+        "title": "Delete any rows from Failed test case table",
+        "type": "core.deleterowfromtable",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Delete any rows from Failed test case table",
+          "input_table": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1FVJ2iLVWb6rX0txv5BbjqxXEi$",
+          "rows": {
+            "all_rows": true,
+            "rows_matching_criteria": false
+          },
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01AYC5EJMJZ1H3EJGFQ5w1vrG2XyWnarseq",
+        "name": "Parallel Block",
+        "title": "Parallel Block -Negative",
+        "type": "logic.parallel",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Parallel Block -Negative",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01AYC5F28RXDT4dZTk0A6ahNfkNXZWSxlqd",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01AYC5FS21EUX3fA2EO5vXE6iHCzhms5m7J",
+                "name": "Execute Terminal Command(s)",
+                "title": "Execute Ping Command Terminal-Negative",
+                "type": "terminal.command",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "command_timeout": 60,
+                  "commands": "ping  google.com",
+                  "continue_on_failure": true,
+                  "display_name": "Execute Ping Command Terminal-Negative",
+                  "merge_commands": false,
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": true,
+                    "override_workflow_target_group_criteria": false,
+                    "target_id": "definition_target_017QT21WOT0SI0PK1RmhIRZA03zoVloAAdR",
+                    "use_workflow_target_group": false
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01AYC5GD8YEMV4hcdUXv3EimnaO69LkfIt6",
+                "name": "Condition Block",
+                "title": "Condition Block",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Condition Block",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_01AYC5GXKDMZX6ecw49386Id9rVxCGLzOKO",
+                    "name": "Condition Branch",
+                    "title": "Test Passed?",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$activity.definition_activity_01AYC5FS21EUX3fA2EO5vXE6iHCzhms5m7J.output.succeeded$",
+                        "operator": "eq",
+                        "right_operand": false
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "Test Passed?",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01AYC5HS40GFB5vWzDA8RBL6xabkQRvT0Io",
+                        "name": "Set Variables",
+                        "title": "Increment Loop",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Increment Loop",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z0SO61YDBXwpq3XcH4TXIK0PhqD$",
+                              "variable_value_new": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z0SO61YDBXwpq3XcH4TXIK0PhqD$+1"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01AYC5IDS0WWS7hIkNFwFu81ITFKGFnpgSU",
+                        "name": "Add Row to Table",
+                        "title": "Update Succeeded Tests Table",
+                        "type": "core.addrowtotable",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": true,
+                          "display_name": "Update Succeeded Tests Table",
+                          "input_table": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1WL15ltlNGFVvRdlWVquqWNVJI$",
+                          "row": [
+                            {
+                              "key": "Testcase",
+                              "type": "string",
+                              "value": "Execute Ping Command Terminal-Negative"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_01AYC5J75OUVY2sLXNJYQVJxiKtCc8ghUPy",
+                    "name": "Condition Branch",
+                    "title": "Test Failed?",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$activity.definition_activity_01AYC5FS21EUX3fA2EO5vXE6iHCzhms5m7J.output.succeeded$",
+                        "operator": "eq",
+                        "right_operand": true
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "Test Failed?",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01AYC5K3NJ6MZ4fcUSPYkfG428qkg79PCLT",
+                        "name": "Set Variables",
+                        "title": "Increment Loop",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Increment Loop",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1LDZ2WMXcDpBAvdzMjvwEMG2nJ$",
+                              "variable_value_new": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1LDZ2WMXcDpBAvdzMjvwEMG2nJ$+1"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01AYC5KOLF51O7PcQc4c2VgjdaNBo8GPfxX",
+                        "name": "Add Row to Table",
+                        "title": "Update Failed Tests Table",
+                        "type": "core.addrowtotable",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": true,
+                          "display_name": "Update Failed Tests Table",
+                          "input_table": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1FVJ2iLVWb6rX0txv5BbjqxXEi$",
+                          "row": [
+                            {
+                              "key": "Testcase",
+                              "type": "string",
+                              "value": "Execute Ping Command Terminal-Negative"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01AYC5LFG9EXX4US7RuyuparmdwZhHsp4FH",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01AYC5MCEOQ346zI1hSLLkBK0OF5yI7HXii",
+                "name": "Execute Linux/Unix SSH Command",
+                "title": "Execute Ping Command Unix-Negative",
+                "type": "terminal.ssh_command",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "command": "ping  google.com",
+                  "command_timeout": 60,
+                  "continue_on_failure": true,
+                  "display_name": "Execute Ping Command Unix-Negative",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": true,
+                    "target_id": "definition_target_016WX9Z5O4JJ01vd3BCqgczZFYl1HSiFMDd"
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01AYC5MYYIE0653UNFXT4DghWKINDGko2dZ",
+                "name": "Condition Block",
+                "title": "Condition Block",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Condition Block",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_01AYC5NIYUAAO2xz2VdUBddG1BZIjStnsTT",
+                    "name": "Condition Branch",
+                    "title": "Test Passed?",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$activity.definition_activity_01AYC5MCEOQ346zI1hSLLkBK0OF5yI7HXii.output.succeeded$",
+                        "operator": "eq",
+                        "right_operand": false
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "Test Passed?",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01AYC5OD9EHOM4PhkiAjBTvJyxpOyqvnFYx",
+                        "name": "Set Variables",
+                        "title": "Increment Loop",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Increment Loop",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z0SO61YDBXwpq3XcH4TXIK0PhqD$",
+                              "variable_value_new": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z0SO61YDBXwpq3XcH4TXIK0PhqD$+1"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01AYC5P07HEIC3JVh1T76vCBmqsJA0an2ET",
+                        "name": "Add Row to Table",
+                        "title": "Update Succeeded Tests Table",
+                        "type": "core.addrowtotable",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": true,
+                          "display_name": "Update Succeeded Tests Table",
+                          "input_table": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1WL15ltlNGFVvRdlWVquqWNVJI$",
+                          "row": [
+                            {
+                              "key": "Testcase",
+                              "type": "string",
+                              "value": "Execute Ping Command Unix-Negative"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_01AYC5PSGRYBF4AMIahmiP0Guyu5zTvDloj",
+                    "name": "Condition Branch",
+                    "title": "Test Failed?",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$activity.definition_activity_01AYC5MCEOQ346zI1hSLLkBK0OF5yI7HXii.output.succeeded$",
+                        "operator": "eq",
+                        "right_operand": true
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "Test Failed?",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01AYC5QMMB8XB6DaY9g8t1CSV7VSFeDAfJ6",
+                        "name": "Set Variables",
+                        "title": "Increment Loop",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Increment Loop",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1LDZ2WMXcDpBAvdzMjvwEMG2nJ$",
+                              "variable_value_new": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1LDZ2WMXcDpBAvdzMjvwEMG2nJ$+1"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01AYC5RBBHU7V3KBEXuIIYTjIq6dcpEh9BC",
+                        "name": "Add Row to Table",
+                        "title": "Update Failed Tests Table",
+                        "type": "core.addrowtotable",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": true,
+                          "display_name": "Update Failed Tests Table",
+                          "input_table": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1FVJ2iLVWb6rX0txv5BbjqxXEi$",
+                          "row": [
+                            {
+                              "key": "Testcase",
+                              "type": "string",
+                              "value": "Execute Ping Command Unix-Negative"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01AYGVBF2610Z5BqPXe8JxBQcgTuKSfis2K",
+        "name": "Parallel Block",
+        "title": "Parallel Block -Negative",
+        "type": "logic.parallel",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Parallel Block -Negative",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01AYGVBLDPHY05k2MeJUtIELVH5FCwXfuJW",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01AYGVBQEYTYN6bSHCUKmYZVp3evQBMxCHT",
+                "name": "Execute Terminal Command(s)",
+                "title": "Execute Multiple Commands Terminal-Negative",
+                "type": "terminal.command",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "command_timeout": 60,
+                  "commands": "bash -c 'sleep 2s;dfd -h",
+                  "continue_on_failure": true,
+                  "display_name": "Execute Multiple Commands Terminal-Negative",
+                  "merge_commands": false,
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": true,
+                    "override_workflow_target_group_criteria": false,
+                    "target_id": "definition_target_017QT21WOT0SI0PK1RmhIRZA03zoVloAAdR",
+                    "use_workflow_target_group": false
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01AYGVBRGZW141SMbpE3t9Ntziz80QY01Rf",
+                "name": "Condition Block",
+                "title": "Condition Block",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Condition Block",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_01AYGVBVWZC844iaIIQsTOjFnpfvMRiPnnN",
+                    "name": "Condition Branch",
+                    "title": "Test Passed?",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$activity.definition_activity_01AYGVBQEYTYN6bSHCUKmYZVp3evQBMxCHT.output.succeeded$",
+                        "operator": "eq",
+                        "right_operand": false
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "Test Passed?",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01AYGVBZHSAYX02FmY2fGcl0WbDbqnLmGMz",
+                        "name": "Set Variables",
+                        "title": "Increment Loop",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Increment Loop",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z0SO61YDBXwpq3XcH4TXIK0PhqD$",
+                              "variable_value_new": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z0SO61YDBXwpq3XcH4TXIK0PhqD$+1"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01AYGVC0ZYV503M5xy3UgTfhQVOsFd3ACB3",
+                        "name": "Add Row to Table",
+                        "title": "Update Succeeded Tests Table",
+                        "type": "core.addrowtotable",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": true,
+                          "display_name": "Update Succeeded Tests Table",
+                          "input_table": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1WL15ltlNGFVvRdlWVquqWNVJI$",
+                          "row": [
+                            {
+                              "key": "Testcase",
+                              "type": "string",
+                              "value": "Execute Multiple Commands Terminal-Negative"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_01AYGVC5PL7XV27D6dzAe0HoLx4ooJgP1hB",
+                    "name": "Condition Branch",
+                    "title": "Test Failed?",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$activity.definition_activity_01AYGVBQEYTYN6bSHCUKmYZVp3evQBMxCHT.output.succeeded$",
+                        "operator": "eq",
+                        "right_operand": true
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "Test Failed?",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01AYGVCH2ZY490HdngbsMFroMGpDvuKK3Ae",
+                        "name": "Set Variables",
+                        "title": "Increment Loop",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Increment Loop",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1LDZ2WMXcDpBAvdzMjvwEMG2nJ$",
+                              "variable_value_new": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1LDZ2WMXcDpBAvdzMjvwEMG2nJ$+1"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01AYGVCMLYMFE3romxZYxjn6LmNKNmrumPW",
+                        "name": "Add Row to Table",
+                        "title": "Update Failed Tests Table",
+                        "type": "core.addrowtotable",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": true,
+                          "display_name": "Update Failed Tests Table",
+                          "input_table": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1FVJ2iLVWb6rX0txv5BbjqxXEi$",
+                          "row": [
+                            {
+                              "key": "Testcase",
+                              "type": "string",
+                              "value": "Execute Multiple Commands Terminal-Negative"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01AYGVCRDYN2T1FZX5bPZ9D0wKvAM4k3pRP",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01AYGVCWHAB2X72hSkkofkQawKEwaKU4PPx",
+                "name": "Execute Linux/Unix SSH Command",
+                "title": "Execute Multiple Commands Unix-Negative",
+                "type": "terminal.ssh_command",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "command": "bash -c 'sleep 2s;dfd -h",
+                  "command_timeout": 60,
+                  "continue_on_failure": true,
+                  "display_name": "Execute Multiple Commands Unix-Negative",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": true,
+                    "target_id": "definition_target_016WX9Z5O4JJ01vd3BCqgczZFYl1HSiFMDd"
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01AYGVCYUTBHY4sp0C7Ekak0P1qK9ZWanc7",
+                "name": "Condition Block",
+                "title": "Condition Block",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Condition Block",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_01AYGVD1W84GQ58yvuPknEGyHj8sAyItbcT",
+                    "name": "Condition Branch",
+                    "title": "Test Passed?",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$activity.definition_activity_01AYGVCWHAB2X72hSkkofkQawKEwaKU4PPx.output.succeeded$",
+                        "operator": "eq",
+                        "right_operand": false
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "Test Passed?",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01AYGVD6YVRKF2A0JRxJvg8TgJPrNlOpyez",
+                        "name": "Set Variables",
+                        "title": "Increment Loop",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Increment Loop",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z0SO61YDBXwpq3XcH4TXIK0PhqD$",
+                              "variable_value_new": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z0SO61YDBXwpq3XcH4TXIK0PhqD$+1"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01AYGVDBY8C185PHv7IlFH3eeCz0qjcN2xU",
+                        "name": "Add Row to Table",
+                        "title": "Update Succeeded Tests Table",
+                        "type": "core.addrowtotable",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": true,
+                          "display_name": "Update Succeeded Tests Table",
+                          "input_table": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1WL15ltlNGFVvRdlWVquqWNVJI$",
+                          "row": [
+                            {
+                              "key": "Testcase",
+                              "type": "string",
+                              "value": "Execute Multiple Commands Unix-Negative"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_01AYGVDHBMKZW3O3kFfidCxlclTPI8NUFqP",
+                    "name": "Condition Branch",
+                    "title": "Test Failed?",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$activity.definition_activity_01AYGVCWHAB2X72hSkkofkQawKEwaKU4PPx.output.succeeded$",
+                        "operator": "eq",
+                        "right_operand": true
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "Test Failed?",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01AYGVDMTBQC57bpGp8o5q2DjmLyNjOmE1d",
+                        "name": "Set Variables",
+                        "title": "Increment Loop",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Increment Loop",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1LDZ2WMXcDpBAvdzMjvwEMG2nJ$",
+                              "variable_value_new": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1LDZ2WMXcDpBAvdzMjvwEMG2nJ$+1"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01AYGVDRVDXLR2LfXXjyZVDW3rTN8MS5EUZ",
+                        "name": "Add Row to Table",
+                        "title": "Update Failed Tests Table",
+                        "type": "core.addrowtotable",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": true,
+                          "display_name": "Update Failed Tests Table",
+                          "input_table": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1FVJ2iLVWb6rX0txv5BbjqxXEi$",
+                          "row": [
+                            {
+                              "key": "Testcase",
+                              "type": "string",
+                              "value": "Execute Multiple Commands Unix-Negative"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01AZ819T3IC0T2kKXHIKNHJSGEz7Oo9nmb2",
+        "name": "Group",
+        "title": "Write File - Negative",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Write File - Negative",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01AZ82AS7DFJZ6UjCBlOdF3JCwkUI14J3UI",
+            "name": "Execute Linux/Unix SSH Command",
+            "title": "Check If File Exists",
+            "type": "terminal.ssh_command",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "command": "find $workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.input.variable_workflow_01AZAN6GHPMPK7lULft4yRkRMoTlUxHBo2k$",
+              "command_timeout": 60,
+              "continue_on_failure": true,
+              "display_name": "Check If File Exists",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "definition_target_016WX9Z5O4JJ01vd3BCqgczZFYl1HSiFMDd"
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01AZARBICYYIU5OMijhoOCHP5nei4cxmDVP",
+            "name": "Condition Block",
+            "title": "create file if not found",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "create file if not found",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01AZARBUWWDPT7K5gytlYJu4i1JpFW5rK2j",
+                "name": "Condition Branch",
+                "title": "If file is not found",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_01AZ82AS7DFJZ6UjCBlOdF3JCwkUI14J3UI.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": false
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "If file is not found",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01AZASSVIB92P6gJl4GQeIeGW66zI9YPz23",
+                    "name": "Execute Linux/Unix SSH Command",
+                    "title": "Execute Linux/Unix SSH Command",
+                    "type": "terminal.ssh_command",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "command": "touch $workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.input.variable_workflow_01AZAN6GHPMPK7lULft4yRkRMoTlUxHBo2k$",
+                      "command_timeout": 60,
+                      "continue_on_failure": true,
+                      "display_name": "Execute Linux/Unix SSH Command",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_016WX9Z5O4JJ01vd3BCqgczZFYl1HSiFMDd"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01AYIX1V9KRYO4QxZdH0MwOLwVd6uBtoHHE",
+            "name": "Write File",
+            "title": "Unix Write File -Negative",
+            "type": "terminal.write_file",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "content": "#!/bin/bash\ndu -sh \u003e\u003e disk usage.txt\n/*****Start time:$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.output.start_time$********/",
+              "continue_on_failure": true,
+              "display_name": "Unix Write File -Negative",
+              "encoding": "utf-8",
+              "file_name": "/root/test2.sh",
+              "options": "not_overwrite",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "definition_target_016WX9Z5O4JJ01vd3BCqgczZFYl1HSiFMDd"
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01AYIVRTJG32M1hzDNJZyno12EKrkNIk4lK",
+            "name": "Condition Block",
+            "title": "Condition Block",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Condition Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01AYIVRXOX4UL0N0LhfYCYXuIKxDydCs0Z6",
+                "name": "Condition Branch",
+                "title": "Test Passed?",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_01AYIX1V9KRYO4QxZdH0MwOLwVd6uBtoHHE.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": false
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Test Passed?",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01AYIVS1J5DRL1qtMbrVK6D85BSYBoWTaV6",
+                    "name": "Set Variables",
+                    "title": "Increment Loop",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Increment Loop",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z0SO61YDBXwpq3XcH4TXIK0PhqD$",
+                          "variable_value_new": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z0SO61YDBXwpq3XcH4TXIK0PhqD$+1"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01AYIVS4GWR1005VbThP8rXr8FCNykJXprG",
+                    "name": "Add Row to Table",
+                    "title": "Update Succeeded Tests Table",
+                    "type": "core.addrowtotable",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Update Succeeded Tests Table",
+                      "input_table": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1WL15ltlNGFVvRdlWVquqWNVJI$",
+                      "row": [
+                        {
+                          "key": "Testcase",
+                          "type": "string",
+                          "value": "Unix Write File -Negative"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01AYIVS87KFN95CyVjmelwAwRVYdhK5S3FZ",
+                "name": "Condition Branch",
+                "title": "Test Failed?",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_01AYIX1V9KRYO4QxZdH0MwOLwVd6uBtoHHE.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": true
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Test Failed?",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01AYIVSDEAZL1342mgUlY2Ht0z9Ae4JZluI",
+                    "name": "Set Variables",
+                    "title": "Increment Loop",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Increment Loop",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1LDZ2WMXcDpBAvdzMjvwEMG2nJ$",
+                          "variable_value_new": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1LDZ2WMXcDpBAvdzMjvwEMG2nJ$+1"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01AYIVSGTQVUU2BJOZFjMRGeWMfVKXK42vI",
+                    "name": "Add Row to Table",
+                    "title": "Update Failed Tests Table",
+                    "type": "core.addrowtotable",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Update Failed Tests Table",
+                      "input_table": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1FVJ2iLVWb6rX0txv5BbjqxXEi$",
+                      "row": [
+                        {
+                          "key": "Testcase",
+                          "type": "string",
+                          "value": "Unix Write File -Negative"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01B00Y3Z8GQN04kIK7RMCt3pj1Q43W33IR5",
+        "name": "Group",
+        "title": "Read File - Negative",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Read File - Negative",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01B00ZQUODAQL1I89Cxe0rtlrJ96h4xHBTt",
+            "name": "Read File",
+            "title": "Unix Read File - Negative",
+            "type": "terminal.read_file",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Unix Read File - Negative",
+              "file_name": "/root/test3.sh",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "definition_target_016WX9Z5O4JJ01vd3BCqgczZFYl1HSiFMDd"
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01B00Y5FGHSMB59z2S1PSed7FMxqMuxweca",
+            "name": "Condition Block",
+            "title": "Condition Block",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Condition Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01B00Y5LVG9SQ3Lu2pUiRK9nNaOhUFnrC2V",
+                "name": "Condition Branch",
+                "title": "Test Passed?",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_01B00ZQUODAQL1I89Cxe0rtlrJ96h4xHBTt.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": false
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Test Passed?",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01B00Y5RLKAMH1eeJI8AASSFUh46NZQq6uF",
+                    "name": "Set Variables",
+                    "title": "Increment Loop",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Increment Loop",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z0SO61YDBXwpq3XcH4TXIK0PhqD$",
+                          "variable_value_new": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z0SO61YDBXwpq3XcH4TXIK0PhqD$+1"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01B00Y5VT4VUG5tEYtr5uDlRhV0cX30PT04",
+                    "name": "Add Row to Table",
+                    "title": "Update Succeeded Tests Table",
+                    "type": "core.addrowtotable",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Update Succeeded Tests Table",
+                      "input_table": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1WL15ltlNGFVvRdlWVquqWNVJI$",
+                      "row": [
+                        {
+                          "key": "Testcase",
+                          "type": "string",
+                          "value": "Unix Read File - Negative"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01B00Y61WKSL46qUR3SFZZbDyaAqw3lsgVJ",
+                "name": "Condition Branch",
+                "title": "Test Failed?",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_01B00ZQUODAQL1I89Cxe0rtlrJ96h4xHBTt.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": true
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Test Failed?",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01B00Y68I9XIS27F0QYvr4omNa2Pp01NTwy",
+                    "name": "Set Variables",
+                    "title": "Increment Loop",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Increment Loop",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1LDZ2WMXcDpBAvdzMjvwEMG2nJ$",
+                          "variable_value_new": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1LDZ2WMXcDpBAvdzMjvwEMG2nJ$+1"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01B00Y6EMT72S45ndGDNS83wXW65kGzjcCW",
+                    "name": "Add Row to Table",
+                    "title": "Update Failed Tests Table",
+                    "type": "core.addrowtotable",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Update Failed Tests Table",
+                      "input_table": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1FVJ2iLVWb6rX0txv5BbjqxXEi$",
+                      "row": [
+                        {
+                          "key": "Testcase",
+                          "type": "string",
+                          "value": "Unix Read File - Negative"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01AYC5RYR5QN82AJYldEFqjogrEwhA6FcC2",
+        "name": "Parallel Block",
+        "title": "Parallel Block -Invalid Commands",
+        "type": "logic.parallel",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Parallel Block -Invalid Commands",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01AYC5SFWOD676zhtmpBlsJDS5CY6FiKRwN",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01AYC5TIBWAEV6Xyeh98FuozPSzF5rUV4IC",
+                "name": "Execute Terminal Command(s)",
+                "title": "Execute Invalid Command Terminal",
+                "type": "terminal.command",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "command_timeout": 60,
+                  "commands": "abcd",
+                  "continue_on_failure": true,
+                  "display_name": "Execute Invalid Command Terminal",
+                  "merge_commands": false,
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": true,
+                    "override_workflow_target_group_criteria": false,
+                    "target_id": "definition_target_017QT21WOT0SI0PK1RmhIRZA03zoVloAAdR",
+                    "use_workflow_target_group": false
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01AYC5UDSAGTI6UQnedNGaqTq2TjO3YeU1l",
+                "name": "Find String",
+                "title": "Extract Message",
+                "type": "core.find_string",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Extract Message",
+                  "searched_string": "command not found",
+                  "skip_execution": false,
+                  "source": "$activity.definition_activity_01AYC5TIBWAEV6Xyeh98FuozPSzF5rUV4IC.output.response_body$"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01AYC5V4REEY66Ij7AfqrWJv1Qzzn9uKtJb",
+                "name": "Condition Block",
+                "title": "Condition Block",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Condition Block",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_01AYC5VPXQ4UK0vhN8CtwcZKRJdA1NZea2f",
+                    "name": "Condition Branch",
+                    "title": "Test Passed?",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": "$activity.definition_activity_01AYC5TIBWAEV6Xyeh98FuozPSzF5rUV4IC.output.succeeded$",
+                          "operator": "eq",
+                          "right_operand": true
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_01AYC5UDSAGTI6UQnedNGaqTq2TjO3YeU1l.output.has_match$",
+                          "operator": "eq",
+                          "right_operand": true
+                        }
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "Test Passed?",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01AYC5WH0VRM007LMOJbVcu31tFovG2q8RM",
+                        "name": "Set Variables",
+                        "title": "Increment Loop",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Increment Loop",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z0SO61YDBXwpq3XcH4TXIK0PhqD$",
+                              "variable_value_new": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z0SO61YDBXwpq3XcH4TXIK0PhqD$+1"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01AYC5X4F20J13RGDN54IvBCcT3nEn6jEjV",
+                        "name": "Add Row to Table",
+                        "title": "Update Succeeded Tests Table",
+                        "type": "core.addrowtotable",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": true,
+                          "display_name": "Update Succeeded Tests Table",
+                          "input_table": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1WL15ltlNGFVvRdlWVquqWNVJI$",
+                          "row": [
+                            {
+                              "key": "Testcase",
+                              "type": "string",
+                              "value": "Execute Invalid Command Terminal"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_01AYC5XZ3G3FM3Bw6ODZf51wf27rqKIaRyU",
+                    "name": "Condition Branch",
+                    "title": "Test Failed?",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": "$activity.definition_activity_01AYC5TIBWAEV6Xyeh98FuozPSzF5rUV4IC.output.succeeded$",
+                          "operator": "eq",
+                          "right_operand": false
+                        },
+                        "operator": "or",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_01AYC5UDSAGTI6UQnedNGaqTq2TjO3YeU1l.output.has_match$",
+                          "operator": "eq",
+                          "right_operand": false
+                        }
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "Test Failed?",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01AYC5YT3BE770P1oT95arQNaM3Fa8YRQkf",
+                        "name": "Set Variables",
+                        "title": "Increment Loop",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Increment Loop",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1LDZ2WMXcDpBAvdzMjvwEMG2nJ$",
+                              "variable_value_new": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1LDZ2WMXcDpBAvdzMjvwEMG2nJ$+1"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01AYC5ZIFI40V5JGgIcRBBItJiDtIAI6CcY",
+                        "name": "Add Row to Table",
+                        "title": "Update Failed Tests Table",
+                        "type": "core.addrowtotable",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": true,
+                          "display_name": "Update Failed Tests Table",
+                          "input_table": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1FVJ2iLVWb6rX0txv5BbjqxXEi$",
+                          "row": [
+                            {
+                              "key": "Testcase",
+                              "type": "string",
+                              "value": "Execute Invalid Command Terminal"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01AYC608X2R7M0AUiSz31ZMIDf2DalauQRf",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Parallel Branch",
+              "skip_execution": true
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01AYC60Y1MBGA68p9NieP2jgwi6Zmia42ZH",
+                "name": "Execute Linux/Unix SSH Command",
+                "title": "Execute Invalid Command Unix",
+                "type": "terminal.ssh_command",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "command": "abcd",
+                  "command_timeout": 60,
+                  "continue_on_failure": true,
+                  "display_name": "Execute Invalid Command Unix",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": true,
+                    "target_id": "definition_target_016WX9Z5O4JJ01vd3BCqgczZFYl1HSiFMDd"
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01AYC61UON2NR2DgMIQSeGHSFIOZYBnaukk",
+                "name": "Find String",
+                "title": "Extract Message",
+                "type": "core.find_string",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Extract Message",
+                  "searched_string": "command not found",
+                  "skip_execution": false,
+                  "source": "$activity.definition_activity_01AYC60Y1MBGA68p9NieP2jgwi6Zmia42ZH.output.response_body$"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01AYC62OZQL1I2pKuK3fBhPPfUQ1KMeW8Uk",
+                "name": "Condition Block",
+                "title": "Condition Block",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Condition Block",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_01AYC637DRAEK76oa6HxGbfKn7tPbYJU4sF",
+                    "name": "Condition Branch",
+                    "title": "Test Passed?",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": "$activity.definition_activity_01AYC60Y1MBGA68p9NieP2jgwi6Zmia42ZH.output.succeeded$",
+                          "operator": "eq",
+                          "right_operand": true
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_01AYC61UON2NR2DgMIQSeGHSFIOZYBnaukk.output.has_match$",
+                          "operator": "eq",
+                          "right_operand": true
+                        }
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "Test Passed?",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01AYC63YF7W6C2jVKiWJytZAKPHAR0S0EMh",
+                        "name": "Set Variables",
+                        "title": "Increment Loop",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Increment Loop",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z0SO61YDBXwpq3XcH4TXIK0PhqD$",
+                              "variable_value_new": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z0SO61YDBXwpq3XcH4TXIK0PhqD$+1"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01AYC64L0E7Y71lDzRkHuMbF47ylCSLeurw",
+                        "name": "Add Row to Table",
+                        "title": "Update Succeeded Tests Table",
+                        "type": "core.addrowtotable",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": true,
+                          "display_name": "Update Succeeded Tests Table",
+                          "input_table": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1WL15ltlNGFVvRdlWVquqWNVJI$",
+                          "row": [
+                            {
+                              "key": "Testcase",
+                              "type": "string",
+                              "value": "Execute Invalid Command Unix"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_01AYC65EQYGGN73C6FIeuNjA8A6Mp0rzCQl",
+                    "name": "Condition Branch",
+                    "title": "Test Failed?",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": "$activity.definition_activity_01AYC60Y1MBGA68p9NieP2jgwi6Zmia42ZH.output.succeeded$",
+                          "operator": "eq",
+                          "right_operand": false
+                        },
+                        "operator": "or",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_01AYC61UON2NR2DgMIQSeGHSFIOZYBnaukk.output.has_match$",
+                          "operator": "eq",
+                          "right_operand": false
+                        }
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "Test Failed?",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01AYC667Y2Q052es8o6kSBEnwtFHnpOf7hc",
+                        "name": "Set Variables",
+                        "title": "Increment Loop",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Increment Loop",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1LDZ2WMXcDpBAvdzMjvwEMG2nJ$",
+                              "variable_value_new": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1LDZ2WMXcDpBAvdzMjvwEMG2nJ$+1"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01AYC66YXJ3MF4JjteuwarC09MuS7JxCESN",
+                        "name": "Add Row to Table",
+                        "title": "Update Failed Tests Table",
+                        "type": "core.addrowtotable",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": true,
+                          "display_name": "Update Failed Tests Table",
+                          "input_table": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1FVJ2iLVWb6rX0txv5BbjqxXEi$",
+                          "row": [
+                            {
+                              "key": "Testcase",
+                              "type": "string",
+                              "value": "Execute Invalid Command Unix"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01AYC6LZEGKH10dx5VAuUsenJWlDNIJiRWn",
+        "name": "Set Variables",
+        "title": "Succeeded Test Count",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Succeeded Test Count",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.output.variable_workflow_01AYC3H3Z0YOM0oJjRNVPX5tcgggCU0T8hA$",
+              "variable_value_new": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z0SO61YDBXwpq3XcH4TXIK0PhqD$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01AYC6MOHIYON5pe0nUpUNmLIET6bgJfWt4",
+        "name": "Set Variables",
+        "title": "Failed Test Count",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Failed Test Count",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.output.variable_workflow_01AYC3H3Z1QZU0AHoYs5G5vewrUxvGRIGPo$",
+              "variable_value_new": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1LDZ2WMXcDpBAvdzMjvwEMG2nJ$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01AYC6NKB6JQ71sjnmbre8GwJniac3ijwU3",
+        "name": "Execute Linux/Unix SSH Command",
+        "title": "Initalize bash variables",
+        "type": "terminal.ssh_command",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "command": "t1='     '; n1='\n'",
+          "command_timeout": 60,
+          "continue_on_failure": true,
+          "display_name": "Initalize bash variables",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_016WX9Z5O4JJ01vd3BCqgczZFYl1HSiFMDd"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01AYC6OMDG4O169OnjhmPiJzzZpTfQIWX6p",
+        "name": "Write File",
+        "title": "Create file with tests status",
+        "type": "terminal.write_file",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "content": "Automation Test: Terminal/UNIX adapter automation\n\nSucceeded Test case Count: $workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.output.variable_workflow_01AYC3H3Z0YOM0oJjRNVPX5tcgggCU0T8hA$ \n\nFailed Test Case count:\n$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.output.variable_workflow_01AYC3H3Z1QZU0AHoYs5G5vewrUxvGRIGPo$\n\nDate of Run: $workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.output.start_time$\n\nSucceeded Test Cases:\n\n",
+          "continue_on_failure": true,
+          "display_name": "Create file with tests status",
+          "encoding": "utf-8",
+          "file_name": "/root/automation_status",
+          "options": "overwrite",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_016WX9Z5O4JJ01vd3BCqgczZFYl1HSiFMDd"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01AYC6PEBHUUA3B2sSgenoMpaUXmTxo5fIE",
+        "name": "For Each",
+        "title": "For Each - Succeeded Test Cases",
+        "type": "logic.for_each",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "For Each - Succeeded Test Cases",
+          "skip_execution": false,
+          "source_array": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1WL15ltlNGFVvRdlWVquqWNVJI$"
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01AYC6QJR6O3F2KtmfeE8N5u8bLcfiqeAEV",
+            "name": "Execute Linux/Unix SSH Command",
+            "title": "Update Succeeded test cases",
+            "type": "terminal.ssh_command",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "command": "echo $workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z14JK1iJhgYK5NWEz4Q2RIBv1CI$\"$t1\" $activity.definition_activity_01AYC6PEBHUUA3B2sSgenoMpaUXmTxo5fIE.input.source_array[@].Testcase$ \u003e\u003e /root/automation_status",
+              "command_timeout": 60,
+              "continue_on_failure": true,
+              "display_name": "Update Succeeded test cases",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "definition_target_016WX9Z5O4JJ01vd3BCqgczZFYl1HSiFMDd"
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01AYC6RS8KOVL7bOIOsIJ8MW8dbZmS1oell",
+            "name": "Set Variables",
+            "title": "Increment Loop Count",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Increment Loop Count",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z14JK1iJhgYK5NWEz4Q2RIBv1CI$",
+                  "variable_value_new": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z14JK1iJhgYK5NWEz4Q2RIBv1CI$+1"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01AYC6SCSXWWT2AtmNQHhfoMkBhhIOzah54",
+        "name": "Set Variables",
+        "title": "Initialize Loop Count",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Initialize Loop Count",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z14JK1iJhgYK5NWEz4Q2RIBv1CI$",
+              "variable_value_new": 1
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01AYC6T8GFDJK7dG3fNThd3lMKG3fky2C7s",
+        "name": "Execute Linux/Unix SSH Command",
+        "title": "Update File",
+        "type": "terminal.ssh_command",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "command": "printf \"\\n\" \u003e\u003e /root/automation_status ; echo  Failed Test cases:  \u003e\u003e /root/automation_status",
+          "command_timeout": 60,
+          "continue_on_failure": true,
+          "display_name": "Update File",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_016WX9Z5O4JJ01vd3BCqgczZFYl1HSiFMDd"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01AYC6TW855G91pJvOa9VQgxjRy1pBsXRSS",
+        "name": "For Each",
+        "title": "For Each - Failed Tests",
+        "type": "logic.for_each",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "For Each - Failed Tests",
+          "skip_execution": false,
+          "source_array": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z1FVJ2iLVWb6rX0txv5BbjqxXEi$"
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01AYC6V2BSEA82J7wH9dhkE8K7CqmnhR8cc",
+            "name": "Execute Linux/Unix SSH Command",
+            "title": "Update Failed test cases",
+            "type": "terminal.ssh_command",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "command": "echo $workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z14JK1iJhgYK5NWEz4Q2RIBv1CI$ `printf \"\\t\"`$activity.definition_activity_01AYC6TW855G91pJvOa9VQgxjRy1pBsXRSS.input.source_array[@].Testcase$ \u003e\u003e /root/automation_status",
+              "command_timeout": 60,
+              "continue_on_failure": true,
+              "display_name": "Update Failed test cases",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "definition_target_016WX9Z5O4JJ01vd3BCqgczZFYl1HSiFMDd"
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01AYC6VVC8R1T1ALztIf7JHIm5wX06Ueijj",
+            "name": "Set Variables",
+            "title": "Increment Loop",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Increment Loop",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z14JK1iJhgYK5NWEz4Q2RIBv1CI$",
+                  "variable_value_new": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.local.variable_workflow_01AYC3H3Z14JK1iJhgYK5NWEz4Q2RIBv1CI$+1"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01AYC6WSDCSIK65P93nNPJJMkctWmf4ap8F",
+        "name": "Execute Linux/Unix SSH Command",
+        "title": "Email Automation Status",
+        "type": "terminal.ssh_command",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "command": "echo \"Please refer the attachment for automation test status\" | mutt -a automation_status -s \"UNIX/Terminal Adapter Automation Status\" -- ramygane@cisco.com",
+          "command_timeout": 60,
+          "continue_on_failure": true,
+          "display_name": "Email Automation Status",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_016WX9Z5O4JJ01vd3BCqgczZFYl1HSiFMDd"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01AYC6XFBHNT93j5ck7MxnGW44ndC04uuPS",
+        "name": "Set Variables",
+        "title": "Set Variables",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Set Variables",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_01AYC3H50W4PA09ZcZivhOVvg28vVE0wgcx.output.variable_workflow_01AYC3H3Z0CWS7H3Cy1pCTz3WjEgYgmjp1m$",
+              "variable_value_new": "Activity Name                                                       Pass/Fail\n-------------------------------------------------------------------------------------- \nExecute Ping Command Terminal Negative   $activity.definition_activity_01AYC5FS21EUX3fA2EO5vXE6iHCzhms5m7J.output.succeeded$\nExecute Ping Command Unix Negative     $activity.definition_activity_01AYC5MCEOQ346zI1hSLLkBK0OF5yI7HXii.output.succeeded$\nExecute Invalid Command Terminal         $activity.definition_activity_01AYC5TIBWAEV6Xyeh98FuozPSzF5rUV4IC.output.succeeded$\nExecute Multiple Command Terminal Negative   $activity.definition_activity_01AYGVBQEYTYN6bSHCUKmYZVp3evQBMxCHT.output.succeeded$\nExecute Multiple Command Unix Negative        $activity.definition_activity_01AYGVCWHAB2X72hSkkofkQawKEwaKU4PPx.output.succeeded$\nWrite File Unix Negative                                $activity.definition_activity_01AYIX1V9KRYO4QxZdH0MwOLwVd6uBtoHHE.output.succeeded$\n\n\n          \n       \n\n"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_016WX9Z5O4JJ01vd3BCqgczZFYl1HSiFMDd": {
+      "unique_name": "definition_target_016WX9Z5O4JJ01vd3BCqgczZFYl1HSiFMDd",
+      "name": "RG UNIX",
+      "title": "RG UNIX",
+      "type": "terminal.unix_linux_endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "bash_shell": "/bin/bash",
+        "default_runtime_user_id": "definition_runtime_user_016WX8IT3KOQW150cQmDDgwBlU4pm5v6q1U",
+        "display_name": "RG UNIX",
+        "host": "sjc-cent59-rac1.tidalsoft.local",
+        "port": 22
+      }
+    },
+    "definition_target_017QT21WOT0SI0PK1RmhIRZA03zoVloAAdR": {
+      "unique_name": "definition_target_017QT21WOT0SI0PK1RmhIRZA03zoVloAAdR",
+      "name": "CA terminal",
+      "title": "CA terminal",
+      "type": "terminal.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_0161JHMD96E1J05I6BA79pthv7zpKThsZTR",
+        "display_name": "CA terminal",
+        "host": "10.88.38.124",
+        "port": 22,
+        "protocol": "ssh"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_0161JHMD96E1J05I6BA79pthv7zpKThsZTR": {
+      "unique_name": "definition_runtime_user_0161JHMD96E1J05I6BA79pthv7zpKThsZTR",
+      "name": "termuser",
+      "title": "termuser",
+      "type": "runtime_user.terminal_password_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "termuser",
+        "password": "*****",
+        "user": "*****"
+      }
+    },
+    "definition_runtime_user_016WX8IT3KOQW150cQmDDgwBlU4pm5v6q1U": {
+      "unique_name": "definition_runtime_user_016WX8IT3KOQW150cQmDDgwBlU4pm5v6q1U",
+      "name": "root",
+      "title": "root",
+      "type": "runtime_user.terminal_password_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "root",
+        "password": "*****",
+        "user": "*****"
+      }
+    }
+  },
+  "table_types": {
+    "tabletype_0172TK6NRMI8A3W1hJ6bDz2mADkoowSKtUH": {
+      "unique_name": "tabletype_0172TK6NRMI8A3W1hJ6bDz2mADkoowSKtUH",
+      "data_type": "datatype.tabletype",
+      "display_name": "Succeeded Test Cases",
+      "columns": [
+        {
+          "name": "Testcase",
+          "title": "Testcase",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  }
+}
