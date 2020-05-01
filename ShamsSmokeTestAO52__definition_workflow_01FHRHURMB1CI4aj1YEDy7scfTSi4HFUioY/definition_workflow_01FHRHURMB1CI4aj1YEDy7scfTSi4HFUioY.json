@@ -1,0 +1,1661 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY",
+    "name": "SJ_SmokeTest",
+    "title": "SJ_SmokeTest",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "Python_SS_Result",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01FHSNX0XBA6G3fopqnDn7bNoUlY49Onin2",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "Term_Unix_Result",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01FHU1RK9S6U85sYJ9uoXReed0Jg5umy8nQ",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "AtomicResult",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01FHSGY94H5SC1YBenSsWTVYCtnCL242N34",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Category",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01FHUX1KLW3VI5gSqJkpvpYqWGSjmiu8thd",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "HTTPRequest_Result",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01FI0D1LKMTXU6AHwHrz8EGkNbS7bTjlQRb",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.secure_string",
+        "properties": {
+          "value": "*****",
+          "scope": "local",
+          "name": "SS1",
+          "type": "datatype.secure_string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01FHSO8X51NEM5XhU63rEd59wTVwsRXZc7t",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.file",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "TestFile1",
+          "type": "datatype.file",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01FHVCQFWWCHT0tXoqmlMCnlLVc4HvRtEjT",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "EmailResult",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01FHWL7BX16NR1r8n4cZEnebr5h08Xa84XU",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.boolean",
+        "properties": {
+          "value": true,
+          "scope": "input",
+          "name": "Check",
+          "type": "datatype.boolean",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01FHRHUR37GQR6fDPUIcro2ffzLS6iQXMNA",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "SJ_SmokeTest",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01FHRHVFJSANL0i0PNxHazelsfPwH8tTjV1",
+        "name": "Group",
+        "title": "Atomic",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Atomic",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01FHRHVO3I1X53dgHTp5bVoFRJV4Oy7qDvT",
+            "name": "Condition Block",
+            "title": "Condition Block",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Condition Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01FHRHVTWB24O0CjO2vSdp1AKSHSy1rEzVz",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.input.variable_workflow_01FHRHUR37GQR6fDPUIcro2ffzLS6iQXMNA$",
+                    "operator": "eq",
+                    "right_operand": true
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01FHRHW1J8H0S0JsO3zfB3rWidQ8AaJNRQR",
+                    "name": "Sj_Atomic",
+                    "title": "Sj_Atomic",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Sj_Atomic",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "no_target": true
+                      },
+                      "workflow_id": "definition_workflow_01FHOAYWGI03J6jgWPUnIXkGNy5kRYmjuUa"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01FHRHW86TF063OUW69PTBTu3dfRy5kht1R",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.input.variable_workflow_01FHRHUR37GQR6fDPUIcro2ffzLS6iQXMNA$",
+                    "operator": "ne",
+                    "right_operand": true
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01FHRHWE7D8813OUiLP0NWBytwtJ7LFSGaE",
+                    "name": "Completed",
+                    "title": "Completed",
+                    "type": "logic.completed",
+                    "base_type": "activity",
+                    "properties": {
+                      "completion_type": "succeeded",
+                      "continue_on_failure": true,
+                      "display_name": "Completed",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01FHSDV3SZO5Y3QJkvdpFC0ReG7xiM4VIb9",
+            "name": "Condition Block",
+            "title": "Condition Block",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Condition Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01FHSDV7WJPBT7mxtSXHvvVdcFvHpqpTmkR",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_01FHRHVO3I1X53dgHTp5bVoFRJV4Oy7qDvT.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": true
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01FHSH1L6HW9H1wIO0Ld9DidzFt83QRx3Fw",
+                    "name": "Set Variables",
+                    "title": "PASS",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "PASS",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.local.variable_workflow_01FHSGY94H5SC1YBenSsWTVYCtnCL242N34$",
+                          "variable_value_new": "true"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01FHSDV9XM2CS3T9pXjrGUTahYrvhKDfcQh",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_01FHRHVO3I1X53dgHTp5bVoFRJV4Oy7qDvT.output.succeeded$",
+                    "operator": "ne",
+                    "right_operand": true
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01FHSH2N91E321LQlWgq8TaVeFBZzhUTGPl",
+                    "name": "Set Variables",
+                    "title": "FAIL",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "FAIL",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.local.variable_workflow_01FHSGY94H5SC1YBenSsWTVYCtnCL242N34$",
+                          "variable_value_new": "false"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01FHSU35VGE3C7FKJK4cQ9UkcGIpPJUgqzl",
+        "name": "Group",
+        "title": "Secure String Python",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Secure String Python",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01FHSKHC9CUHK2ffp1SkWVwh0JXn3WmTKIH",
+            "name": "Parallel Block",
+            "title": "PArallel Group",
+            "type": "logic.parallel",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "PArallel Group",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01FHSKHG8GJJM3rW2wCFqmNkIduJA9hpan5",
+                "name": "Parallel Branch",
+                "title": "Parallel Branch",
+                "type": "logic.parallel_block",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Parallel Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01FHSMW4ZRZUJ215I8gh8xCzv0kBQyISSAF",
+                    "name": "Execute Python Script",
+                    "title": "Execute Python Script -Incorrect Syntax",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Execute Python Script -Incorrect Syntax",
+                      "script": "print $workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.local.variable_workflow_01FHSO8X51NEM5XhU63rEd59wTVwsRXZc7t$",
+                      "script_arguments": [
+                        "$workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.local.variable_workflow_01FHSO8X51NEM5XhU63rEd59wTVwsRXZc7t$"
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01FHSKHHXZIMZ6VVAThjIHEVzC5YStRPJYT",
+                "name": "Parallel Branch",
+                "title": "Parallel Branch",
+                "type": "logic.parallel_block",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Parallel Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01FHSMXUZV4AJ71rvRb0kfTkgfrgHdxqfGs",
+                    "name": "Execute Python Script",
+                    "title": "Execute Python Script-Secure String Arg",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Execute Python Script-Secure String Arg",
+                      "script": "import sys\n\nval1 = sys.argv[1]\n\nrev = \"\".join(reversed(val1))\n",
+                      "script_arguments": [
+                        "$workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.local.variable_workflow_01FHSO8X51NEM5XhU63rEd59wTVwsRXZc7t$"
+                      ],
+                      "script_queries": [
+                        {
+                          "script_query": "rev",
+                          "script_query_name": "reversed_value",
+                          "script_query_type": "secure_string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01FHT0BKQQLXA2eIfTlZnfjMT0b5UOBZCjt",
+                    "name": "Execute Python Script",
+                    "title": "Secure String Validation",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Secure String Validation",
+                      "script": "print $activity.definition_activity_01FHSMXUZV4AJ71rvRb0kfTkgfrgHdxqfGs.output.script_queries.reversed_value$",
+                      "script_arguments": [
+                        "$activity.definition_activity_01FHSMXUZV4AJ71rvRb0kfTkgfrgHdxqfGs.output.script_queries.reversed_value$"
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01FHSTLLQH9NS3sfF1pQQv5RJGGNbV6cxK9",
+            "name": "Condition Block",
+            "title": "Condition Block",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Condition Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01FHSTLOOI1GC40nEH3LjdxQFKoIVLckrTa",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": "$activity.definition_activity_01FHSMW4ZRZUJ215I8gh8xCzv0kBQyISSAF.output.error.message$",
+                        "operator": "nmw",
+                        "right_operand": "1234"
+                      },
+                      "operator": "and",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_01FHSMXUZV4AJ71rvRb0kfTkgfrgHdxqfGs.output.succeeded$",
+                        "operator": "eq",
+                        "right_operand": true
+                      }
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01FHT0BKQQLXA2eIfTlZnfjMT0b5UOBZCjt.output.error.message$",
+                      "operator": "nmw",
+                      "right_operand": "4321"
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01FHSTLQRQ39T52fHOaR3b95Q587CUAmIoc",
+                    "name": "Set Variables",
+                    "title": "PASS",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "PASS",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.local.variable_workflow_01FHSNX0XBA6G3fopqnDn7bNoUlY49Onin2$",
+                          "variable_value_new": "true"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01FHSTLSSCLXN2cKGwSDuIqgpf0mvJ7l0WA",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": "$activity.definition_activity_01FHSMW4ZRZUJ215I8gh8xCzv0kBQyISSAF.output.error.message$",
+                        "operator": "mw",
+                        "right_operand": "1234"
+                      },
+                      "operator": "or",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_01FHSMXUZV4AJ71rvRb0kfTkgfrgHdxqfGs.output.succeeded$",
+                        "operator": "ne",
+                        "right_operand": true
+                      }
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01FHT0BKQQLXA2eIfTlZnfjMT0b5UOBZCjt.output.error.message$",
+                      "operator": "mw",
+                      "right_operand": "4321"
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01FHSTLUZ7K2N5hpXuN2OJwpbh1N3XGk529",
+                    "name": "Set Variables",
+                    "title": "FAIL",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "FAIL",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.local.variable_workflow_01FHSNX0XBA6G3fopqnDn7bNoUlY49Onin2$",
+                          "variable_value_new": "false"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01FHT9VHVO3UZ2wgQzb9xHl6Xne6ubA8pnR",
+        "name": "Group",
+        "title": "Secure String Terminal_Unix",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Secure String Terminal_Unix",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01FHTUJPMWX252hAoMR9d9NYpNXGeWMCYlR",
+            "name": "Parallel Block",
+            "title": "Parallel Block",
+            "type": "logic.parallel",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Parallel Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01FHTUJUWT3MV3Y1GBDEJzSKxawkpHUhXb1",
+                "name": "Parallel Branch",
+                "title": "Parallel Branch",
+                "type": "logic.parallel_block",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Parallel Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01FHTUVAYL5OL7azCHV9IiMXxeHcWyWAM8o",
+                    "name": "Execute Terminal Command(s)",
+                    "title": "Execute Terminal Command(s)",
+                    "type": "terminal.command",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "command_timeout": 60,
+                      "commands": "echo($workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.local.variable_workflow_01FHSO8X51NEM5XhU63rEd59wTVwsRXZc7t$)",
+                      "continue_on_failure": true,
+                      "display_name": "Execute Terminal Command(s)",
+                      "failed_completed": [
+                        "$"
+                      ],
+                      "merge_commands": false,
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_01FAXPX8W6CP36dvKKUPIchfT9QtjU4sQDx"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01FHTUJX19J8Z4UkrOHOq9K4ldnHikDcecY",
+                "name": "Parallel Branch",
+                "title": "Parallel Branch",
+                "type": "logic.parallel_block",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Parallel Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01FHTVORGRWOT6L9ulfBg7dSYm0P47fW8SF",
+                    "name": "Execute Linux/Unix SSH Command",
+                    "title": "Execute Linux/Unix SSH Command",
+                    "type": "terminal.ssh_command",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "command": "echo($workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.local.variable_workflow_01FHSO8X51NEM5XhU63rEd59wTVwsRXZc7t$)",
+                      "command_timeout": 60,
+                      "continue_on_failure": true,
+                      "display_name": "Execute Linux/Unix SSH Command",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_01FBQIMU3WLPL23VXKfbViINNe9dkJj5QHe"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01FHTUQ1Y7GNF42FkzlAzVq1lYGlIjRS1uE",
+                "name": "Parallel Branch",
+                "title": "Parallel Branch",
+                "type": "logic.parallel_block",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Parallel Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01FHTVRBGDHB52qX444kFC7WK1FAp1LXMCb",
+                    "name": "Execute Linux/Unix SSH Script",
+                    "title": "Execute Linux/Unix SSH Script",
+                    "type": "terminal.ssh_script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Execute Linux/Unix SSH Script",
+                      "multiple_arguments": false,
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "script": "echo($workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.local.variable_workflow_01FHSO8X51NEM5XhU63rEd59wTVwsRXZc7t$)",
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_01FBQIMU3WLPL23VXKfbViINNe9dkJj5QHe"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01FHU1557J1O967POsmQwPc5OY3zy6d60yp",
+            "name": "Condition Block",
+            "title": "Condition Block",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Condition Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01FHU15832X833DJrHgkgjf1zSjLYndpB8E",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": "$activity.definition_activity_01FHTUVAYL5OL7azCHV9IiMXxeHcWyWAM8o.output.error.message$",
+                        "operator": "nmw",
+                        "right_operand": "1234"
+                      },
+                      "operator": "and",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_01FHTVORGRWOT6L9ulfBg7dSYm0P47fW8SF.output.error.message$",
+                        "operator": "nmw",
+                        "right_operand": "1234"
+                      }
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01FHTVRBGDHB52qX444kFC7WK1FAp1LXMCb.output.error.message$",
+                      "operator": "nmw",
+                      "right_operand": "1234"
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01FHU15A1R1J21jfuTfwJvuNZXPqMb6VeUe",
+                    "name": "Set Variables",
+                    "title": "PASS",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "PASS",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.local.variable_workflow_01FHU1RK9S6U85sYJ9uoXReed0Jg5umy8nQ$",
+                          "variable_value_new": "true"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01FHU15BZ6BBP3e74tqbYjzsc4r3Gn41jkC",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": "$activity.definition_activity_01FHTUVAYL5OL7azCHV9IiMXxeHcWyWAM8o.output.error.message$",
+                        "operator": "mw",
+                        "right_operand": "1234"
+                      },
+                      "operator": "or",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_01FHTVORGRWOT6L9ulfBg7dSYm0P47fW8SF.output.error.message$",
+                        "operator": "mw",
+                        "right_operand": "1234"
+                      }
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01FHTVRBGDHB52qX444kFC7WK1FAp1LXMCb.output.error.message$",
+                      "operator": "mw",
+                      "right_operand": "1234"
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01FHU15E13PVZ7Qx20B7LetVyeOHmLJrgQh",
+                    "name": "Set Variables",
+                    "title": "FAIL",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "FAIL",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.local.variable_workflow_01FHU1RK9S6U85sYJ9uoXReed0Jg5umy8nQ$",
+                          "variable_value_new": "false"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01FHUM4IQ2HUH4b2rU7Fj4LuJFAaMmqnqnF",
+        "name": "Group",
+        "title": "HTTP_Request",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "HTTP_Request",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01FHUMYR3X5JD7ZYLCiAZU9IlsWJRNkI5Z6",
+            "name": "Parallel Block",
+            "title": "Parallel Block",
+            "type": "logic.parallel",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Parallel Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01FHUMYVA45GP7Ub5CvQsDOyGxMXFWgVRw6",
+                "name": "Parallel Branch",
+                "title": "Parallel Branch",
+                "type": "logic.parallel_block",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Parallel Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01FHUS5A7BC2N4IFKFurATdyxOmnJwYcF8L",
+                    "name": "HTTP Request",
+                    "title": "HTTP Request_External",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "display_name": "HTTP Request_External",
+                      "method": "GET",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_01DHUPBICXM1Y0IKdIiWMFVje4xnsDvNVhS"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01FHUMYXB9D813jjnHgHaq4LBw7HvYkQnYJ",
+                "name": "Parallel Branch",
+                "title": "Parallel Branch",
+                "type": "logic.parallel_block",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Parallel Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01FHUTZFBMK624Stats0dYf7mQ5YnD7ghYI",
+                    "name": "HTTP Request",
+                    "title": "HTTP Request_Internal",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "body": "{\n  \"name\": \"$workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.input.variable_workflow_01FHUX1KLW3VI5gSqJkpvpYqWGSjmiu8thd$\",\n  \"title\": \"$workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.input.variable_workflow_01FHUX1KLW3VI5gSqJkpvpYqWGSjmiu8thd$\",\n  \"type\": \"basic.category\"\n}",
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": false,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "Bearer eyJraWQiOiIxIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOm51bGwsInN1YiI6IjkiLCJyb2xlcyI6WyJTVUlURV9VU0VSIiwiTEhfdGVuYW50X2FkbWluIl0sImlzcyI6InN1aXRlLWF1dGgiLCJ0ZW5hbnRJZCI6IjEiLCJleHAiOjE1NDU0MjA4MjgsImlhdCI6MTU0NTQxOTkxMywicm9sZXoiOlsiU1VJVEVfVVNFUiIsIkxIX3RlbmFudF9hZG1pbiJdfQ.Dt7KVqDo_FoydB1lNADKleko9OJ6thDOkjqDM5luJzcRMg5bNXPwI-oTa9mWAosO9yiDVMk92pbTVA27hOtRggTtC-9eRECQJfh_qcesNr_wvfMZseVidK734J_0R8WmsVufy4nqu3fvl2VHbCbcZH96Ap-f1r0y2Uzb5QZOucc"
+                        }
+                      ],
+                      "display_name": "HTTP Request_Internal",
+                      "method": "POST",
+                      "relative_url": "v1/categories",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_01F6OUM7LRRSN7mYKK0MKbFKTxY2NJdUpKN"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01FHUN1KD2XRQ2tcynhBU4y36K3Qnea1zNa",
+                "name": "Parallel Branch",
+                "title": "Parallel Branch",
+                "type": "logic.parallel_block",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Parallel Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01FHUU29NNYA32fetk7nB2SW3ZBaw0WS9uM",
+                    "name": "HTTP Request",
+                    "title": "HTTP Request_Internal_error_SS",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "body": "{\n  \"name\": \"$workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.local.variable_workflow_01FHSO8X51NEM5XhU63rEd59wTVwsRXZc7t$\",\n  \"title\": \"$workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.local.variable_workflow_01FHSO8X51NEM5XhU63rEd59wTVwsRXZc7t$\",\n  \"type\": \"basic.category\"\n}",
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "Bearer eyJraWQiOiIxIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOm51bGwsInN1YiI6IjkiLCJyb2xlcyI6WyJTVUlURV9VU0VSIiwiTEhfdGVuYW50X2FkbWluIl0sImlzcyI6InN1aXRlLWF1dGgiLCJ0ZW5hbnRJZCI6IjEiLCJleHAiOjE1NDU0MjA4MjgsImlhdCI6MTU0NTQxOTkxMywicm9sZXoiOlsiU1VJVEVfVVNFUiIsIkxIX3RlbmFudF9hZG1pbiJdfQ.Dt7KVqDo_FoydB1lNADKleko9OJ6thDOkjqDM5luJzcRMg5bNXPwI-oTa9mWAosO9yiDVMk92pbTVA27hOtRggTtC-9eRECQJfh_qcesNr_wvfMZseVidK734J_0R8WmsVufy4nqu3fvl2VHbCbcZH96Ap-f1r0y2Uzb5QZOucc"
+                        },
+                        {
+                          "name": "value",
+                          "value": "$workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.local.variable_workflow_01FHSO8X51NEM5XhU63rEd59wTVwsRXZc7t$"
+                        }
+                      ],
+                      "display_name": "HTTP Request_Internal_error_SS",
+                      "method": "POST",
+                      "relative_url": "v1/categorie",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_01F6OUM7LRRSN7mYKK0MKbFKTxY2NJdUpKN"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01FI0CGZT39GA0B6ldZXmzosNHb9cSiwta9",
+            "name": "Condition Block",
+            "title": "Condition Block",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Condition Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01FI0CH3YM2UG5qJKjSNu6cYVZmuiJwvmjZ",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": {
+                          "left_operand": "$activity.definition_activity_01FHUS5A7BC2N4IFKFurATdyxOmnJwYcF8L.output.status_text$",
+                          "operator": "eq",
+                          "right_operand": "200 OK"
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_01FHUTZFBMK624Stats0dYf7mQ5YnD7ghYI.output.status_text$",
+                          "operator": "eq",
+                          "right_operand": "201 Created"
+                        }
+                      },
+                      "operator": "and",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_01FHUU29NNYA32fetk7nB2SW3ZBaw0WS9uM.output.succeeded$",
+                        "operator": "eq",
+                        "right_operand": false
+                      }
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01FHUU29NNYA32fetk7nB2SW3ZBaw0WS9uM.output.error.message$",
+                      "operator": "nmw",
+                      "right_operand": "1234"
+                    }
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01FI0D6IKQLBY6RmPX1q3HJbI2mS7aJBRQe",
+                    "name": "Set Variables",
+                    "title": "PASS",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "PASS",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.local.variable_workflow_01FI0D1LKMTXU6AHwHrz8EGkNbS7bTjlQRb$",
+                          "variable_value_new": "true"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01FI0CH5EJJ5I61Drt51j9Ms5cruKwr3OG2",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": {
+                          "left_operand": "$activity.definition_activity_01FHUS5A7BC2N4IFKFurATdyxOmnJwYcF8L.output.status_text$",
+                          "operator": "ne",
+                          "right_operand": "200 OK"
+                        },
+                        "operator": "or",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_01FHUTZFBMK624Stats0dYf7mQ5YnD7ghYI.output.status_text$",
+                          "operator": "ne",
+                          "right_operand": "201 Created"
+                        }
+                      },
+                      "operator": "or",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_01FHUU29NNYA32fetk7nB2SW3ZBaw0WS9uM.output.succeeded$",
+                        "operator": "ne",
+                        "right_operand": false
+                      }
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01FHUU29NNYA32fetk7nB2SW3ZBaw0WS9uM.output.error.message$",
+                      "operator": "mw",
+                      "right_operand": "1234"
+                    }
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01FI0D8A85JNQ0n9nswoAK364p5VoAsPjGb",
+                    "name": "Set Variables",
+                    "title": "FAIL",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "FAIL",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.local.variable_workflow_01FI0D1LKMTXU6AHwHrz8EGkNbS7bTjlQRb$",
+                          "variable_value_new": "false"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01FHVA41LPUOU2JBWZnpIoLcN8V776Sp8M6",
+        "name": "Group",
+        "title": "Email",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Email",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01FHVAQ6VZWLV5gq8o4uLyeptl6lGN49BVN",
+            "name": "Send Email",
+            "title": "Send Email",
+            "type": "email.smtp_send_email",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "attachments": [
+                "$workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.input.variable_workflow_01FHVCQFWWCHT0tXoqmlMCnlLVc4HvRtEjT$"
+              ],
+              "body": "This is a Test",
+              "continue_if_one_address_valid": false,
+              "continue_on_failure": false,
+              "display_name": "Send Email",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "subject": "TestSecureX",
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "definition_target_01FFE1AZ0F39E6yIHG3gMz3AitYRn7tXWDf"
+              },
+              "to": "jamaltest12@gmail.com"
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01FHXE0DU0G3O3m7x8eY2VxPeRn4z8Ho4Pl",
+            "name": "Sleep",
+            "title": "Sleep",
+            "type": "core.sleep",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Sleep",
+              "skip_execution": false,
+              "sleep_interval": 10
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01FHZSRH4SW886WWdXm3bMiuiyKwr5bisuQ",
+            "name": "SJ_Http_InstanceID",
+            "title": "SJ_Http_InstanceID",
+            "type": "workflow.sub_workflow",
+            "base_type": "subworkflow",
+            "properties": {
+              "display_name": "SJ_Http_InstanceID",
+              "runtime_user": {
+                "target_default": true
+              },
+              "target": {
+                "no_target": true
+              },
+              "workflow_id": "definition_workflow_01FHY4XP3P6LE2sVkgVFYXN31fblaLi7vyK"
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01FHWGMNMKEGF2jEbeJ42y9XBtCgoWkgESx",
+            "name": "Condition Block",
+            "title": "Condition Block",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Condition Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01FHWGMS8PT042bOjYriGhUfUYoWk1ZHCnM",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": "$activity.definition_activity_01FHVAQ6VZWLV5gq8o4uLyeptl6lGN49BVN.output.succeeded$",
+                      "operator": "eq",
+                      "right_operand": true
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01FHZSRH4SW886WWdXm3bMiuiyKwr5bisuQ.output.variable_workflow_01FHZQYEZ2C3O3cdTQNqWBpORZhPvCnjOmT$",
+                      "operator": "eq",
+                      "right_operand": "string.txt"
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01FHWLAJ3Y24O5JCo23g4m7nCkDVE1zyqNF",
+                    "name": "Set Variables",
+                    "title": "PASS",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "PASS",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.local.variable_workflow_01FHWL7BX16NR1r8n4cZEnebr5h08Xa84XU$",
+                          "variable_value_new": "true"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01FHWGMUEDVES6SMwJolyaIThFTu1ltVnEl",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": "$activity.definition_activity_01FHVAQ6VZWLV5gq8o4uLyeptl6lGN49BVN.output.succeeded$",
+                      "operator": "ne",
+                      "right_operand": true
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01FHZSRH4SW886WWdXm3bMiuiyKwr5bisuQ.output.variable_workflow_01FHZQYEZ2C3O3cdTQNqWBpORZhPvCnjOmT$",
+                      "operator": "ne",
+                      "right_operand": "string.txt"
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01FHWLUFJU8Q74ZwUVD0htjaJfFw2oLZUdg",
+                    "name": "Set Variables",
+                    "title": "FAIL",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "FAIL",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01FHRHURMB1CI4aj1YEDy7scfTSi4HFUioY.local.variable_workflow_01FHWL7BX16NR1r8n4cZEnebr5h08Xa84XU$",
+                          "variable_value_new": "false"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_01DHUPBICXM1Y0IKdIiWMFVje4xnsDvNVhS": {
+      "unique_name": "definition_target_01DHUPBICXM1Y0IKdIiWMFVje4xnsDvNVhS",
+      "name": "Random Number between 1 and 9",
+      "title": "Random Number between 1 and 9",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "description": "Random intergers from random.org",
+        "disable_certificate_validation": false,
+        "display_name": "Random Number between 1 and 9",
+        "host": "www.random.org",
+        "no_runtime_user": true,
+        "path": "/integers/?num=1\u0026base=10\u0026col=1\u0026format=plain\u0026rnd=new\u0026min=1\u0026max=9",
+        "port": 443,
+        "protocol": "https"
+      }
+    },
+    "definition_target_01F6OUM7LRRSN7mYKK0MKbFKTxY2NJdUpKN": {
+      "unique_name": "definition_target_01F6OUM7LRRSN7mYKK0MKbFKTxY2NJdUpKN",
+      "name": "SJ_HTTP Internal",
+      "title": "SJ_HTTP Internal",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": true,
+        "display_name": "SJ_HTTP Internal",
+        "host": "dev1-sa.ao-local.com",
+        "ignore_proxy": false,
+        "no_runtime_user": true,
+        "path": "/be-console/api/",
+        "port": 443,
+        "protocol": "https"
+      }
+    },
+    "definition_target_01FAXPX8W6CP36dvKKUPIchfT9QtjU4sQDx": {
+      "unique_name": "definition_target_01FAXPX8W6CP36dvKKUPIchfT9QtjU4sQDx",
+      "name": "ShamsTerminalTargetExt",
+      "title": "ShamsTerminalTargetExt",
+      "type": "terminal.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01FAXNN7WKDTC1xwQrqUOiDTE7OpY6nUhyC",
+        "display_name": "ShamsTerminalTargetExt",
+        "host": "18.191.227.118",
+        "port": 22,
+        "protocol": "ssh"
+      }
+    },
+    "definition_target_01FBQIMU3WLPL23VXKfbViINNe9dkJj5QHe": {
+      "unique_name": "definition_target_01FBQIMU3WLPL23VXKfbViINNe9dkJj5QHe",
+      "name": "ShamsNewUnix",
+      "title": "ShamsNewUnix",
+      "type": "terminal.unix_linux_endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "bash_shell": "/bin/bash",
+        "default_runtime_user_id": "definition_runtime_user_01FAXNN7WKDTC1xwQrqUOiDTE7OpY6nUhyC",
+        "display_name": "ShamsNewUnix",
+        "host": "18.191.227.118",
+        "port": 22
+      }
+    },
+    "definition_target_01FFE1AZ0F39E6yIHG3gMz3AitYRn7tXWDf": {
+      "unique_name": "definition_target_01FFE1AZ0F39E6yIHG3gMz3AitYRn7tXWDf",
+      "name": "ShamsSMTP",
+      "title": "ShamsSMTP",
+      "type": "email.smtp_endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01FFCBG2LQKKG1kq1I04WRYFNNBprg5RIt9",
+        "display_name": "ShamsSMTP",
+        "no_runtime_user": false,
+        "port": 587,
+        "protocol": "SMTP",
+        "server": "smtp.gmail.com"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_01FAXNN7WKDTC1xwQrqUOiDTE7OpY6nUhyC": {
+      "unique_name": "definition_runtime_user_01FAXNN7WKDTC1xwQrqUOiDTE7OpY6nUhyC",
+      "name": "ShamsExternalTerminal",
+      "title": "ShamsExternalTerminal",
+      "type": "runtime_user.terminal_key_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "ShamsExternalTerminal",
+        "key": "*****",
+        "user": "*****"
+      }
+    },
+    "definition_runtime_user_01FFCBG2LQKKG1kq1I04WRYFNNBprg5RIt9": {
+      "unique_name": "definition_runtime_user_01FFCBG2LQKKG1kq1I04WRYFNNBprg5RIt9",
+      "name": "ShamsEmail",
+      "title": "ShamsEmail",
+      "type": "runtime_user.email_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "ShamsEmail",
+        "password": "*****",
+        "sender": "*****"
+      }
+    }
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01FHY4XP3P6LE2sVkgVFYXN31fblaLi7vyK",
+        "name": "SJ_Http_InstanceID",
+        "title": "SJ_Http_InstanceID",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Attachment",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01FHZQOVRYCBA4j0vfRijpWQ659Gdv6tGgL",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Attachment Name",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01FHZQYEZ2C3O3cdTQNqWBpORZhPvCnjOmT",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "SJ_Http_InstanceID",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "specify_on_workflow_start": false,
+            "target_default": true
+          },
+          "target": {
+            "execute_on_target_group": false,
+            "execute_on_workflow_target": false,
+            "no_target": true,
+            "specify_on_workflow_start": false
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01FHY5J1UM88E6fWiHmmO1k0ldjtDw54xLF",
+            "name": "HTTP Request",
+            "title": "HTTP Call to Get Instance",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "body": "{\n  \"owner\": [\n    \"\"\n  ],\n  \"workflow_ids\": [\n    \"01FHX8WOVMO0R7BZPAsuU3bZdJjeYsqHZDF\"\n  ]\n}",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": false,
+              "custom_headers": [
+                {
+                  "name": "Authorization",
+                  "value": "Bearer eyJraWQiOiIxIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOm51bGwsInN1YiI6IjkiLCJyb2xlcyI6WyJTVUlURV9VU0VSIiwiTEhfdGVuYW50X2FkbWluIl0sImlzcyI6InN1aXRlLWF1dGgiLCJ0ZW5hbnRJZCI6IjEiLCJleHAiOjE1NDU0MjA4MjgsImlhdCI6MTU0NTQxOTkxMywicm9sZXoiOlsiU1VJVEVfVVNFUiIsIkxIX3RlbmFudF9hZG1pbiJdfQ.Dt7KVqDo_FoydB1lNADKleko9OJ6thDOkjqDM5luJzcRMg5bNXPwI-oTa9mWAosO9yiDVMk92pbTVA27hOtRggTtC-9eRECQJfh_qcesNr_wvfMZseVidK734J_0R8WmsVufy4nqu3fvl2VHbCbcZH96Ap-f1r0y2Uzb5QZOucc"
+                }
+              ],
+              "display_name": "HTTP Call to Get Instance",
+              "method": "POST",
+              "relative_url": "v1.1/instances?limit=1",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "definition_target_01F6OUM7LRRSN7mYKK0MKbFKTxY2NJdUpKN"
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01FHYTYOZ5AOH1cmt7dpxViKbkdH97emXa9",
+            "name": "JSONPath Query",
+            "title": "Extract Instance ID",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "Extract Instance ID",
+              "input_json": "$activity.definition_activity_01FHY5J1UM88E6fWiHmmO1k0ldjtDw54xLF.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$.results..id",
+                  "jsonpath_query_name": "instance_ID",
+                  "jsonpath_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01FHZA5S0KE5U5IbMFdKn5Z1DRmPOpVcuFH",
+            "name": "HTTP Request",
+            "title": "HTTP Call To Get Instance Detail",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "continue_on_error_status_code": false,
+              "continue_on_failure": false,
+              "custom_headers": [
+                {
+                  "name": "Authorization",
+                  "value": "Bearer eyJraWQiOiIxIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOm51bGwsInN1YiI6IjkiLCJyb2xlcyI6WyJTVUlURV9VU0VSIiwiTEhfdGVuYW50X2FkbWluIl0sImlzcyI6InN1aXRlLWF1dGgiLCJ0ZW5hbnRJZCI6IjEiLCJleHAiOjE1NDU0MjA4MjgsImlhdCI6MTU0NTQxOTkxMywicm9sZXoiOlsiU1VJVEVfVVNFUiIsIkxIX3RlbmFudF9hZG1pbiJdfQ.Dt7KVqDo_FoydB1lNADKleko9OJ6thDOkjqDM5luJzcRMg5bNXPwI-oTa9mWAosO9yiDVMk92pbTVA27hOtRggTtC-9eRECQJfh_qcesNr_wvfMZseVidK734J_0R8WmsVufy4nqu3fvl2VHbCbcZH96Ap-f1r0y2Uzb5QZOucc"
+                }
+              ],
+              "display_name": "HTTP Call To Get Instance Detail",
+              "method": "GET",
+              "relative_url": "v1/instances/$activity.definition_activity_01FHYTYOZ5AOH1cmt7dpxViKbkdH97emXa9.output.jsonpath_queries.instance_ID$?detailed=false",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "definition_target_01F6OUM7LRRSN7mYKK0MKbFKTxY2NJdUpKN"
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01FHZJX4OO1DI6lHBSvxBhrQ9rvsnLyKZTg",
+            "name": "JSONPath Query",
+            "title": "Extract Instance Variables value",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "Extract Instance Variables value",
+              "input_json": "$activity.definition_activity_01FHZA5S0KE5U5IbMFdKn5Z1DRmPOpVcuFH.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$.variables..value",
+                  "jsonpath_query_name": "Attachment Name",
+                  "jsonpath_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01FHZR7X7Q85G63ns1NiYdF0DeOIbtHe077",
+            "name": "Set Variables",
+            "title": "Set Variables",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Set Variables",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01FHY4XP3P6LE2sVkgVFYXN31fblaLi7vyK.output.variable_workflow_01FHZQYEZ2C3O3cdTQNqWBpORZhPvCnjOmT$",
+                  "variable_value_new": "$activity.definition_activity_01FHZJX4OO1DI6lHBSvxBhrQ9rvsnLyKZTg.output.jsonpath_queries.Attachment Name$"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    }
+  ],
+  "atomic_workflows": [
+    "definition_workflow_01FHOAYWGI03J6jgWPUnIXkGNy5kRYmjuUa"
+  ]
+}
