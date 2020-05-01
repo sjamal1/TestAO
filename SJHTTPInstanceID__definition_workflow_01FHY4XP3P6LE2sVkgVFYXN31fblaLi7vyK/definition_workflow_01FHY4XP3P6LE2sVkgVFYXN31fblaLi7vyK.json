@@ -1,0 +1,206 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01FHY4XP3P6LE2sVkgVFYXN31fblaLi7vyK",
+    "name": "SJ_Http_InstanceID",
+    "title": "SJ_Http_InstanceID",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Attachment Name",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01FHZQYEZ2C3O3cdTQNqWBpORZhPvCnjOmT",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Attachment",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01FHZQOVRYCBA4j0vfRijpWQ659Gdv6tGgL",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "SJ_Http_InstanceID",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01FHY5J1UM88E6fWiHmmO1k0ldjtDw54xLF",
+        "name": "HTTP Request",
+        "title": "HTTP Call to Get Instance",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "body": "{\n  \"owner\": [\n    \"\"\n  ],\n  \"workflow_ids\": [\n    \"01FHX8WOVMO0R7BZPAsuU3bZdJjeYsqHZDF\"\n  ]\n}",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer eyJraWQiOiIxIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOm51bGwsInN1YiI6IjkiLCJyb2xlcyI6WyJTVUlURV9VU0VSIiwiTEhfdGVuYW50X2FkbWluIl0sImlzcyI6InN1aXRlLWF1dGgiLCJ0ZW5hbnRJZCI6IjEiLCJleHAiOjE1NDU0MjA4MjgsImlhdCI6MTU0NTQxOTkxMywicm9sZXoiOlsiU1VJVEVfVVNFUiIsIkxIX3RlbmFudF9hZG1pbiJdfQ.Dt7KVqDo_FoydB1lNADKleko9OJ6thDOkjqDM5luJzcRMg5bNXPwI-oTa9mWAosO9yiDVMk92pbTVA27hOtRggTtC-9eRECQJfh_qcesNr_wvfMZseVidK734J_0R8WmsVufy4nqu3fvl2VHbCbcZH96Ap-f1r0y2Uzb5QZOucc"
+            }
+          ],
+          "display_name": "HTTP Call to Get Instance",
+          "method": "POST",
+          "relative_url": "v1.1/instances?limit=1",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01F6OUM7LRRSN7mYKK0MKbFKTxY2NJdUpKN"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01FHYTYOZ5AOH1cmt7dpxViKbkdH97emXa9",
+        "name": "JSONPath Query",
+        "title": "Extract Instance ID",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Extract Instance ID",
+          "input_json": "$activity.definition_activity_01FHY5J1UM88E6fWiHmmO1k0ldjtDw54xLF.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.results..id",
+              "jsonpath_query_name": "instance_ID",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01FHZA5S0KE5U5IbMFdKn5Z1DRmPOpVcuFH",
+        "name": "HTTP Request",
+        "title": "HTTP Call To Get Instance Detail",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer eyJraWQiOiIxIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOm51bGwsInN1YiI6IjkiLCJyb2xlcyI6WyJTVUlURV9VU0VSIiwiTEhfdGVuYW50X2FkbWluIl0sImlzcyI6InN1aXRlLWF1dGgiLCJ0ZW5hbnRJZCI6IjEiLCJleHAiOjE1NDU0MjA4MjgsImlhdCI6MTU0NTQxOTkxMywicm9sZXoiOlsiU1VJVEVfVVNFUiIsIkxIX3RlbmFudF9hZG1pbiJdfQ.Dt7KVqDo_FoydB1lNADKleko9OJ6thDOkjqDM5luJzcRMg5bNXPwI-oTa9mWAosO9yiDVMk92pbTVA27hOtRggTtC-9eRECQJfh_qcesNr_wvfMZseVidK734J_0R8WmsVufy4nqu3fvl2VHbCbcZH96Ap-f1r0y2Uzb5QZOucc"
+            }
+          ],
+          "display_name": "HTTP Call To Get Instance Detail",
+          "method": "GET",
+          "relative_url": "v1/instances/$activity.definition_activity_01FHYTYOZ5AOH1cmt7dpxViKbkdH97emXa9.output.jsonpath_queries.instance_ID$?detailed=false",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01F6OUM7LRRSN7mYKK0MKbFKTxY2NJdUpKN"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01FHZJX4OO1DI6lHBSvxBhrQ9rvsnLyKZTg",
+        "name": "JSONPath Query",
+        "title": "Extract Instance Variables value",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Extract Instance Variables value",
+          "input_json": "$activity.definition_activity_01FHZA5S0KE5U5IbMFdKn5Z1DRmPOpVcuFH.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.variables..value",
+              "jsonpath_query_name": "Attachment Name",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01FHZR7X7Q85G63ns1NiYdF0DeOIbtHe077",
+        "name": "Set Variables",
+        "title": "Set Variables",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Set Variables",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_01FHY4XP3P6LE2sVkgVFYXN31fblaLi7vyK.output.variable_workflow_01FHZQYEZ2C3O3cdTQNqWBpORZhPvCnjOmT$",
+              "variable_value_new": "$activity.definition_activity_01FHZJX4OO1DI6lHBSvxBhrQ9rvsnLyKZTg.output.jsonpath_queries.Attachment Name$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_01F6OUM7LRRSN7mYKK0MKbFKTxY2NJdUpKN": {
+      "unique_name": "definition_target_01F6OUM7LRRSN7mYKK0MKbFKTxY2NJdUpKN",
+      "name": "SJ_HTTP Internal",
+      "title": "SJ_HTTP Internal",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": true,
+        "display_name": "SJ_HTTP Internal",
+        "host": "dev1-sa.ao-local.com",
+        "ignore_proxy": false,
+        "no_runtime_user": true,
+        "path": "/be-console/api/",
+        "port": 443,
+        "protocol": "https"
+      }
+    }
+  }
+}
