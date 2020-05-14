@@ -1,8 +1,8 @@
 {
   "workflow": {
     "unique_name": "definition_workflow_01FFB18MZGB7J0EIHaBO3DwaUIaMfJ8XoMP",
-    "name": "Terminal_WF",
-    "title": "Terminal_WF",
+    "name": "Terminal_WF_Test",
+    "title": "Terminal_WF_Test",
     "type": "generic.workflow",
     "base_type": "workflow",
     "variables": null,
@@ -11,7 +11,7 @@
         "is_atomic": false
       },
       "delete_workflow_instance": false,
-      "display_name": "Terminal_WF",
+      "display_name": "Terminal_WF_Test",
       "runtime_user": {
         "override_target_runtime_user": false,
         "specify_on_workflow_start": false,
