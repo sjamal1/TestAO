@@ -1,46 +1,11 @@
 {
   "workflow": {
     "unique_name": "definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A",
-    "name": "SJ_Table_MultipleWhileLoop",
-    "title": "SJ_Table_MultipleWhileLoop",
+    "name": "SJ_Table_MultipleWhileLoop1",
+    "title": "SJ_Table_MultipleWhileLoop1",
     "type": "generic.workflow",
     "base_type": "workflow",
     "variables": [
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "local",
-          "name": "TempVar2",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01FS2NHAGSESV7Zxf7C0MHzPOTyoAUvAkjO",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.integer",
-        "properties": {
-          "value": 1,
-          "scope": "local",
-          "name": "Counter",
-          "type": "datatype.integer",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01FS1N3BT35IT6mQnILfSI6XFwjInyU3FTr",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "tabletype_01D0K5DCFYE6159hoFnF88b2eef20NJRLDz",
-        "properties": {
-          "scope": "static",
-          "name": "LargeDataTable",
-          "type": "datatype.table",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01FS1N3BT2TCZ69bjuJB3ZbqcIx8TzK5ejQ",
-        "object_type": "variable_workflow"
-      },
       {
         "schema_id": "datatype.string",
         "properties": {
@@ -88,6 +53,41 @@
         },
         "unique_name": "variable_workflow_01FS2N9BSF7VJ4GjGWIcq2Qch79xrTM6FvB",
         "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "TempVar2",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01FS2NHAGSESV7Zxf7C0MHzPOTyoAUvAkjO",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 1,
+          "scope": "local",
+          "name": "Counter",
+          "type": "datatype.integer",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01FS1N3BT35IT6mQnILfSI6XFwjInyU3FTr",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_01D0K5DCFYE6159hoFnF88b2eef20NJRLDz",
+        "properties": {
+          "scope": "static",
+          "name": "LargeDataTable",
+          "type": "datatype.table",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01FS1N3BT2TCZ69bjuJB3ZbqcIx8TzK5ejQ",
+        "object_type": "variable_workflow"
       }
     ],
     "properties": {
@@ -95,7 +95,7 @@
         "is_atomic": false
       },
       "delete_workflow_instance": false,
-      "display_name": "SJ_Table_MultipleWhileLoop",
+      "display_name": "SJ_Table_MultipleWhileLoop1",
       "runtime_user": {
         "override_target_runtime_user": false,
         "specify_on_workflow_start": false,
