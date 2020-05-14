@@ -1,0 +1,1016 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A",
+    "name": "SJ_Table_MultipleWhileLoop",
+    "title": "SJ_Table_MultipleWhileLoop",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "TempVar2",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01FS2NHAGSESV7Zxf7C0MHzPOTyoAUvAkjO",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 1,
+          "scope": "local",
+          "name": "Counter",
+          "type": "datatype.integer",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01FS1N3BT35IT6mQnILfSI6XFwjInyU3FTr",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_01D0K5DCFYE6159hoFnF88b2eef20NJRLDz",
+        "properties": {
+          "scope": "static",
+          "name": "LargeDataTable",
+          "type": "datatype.table",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01FS1N3BT2TCZ69bjuJB3ZbqcIx8TzK5ejQ",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "TempVar",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01FS1N3BT28H33qoIBwvtAilpLydPTS9fBI",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Delete_Table_Result",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01FS1N3BT2FA61A00icDcWw4hDMACyushbK",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "LargeDataSelect_Result",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01FS1N3BT2HS41F38dOPgIY81B1w38tr7Nx",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 1,
+          "scope": "local",
+          "name": "Counter2",
+          "type": "datatype.integer",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01FS2N9BSF7VJ4GjGWIcq2Qch79xrTM6FvB",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "SJ_Table_MultipleWhileLoop",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01FS1NADH0O6U3KTqi07t5ci79R4Oz25t18",
+        "name": "Parallel Block",
+        "title": "Parallel Block 1",
+        "type": "logic.parallel",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Parallel Block 1",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01FS1NAMJVHCU7KYEXdKXUaYRoxRdmepXyU",
+            "name": "Parallel Branch",
+            "title": "Adding Large Data to a table and selecting 1",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Adding Large Data to a table and selecting 1",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01FS1NAWB86XF2N0KB45AuOmD02HgvlRzXS",
+                "name": "While Loop",
+                "title": "While Loop",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "While Loop",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_01FS1NB5L9MML1gdjGuWQpUk4dYpW6fZXLy",
+                    "name": "Condition Branch",
+                    "title": "Condition",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.local.variable_workflow_01FS1N3BT35IT6mQnILfSI6XFwjInyU3FTr$",
+                        "operator": "lte",
+                        "right_operand": 500
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "Condition",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01FS1NBGKG41B1RlZHmPUh6c8jqqjzKYwyk",
+                        "name": "Set Variables",
+                        "title": "Set New Values and Write to Temp Var",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Set New Values and Write to Temp Var",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.local.variable_workflow_01FS2NHAGSESV7Zxf7C0MHzPOTyoAUvAkjO$",
+                              "variable_value_new": "val$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.local.variable_workflow_01FS1N3BT35IT6mQnILfSI6XFwjInyU3FTr$"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01FS1NBQWFN2N1B2od3JmOmUIBXhG4CI5Zg",
+                        "name": "Add Row to Table",
+                        "title": "Add Row to Table",
+                        "type": "core.addrowtotable",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": true,
+                          "display_name": "Add Row to Table",
+                          "input_table": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.static.variable_workflow_01FS1N3BT2TCZ69bjuJB3ZbqcIx8TzK5ejQ$",
+                          "row": [
+                            {
+                              "key": "Item",
+                              "type": "string",
+                              "value": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.local.variable_workflow_01FS1N3BT28H33qoIBwvtAilpLydPTS9fBI$"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01FS1NC2TFOL045G46gdkiUSSZ0l13bydKd",
+                        "name": "Set Variables",
+                        "title": "Increment Counter",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Increment Counter",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.local.variable_workflow_01FS1N3BT35IT6mQnILfSI6XFwjInyU3FTr$",
+                              "variable_value_new": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.local.variable_workflow_01FS1N3BT35IT6mQnILfSI6XFwjInyU3FTr$ + 1"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01FS4XO3IDWIN32zlb1HyXK0Kv0IjzX4JZr",
+                "name": "Sleep",
+                "title": "Sleep",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep",
+                  "skip_execution": false,
+                  "sleep_interval": 5
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01FS1NCDOMW5X7NNKDGX5vHj07ArN7whUGK",
+                "name": "Select from Table",
+                "title": "Select from Table All Rows",
+                "type": "core.selectfromtable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Select from Table All Rows",
+                  "input_table": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.static.variable_workflow_01FS1N3BT2TCZ69bjuJB3ZbqcIx8TzK5ejQ$",
+                  "number_of_rows": {
+                    "all_rows": true,
+                    "at_most": false
+                  },
+                  "persist_output": false,
+                  "skip_execution": false,
+                  "sorting": {
+                    "no_sort": true,
+                    "sort_by": false
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01FS1NCPXDX2173dH3Jn7LQVQX13UCQpQ5f",
+                "name": "Select from Table",
+                "title": "Select from Table a Specific Row",
+                "type": "core.selectfromtable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Select from Table a Specific Row",
+                  "input_table": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.static.variable_workflow_01FS1N3BT2TCZ69bjuJB3ZbqcIx8TzK5ejQ$",
+                  "number_of_rows": {
+                    "all_rows": true,
+                    "at_most": false
+                  },
+                  "persist_output": false,
+                  "skip_execution": false,
+                  "sorting": {
+                    "no_sort": true,
+                    "sort_by": false
+                  },
+                  "where_clause": "Item == 'value500'"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01FS1ND2KRQ9E1EZ7n2cW46X1u580yTwE6W",
+                "name": "JSONPath Query",
+                "title": "Extract Select from Table Specific Row Response",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Extract Select from Table Specific Row Response",
+                  "input_json": "$activity.definition_activity_01FS1NCPXDX2173dH3Jn7LQVQX13UCQpQ5f.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$..Item",
+                      "jsonpath_query_name": "Item",
+                      "jsonpath_query_type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01FS1NDDZQ2BK6m2nrhMRG7sealcjvA5MJm",
+                "name": "Condition Block",
+                "title": "Condition Block",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Condition Block",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_01FS1NDOIV3GS4kwLQE77bA6AsXDeVHYFAR",
+                    "name": "Condition Branch",
+                    "title": "IF PASS",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": "$activity.definition_activity_01FS1NCDOMW5X7NNKDGX5vHj07ArN7whUGK.output.row_count$",
+                          "operator": "eq",
+                          "right_operand": 1000
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_01FS1ND2KRQ9E1EZ7n2cW46X1u580yTwE6W.output.jsonpath_queries.Item$",
+                          "operator": "eq",
+                          "right_operand": "value500"
+                        }
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "IF PASS",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01FS1NDZNP8LD2WGQGMuSivwJtIJnipfMhx",
+                        "name": "Set Variables",
+                        "title": "PASS",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "PASS",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.variable_workflow_01FS1N3BT2HS41F38dOPgIY81B1w38tr7Nx$",
+                              "variable_value_new": "true"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_01FS1NEB29PLG1kfcG5u21hInrj9iCMmGfn",
+                    "name": "Condition Branch",
+                    "title": "IF FAIL",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": "$activity.definition_activity_01FS1NCDOMW5X7NNKDGX5vHj07ArN7whUGK.output.row_count$",
+                          "operator": "ne",
+                          "right_operand": 500
+                        },
+                        "operator": "or",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_01FS1ND2KRQ9E1EZ7n2cW46X1u580yTwE6W.output.jsonpath_queries.Item$",
+                          "operator": "ne",
+                          "right_operand": "value500"
+                        }
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "IF FAIL",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01FS1NEMGE5IR3FuIwLE11ilDOfdrkolaly",
+                        "name": "Set Variables",
+                        "title": "FAIL",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "FAIL",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.variable_workflow_01FS1N3BT2HS41F38dOPgIY81B1w38tr7Nx$",
+                              "variable_value_new": "false"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01FS2JDCAE2DT4GWeQAyrfmrMDG66V7Mvmb",
+            "name": "Parallel Branch",
+            "title": "Adding Large Data to a table and selecting 2",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Adding Large Data to a table and selecting 2",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01FS2JDG8504C3n3hlUoIN8PknPmzj0shGB",
+                "name": "While Loop",
+                "title": "While Loop",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "While Loop",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_01FS2JDIIVAJ154wthbGTYhb6m9YwsDBNo4",
+                    "name": "Condition Branch",
+                    "title": "Condition",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.local.variable_workflow_01FS2N9BSF7VJ4GjGWIcq2Qch79xrTM6FvB$",
+                        "operator": "lte",
+                        "right_operand": 500
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "Condition",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01FS2JDL2C2894lpHnF7qboDnVb8bSjZt3z",
+                        "name": "Set Variables",
+                        "title": "Set New Values and Write to Temp Var",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Set New Values and Write to Temp Var",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.local.variable_workflow_01FS1N3BT28H33qoIBwvtAilpLydPTS9fBI$",
+                              "variable_value_new": "value$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.local.variable_workflow_01FS1N3BT35IT6mQnILfSI6XFwjInyU3FTr$"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01FS2JDNW7T4Y4s5Xc1IOjusnQAxIVJXSPa",
+                        "name": "Add Row to Table",
+                        "title": "Add Row to Table",
+                        "type": "core.addrowtotable",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": true,
+                          "display_name": "Add Row to Table",
+                          "input_table": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.static.variable_workflow_01FS1N3BT2TCZ69bjuJB3ZbqcIx8TzK5ejQ$",
+                          "row": [
+                            {
+                              "key": "Item",
+                              "type": "string",
+                              "value": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.local.variable_workflow_01FS2NHAGSESV7Zxf7C0MHzPOTyoAUvAkjO$"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01FS2JDQLBF0U4u7fkgbmgfvsAsi2EO4nLR",
+                        "name": "Set Variables",
+                        "title": "Increment Counter",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Increment Counter",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.local.variable_workflow_01FS2N9BSF7VJ4GjGWIcq2Qch79xrTM6FvB$",
+                              "variable_value_new": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.local.variable_workflow_01FS2N9BSF7VJ4GjGWIcq2Qch79xrTM6FvB$+ 1"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01FS4XQWLO0QM28xycngMnzpUINShIijhOX",
+                "name": "Sleep",
+                "title": "Sleep",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep",
+                  "skip_execution": false,
+                  "sleep_interval": 5
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01FS2JDSXHBPF2THvCxoPghIKT9lnqkAgSR",
+                "name": "Select from Table",
+                "title": "Select from Table All Rows",
+                "type": "core.selectfromtable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Select from Table All Rows",
+                  "input_table": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.static.variable_workflow_01FS1N3BT2TCZ69bjuJB3ZbqcIx8TzK5ejQ$",
+                  "number_of_rows": {
+                    "all_rows": true,
+                    "at_most": false
+                  },
+                  "persist_output": false,
+                  "skip_execution": false,
+                  "sorting": {
+                    "no_sort": true,
+                    "sort_by": false
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01FS2JDV8XWLH6FkDnOgfCDBqunxPc9W7mT",
+                "name": "Select from Table",
+                "title": "Select from Table a Specific Row",
+                "type": "core.selectfromtable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Select from Table a Specific Row",
+                  "input_table": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.static.variable_workflow_01FS1N3BT2TCZ69bjuJB3ZbqcIx8TzK5ejQ$",
+                  "number_of_rows": {
+                    "all_rows": true,
+                    "at_most": false
+                  },
+                  "persist_output": false,
+                  "skip_execution": false,
+                  "sorting": {
+                    "no_sort": true,
+                    "sort_by": false
+                  },
+                  "where_clause": "Item == 'val500'"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01FS2JDXM6GMC2AjgbWiFJ2fu2KufvsIPBO",
+                "name": "JSONPath Query",
+                "title": "Extract Select from Table Specific Row Response",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Extract Select from Table Specific Row Response",
+                  "input_json": "$activity.definition_activity_01FS2JDV8XWLH6FkDnOgfCDBqunxPc9W7mT.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$..Item",
+                      "jsonpath_query_name": "Item",
+                      "jsonpath_query_type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01FS2JE095IC53rQYk0VkISOlTGB7K2qJwK",
+                "name": "Condition Block",
+                "title": "Condition Block",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Condition Block",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_01FS2JE2QSLCI64iY0BXGPRmWi4xdbB4rCj",
+                    "name": "Condition Branch",
+                    "title": "IF PASS",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": "$activity.definition_activity_01FS2JDV8XWLH6FkDnOgfCDBqunxPc9W7mT.output.row_count$",
+                          "operator": "eq",
+                          "right_operand": 1000
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_01FS2JDXM6GMC2AjgbWiFJ2fu2KufvsIPBO.output.jsonpath_queries.Item$",
+                          "operator": "eq",
+                          "right_operand": "val500"
+                        }
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "IF PASS",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01FS2JE5DOD9O1NmL142MVainXBMNXaAlJC",
+                        "name": "Set Variables",
+                        "title": "PASS",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "PASS",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.variable_workflow_01FS1N3BT2HS41F38dOPgIY81B1w38tr7Nx$",
+                              "variable_value_new": "true"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_01FS2JE83FGL532LElI6IkHO5OX11JbE7GU",
+                    "name": "Condition Branch",
+                    "title": "IF FAIL",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": "$activity.definition_activity_01FS2JDV8XWLH6FkDnOgfCDBqunxPc9W7mT.output.row_count$",
+                          "operator": "ne",
+                          "right_operand": 500
+                        },
+                        "operator": "or",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_01FS2JDXM6GMC2AjgbWiFJ2fu2KufvsIPBO.output.jsonpath_queries.Item$",
+                          "operator": "ne",
+                          "right_operand": "val500"
+                        }
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "IF FAIL",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01FS2JEAX7CED1b5m48hQPebXt78pYWVPCp",
+                        "name": "Set Variables",
+                        "title": "FAIL",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "FAIL",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.variable_workflow_01FS1N3BT2HS41F38dOPgIY81B1w38tr7Nx$",
+                              "variable_value_new": "false"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01FS1NEX9P25U2rUF1WuYkdpuTIqU5wd2UT",
+        "name": "Delete from Table",
+        "title": "Delete  All Rows From  Static Table",
+        "type": "core.deleterowfromtable",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Delete  All Rows From  Static Table",
+          "input_table": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.static.variable_workflow_01FS1N3BT2TCZ69bjuJB3ZbqcIx8TzK5ejQ$",
+          "rows": {
+            "all_rows": true,
+            "rows_matching_criteria": false
+          },
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01FS1NF8ZK4A96z5zsSS23qAJPWYR9fYKqx",
+        "name": "Condition Block",
+        "title": "All Actions True/False",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "All Actions True/False",
+          "skip_execution": true
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01FS1NFL6PR7W2Fo9lwNqCE1qSGhNDdH5Fp",
+            "name": "Condition Branch",
+            "title": "PASS == 200",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.01FS1N2XI92K675D4d1KAXlvw9iWwLgoSZ5$",
+                                "operator": "eq",
+                                "right_operand": "true"
+                              },
+                              "operator": "and",
+                              "right_operand": {
+                                "left_operand": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.01FS1N2O9LYFN58IRt2nF5Q5oURI1zZ4O5T$",
+                                "operator": "eq",
+                                "right_operand": "true"
+                              }
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.variable_workflow_01FS1N3BT2HS41F38dOPgIY81B1w38tr7Nx$",
+                              "operator": "eq",
+                              "right_operand": "true"
+                            }
+                          },
+                          "operator": "and",
+                          "right_operand": {
+                            "left_operand": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.01FS1N2532PQ47IZDgYBKyfC7jfGSioKUVx$",
+                            "operator": "eq",
+                            "right_operand": "true"
+                          }
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.01FS1N2L9TMUE4x9HGs6UtpJWBBaAe3RB7V$",
+                          "operator": "eq",
+                          "right_operand": "true"
+                        }
+                      },
+                      "operator": "and",
+                      "right_operand": {
+                        "left_operand": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.01FS1N2E8ESHZ2sUm1negJwFAJH630QxNhU$",
+                        "operator": "eq",
+                        "right_operand": "true"
+                      }
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.01FS1N2IWRA0W0UpeJGSslQ73U2RoSLOk9U$",
+                      "operator": "eq",
+                      "right_operand": "true"
+                    }
+                  },
+                  "operator": "and",
+                  "right_operand": {
+                    "left_operand": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.variable_workflow_01FS1N3BT2FA61A00icDcWw4hDMACyushbK$",
+                    "operator": "eq",
+                    "right_operand": "true"
+                  }
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.01FS1N2AS0ZI33iDTfNDdRWkSkYi1AheuCQ$",
+                  "operator": "eq",
+                  "right_operand": "true"
+                }
+              },
+              "continue_on_failure": true,
+              "display_name": "PASS == 200",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01FS1NFY7FCJJ1AGCOQvxE8CB56lpPql9Nm",
+                "name": "Set Variables",
+                "title": "PASS",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "PASS",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.01FS1N2BFCP7R5MSeCgQATWXJtBGorq8DcN$",
+                      "variable_value_new": "✔✅All Table Actions Passed - 100%"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01FS1NGABD4KT3ByJvg0GYk1YZpkolP4r00",
+            "name": "Condition Branch",
+            "title": "FAIL =! 200",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.01FS1N2XI92K675D4d1KAXlvw9iWwLgoSZ5$",
+                                "operator": "ne",
+                                "right_operand": "true"
+                              },
+                              "operator": "or",
+                              "right_operand": {
+                                "left_operand": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.01FS1N2O9LYFN58IRt2nF5Q5oURI1zZ4O5T$",
+                                "operator": "ne",
+                                "right_operand": "true"
+                              }
+                            },
+                            "operator": "or",
+                            "right_operand": {
+                              "left_operand": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.variable_workflow_01FS1N3BT2HS41F38dOPgIY81B1w38tr7Nx$",
+                              "operator": "ne",
+                              "right_operand": "true"
+                            }
+                          },
+                          "operator": "or",
+                          "right_operand": {
+                            "left_operand": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.01FS1N2532PQ47IZDgYBKyfC7jfGSioKUVx$",
+                            "operator": "ne",
+                            "right_operand": "true"
+                          }
+                        },
+                        "operator": "or",
+                        "right_operand": {
+                          "left_operand": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.01FS1N2L9TMUE4x9HGs6UtpJWBBaAe3RB7V$",
+                          "operator": "ne",
+                          "right_operand": "true"
+                        }
+                      },
+                      "operator": "or",
+                      "right_operand": {
+                        "left_operand": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.01FS1N2E8ESHZ2sUm1negJwFAJH630QxNhU$",
+                        "operator": "ne",
+                        "right_operand": "true"
+                      }
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.01FS1N2IWRA0W0UpeJGSslQ73U2RoSLOk9U$",
+                      "operator": "ne",
+                      "right_operand": "true"
+                    }
+                  },
+                  "operator": "or",
+                  "right_operand": {
+                    "left_operand": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.variable_workflow_01FS1N3BT2FA61A00icDcWw4hDMACyushbK$",
+                    "operator": "ne",
+                    "right_operand": "true"
+                  }
+                },
+                "operator": "or",
+                "right_operand": {
+                  "left_operand": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.01FS1N2AS0ZI33iDTfNDdRWkSkYi1AheuCQ$",
+                  "operator": "ne",
+                  "right_operand": "true"
+                }
+              },
+              "continue_on_failure": true,
+              "display_name": "FAIL =! 200",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01FS1NGMPWOQN0pzst2pmHfW678e38OK1ah",
+                "name": "Set Variables",
+                "title": "FAIL",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "FAIL",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.01FS1N2BFCP7R5MSeCgQATWXJtBGorq8DcN$",
+                      "variable_value_new": "❌🔴Some Table Actions got Failed\nPlease check the Instnace :$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.instance_id$"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01FS1NGZUDP6S3clb7yjRnE3MbGm1Yv50FU",
+        "name": "Set Variables",
+        "title": "Format For Table Email",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Format For Table Email",
+          "skip_execution": true,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_01FS1N3CK24QT1jctnM299dCMzWgCBVAw0A.output.01FS1N2X1WAKR2G9MQIQfJ8mC3C0fWX0xiY$",
+              "variable_value_new": "\u003ch2\u003eTable Adapter\u003c/h2\u003e\n\n\u003ctable\u003e\n\u003ctr\u003e\n\u003cth\u003eActivity Name\u003c/th\u003e\n\u003cth\u003eTrue/False\u003c/th\u003e\n\u003cth\u003eStatus Code\u003c/th\u003e\n\u003cth\u003eError Message\u003c/th\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eAdding Large Data to a table and selecting - While Loop\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01FS1NAWB86XF2N0KB45AuOmD02HgvlRzXS.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01FS1NAWB86XF2N0KB45AuOmD02HgvlRzXS.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01FS1NAWB86XF2N0KB45AuOmD02HgvlRzXS.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eAdding Large Data to a table and selecting -  Select from Table All Rows\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01FS1NCDOMW5X7NNKDGX5vHj07ArN7whUGK.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01FS1NCDOMW5X7NNKDGX5vHj07ArN7whUGK.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01FS1NCDOMW5X7NNKDGX5vHj07ArN7whUGK.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eAdding Large Data to a table and selecting - Select from Table a Specific Row  \u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01FS1NCPXDX2173dH3Jn7LQVQX13UCQpQ5f.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01FS1NCPXDX2173dH3Jn7LQVQX13UCQpQ5f.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01FS1NCPXDX2173dH3Jn7LQVQX13UCQpQ5f.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eAdding Large Data to a table and selecting - Extract Select from Table Specific Row Response\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01FS1ND2KRQ9E1EZ7n2cW46X1u580yTwE6W.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01FS1ND2KRQ9E1EZ7n2cW46X1u580yTwE6W.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01FS1ND2KRQ9E1EZ7n2cW46X1u580yTwE6W.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eAdding Large Data to a table and selecting -  Delete  All Rows From  Static Table\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01FS1NEX9P25U2rUF1WuYkdpuTIqU5wd2UT.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01FS1NEX9P25U2rUF1WuYkdpuTIqU5wd2UT.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01FS1NEX9P25U2rUF1WuYkdpuTIqU5wd2UT.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eRead Table From Text_Add_Select_Read Table From JSON - Read Table from Text\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN5I0JA4V0mEeOHCoJRegXWkzEqUPjN.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN5I0JA4V0mEeOHCoJRegXWkzEqUPjN.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN5I0JA4V0mEeOHCoJRegXWkzEqUPjN.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eRead Table From Text_Add_Select_Read Table From JSON -  Select from Table\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN6KKGD7A32lPbyf0CiWEr3Wg15qkTW.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN6KKGD7A32lPbyf0CiWEr3Wg15qkTW.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN6KKGD7A32lPbyf0CiWEr3Wg15qkTW.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eRead Table From Text_Add_Select_Read Table From JSON -  Extract Data from Select Table\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN6RTQ3WQ5XlSzdBKKp7Rtct921oyQt.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN6RTQ3WQ5XlSzdBKKp7Rtct921oyQt.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN6RTQ3WQ5XlSzdBKKp7Rtct921oyQt.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eRead Table From Text_Add_Select_Read Table From JSON -  Read Table from JSON\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN703ZSND4bRBmfgfzoMhh3X8WLOjl0.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN703ZSND4bRBmfgfzoMhh3X8WLOjl0.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN703ZSND4bRBmfgfzoMhh3X8WLOjl0.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eRead Table From Text_Add_Select_Read Table From JSON -  Extract Data Read Table from JSON\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN7BG0B1K7bXaNGiiVH6r58gqeWoAAq.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN7BG0B1K7bXaNGiiVH6r58gqeWoAAq.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN7BG0B1K7bXaNGiiVH6r58gqeWoAAq.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eUpdate Row in Table - Update Row in Table\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN92GLOMM18y6uZx7CVcGV0yYkppQRh.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN92GLOMM18y6uZx7CVcGV0yYkppQRh.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN92GLOMM18y6uZx7CVcGV0yYkppQRh.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eUpdate Row in Table - Select the Updated Row \u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN99KOXKN71a4ACQ8LViRanSsQdwO0g.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN99KOXKN71a4ACQ8LViRanSsQdwO0g.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN99KOXKN71a4ACQ8LViRanSsQdwO0g.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eUpdate Row in Table - Extract Data Select the Updated Row \u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN9HSEL2E08hx9l9hN78m2oyQaNFn79.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN9HSEL2E08hx9l9hN78m2oyQaNFn79.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXN9HSEL2E08hx9l9hN78m2oyQaNFn79.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eDelete From Table - Delete From Table\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNB6SLACD1YKjYOyHnNeLrZwnHHCgPM.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNB6SLACD1YKjYOyHnNeLrZwnHHCgPM.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNB6SLACD1YKjYOyHnNeLrZwnHHCgPM.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eDelete From Table - Select the Updated Row\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNBE4R7BH3FTWJjELLAucWa2sDxS0s1.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNBE4R7BH3FTWJjELLAucWa2sDxS0s1.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNBE4R7BH3FTWJjELLAucWa2sDxS0s1.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eDelete From Table - Extract Data Select the Updated Row\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNBM85WTS1H9tdKbViw1CvBxnnqXWE8.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNBM85WTS1H9tdKbViw1CvBxnnqXWE8.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNBM85WTS1H9tdKbViw1CvBxnnqXWE8.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eRead Table from Text Boolean Values - NEXTG-14577 - Read Table from Text - Boolean\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNDKIW0U61pURnCO4o5lxL1JVCBxp19.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNDKIW0U61pURnCO4o5lxL1JVCBxp19.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNDKIW0U61pURnCO4o5lxL1JVCBxp19.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eRead Table from Text Boolean Values - NEXTG-14577 - Extract Boolean Values \u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNDTJVJLK3ILnmPpYNdPlnlEtNDTicb.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNDTJVJLK3ILnmPpYNdPlnlEtNDTicb.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNDTJVJLK3ILnmPpYNdPlnlEtNDTicb.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eRead Table From XML - Convert Json to Xml \u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNFCF11Y01b1vraSxK1XbeLOKY0x4q3.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNFCF11Y01b1vraSxK1XbeLOKY0x4q3.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNFCF11Y01b1vraSxK1XbeLOKY0x4q3.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eRead Table From XML - Read Table from XML \u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNFLIN7PO2XSyQQqVcyQ7vCc2nLKdch.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNFLIN7PO2XSyQQqVcyQ7vCc2nLKdch.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNFLIN7PO2XSyQQqVcyQ7vCc2nLKdch.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003e Read Table From XML -  Extract Data Read Table from XML\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNFYG1RPH1mWgd8l1GdMlEv2htRXlUN.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNFYG1RPH1mWgd8l1GdMlEv2htRXlUN.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNFYG1RPH1mWgd8l1GdMlEv2htRXlUN.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eSelect From Table - Wildcard - Select from Table \u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNHO28AMI3iGFqymK7tFSeLB1Oq5dc7.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNHO28AMI3iGFqymK7tFSeLB1Oq5dc7.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNHO28AMI3iGFqymK7tFSeLB1Oq5dc7.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eSelect From Table - Wildcard - Extract Data - Select from Table\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNHV8ZU575bCZuIclXfiNVjQOxiC0e9.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNHV8ZU575bCZuIclXfiNVjQOxiC0e9.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNHV8ZU575bCZuIclXfiNVjQOxiC0e9.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003e Select from Table Null Value -  Select Null Value from a Table\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNJHWR1FC4hMHosbw4lkKEuyHHAWlHM.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNJHWR1FC4hMHosbw4lkKEuyHHAWlHM.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNJHWR1FC4hMHosbw4lkKEuyHHAWlHM.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eSelect from Table Null Value - Extract Value from Select Null Value \u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNJQ2A0E05k36FrX8NNpZYsmhY9lnM3.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNJQ2A0E05k36FrX8NNpZYsmhY9lnM3.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNJQ2A0E05k36FrX8NNpZYsmhY9lnM3.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eSelect from Table Null Value - Update Null Value in a Table \u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNJXX724K1HS59SlxJ1QMys3mCSdbfV.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNJXX724K1HS59SlxJ1QMys3mCSdbfV.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNJXX724K1HS59SlxJ1QMys3mCSdbfV.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eSelect from Table Null Value-  Select from Table Updated Null Value\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNK5N5JDL3EOV869BNKuXG0DSNPycKL.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNK5N5JDL3EOV869BNKuXG0DSNPycKL.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNK5N5JDL3EOV869BNKuXG0DSNPycKL.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eSelect from Table Null Value  - Extract Value from Select Updated Null Value\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNKDPA00K6z0U5yakonMMFhkJROmSAK.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNKDPA00K6z0U5yakonMMFhkJROmSAK.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNKDPA00K6z0U5yakonMMFhkJROmSAK.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eSelect from input Table - Nextg-14665 and nextg-14666 - Select from Table \u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNM8TY0V91Ash1SPcwvEuvBdn1Pm6MJ.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNM8TY0V91Ash1SPcwvEuvBdn1Pm6MJ.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNM8TY0V91Ash1SPcwvEuvBdn1Pm6MJ.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eSelect from input Table - Nextg-14665 and nextg-14666 - Extract Input Data \u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNMIITEQG4r2zvuCivSKhBUpgjhR8jc.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.01FGXNMIITEQG4r2zvuCivSKhBUpgjhR8jc.output.error.code$\u003c/td \u003e\n\u003ctd\u003e$activity.01FGXNMIITEQG4r2zvuCivSKhBUpgjhR8jc.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\n\u003c/table\u003e\n\n"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "table_types": {
+    "tabletype_01D0K5DCFYE6159hoFnF88b2eef20NJRLDz": {
+      "unique_name": "tabletype_01D0K5DCFYE6159hoFnF88b2eef20NJRLDz",
+      "data_type": "datatype.tabletype",
+      "display_name": "SingleStringTable",
+      "columns": [
+        {
+          "name": "Item",
+          "title": "Item",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  }
+}
