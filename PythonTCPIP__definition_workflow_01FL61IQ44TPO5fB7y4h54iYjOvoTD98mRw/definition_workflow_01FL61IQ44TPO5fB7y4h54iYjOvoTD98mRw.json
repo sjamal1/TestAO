@@ -1,0 +1,134 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01FL61IQ44TPO5fB7y4h54iYjOvoTD98mRw",
+    "name": "SJ_NewPython_action_using_TCPIP_SMTP",
+    "title": "SJ_NewPython_action_using_TCPIP_SMTP",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.secure_string",
+        "properties": {
+          "value": "*****",
+          "scope": "local",
+          "name": "pwd",
+          "type": "datatype.secure_string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01FL7OKHJ2NOJ4H6zG5egK06lXKf3CT3ZfW",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "SJ_NewPython_action_using_TCPIP_SMTP",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01FL61XF8J0XF2RVc9BcFhooWyNl4sgvVSE",
+        "name": "Execute Python Script",
+        "title": "Execute Python Script_TCP_IP",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Execute Python Script_TCP_IP",
+          "script": "import socket\n\nTCP_IP = '52.205.242.66'\nTCP_PORT = 443\nBUFFER_SIZE = 1024\nMESSAGE = 'Hello, World'.encode()\ns = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\ns.connect((TCP_IP, TCP_PORT))\ns.send(MESSAGE)\ndata = s.recv(BUFFER_SIZE)\ns.close()\nprint(\"received data:\", data, MESSAGE)",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01FLI8F4PD9VO6sUgyjrYCeR6k0G1qeA8JA",
+        "name": "Execute Python Script",
+        "title": "Execute Python Script_UDP",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Execute Python Script_UDP",
+          "script": "import socket\nUDP_IP = \"52.205.242.66\"\nUDP_PORT = 443\nMESSAGE = \"Hello, World!\".encode()\nprint (\"UDP target IP:\", UDP_IP)\nprint (\"UDP target port:\", UDP_PORT)\nprint (\"message:\", MESSAGE)\nsock = socket.socket(socket.AF_INET, # Internet\nsocket.SOCK_DGRAM) # UDP\nsock.sendto(MESSAGE, (UDP_IP, UDP_PORT))",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01FL7HV93NYRJ0kJ84nXW0minqEIYG8L9ww",
+        "name": "Execute Python Script",
+        "title": "Execute Python Script_SMTP",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Execute Python Script_SMTP",
+          "script": "import smtplib, ssl\nfrom email.message import EmailMessage\n\nmsg = EmailMessage()\nmsg.set_content(\"This is the test email from SecureX\")\nmsg[\"Subject\"] = \"An Email Alert\"\nmsg[\"From\"] = \"jamaltest12@gmail.com\"\nmsg[\"To\"] = \"shamstest12@gmail.com\"\n\n#context=ssl.create_default_context()\n\nwith smtplib.SMTP(\"smtp.gmail.com\", port=587) as smtp:\n    smtp.starttls()\n    smtp.login(msg[\"From\"], \"$workflow.definition_workflow_01FL61IQ44TPO5fB7y4h54iYjOvoTD98mRw.local.variable_workflow_01FL7OKHJ2NOJ4H6zG5egK06lXKf3CT3ZfW$\")\n    smtp.send_message(msg)",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01FLKFWDQT3U42eswixgqFs6Mvt2vAHNRty",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "skip_execution": false,
+          "sleep_interval": 35
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01FLKCWY22YXE68NdtlCqIrrFM0GZJqQeya",
+        "name": "Execute Python Script",
+        "title": "Execute Python Script_IMAP",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Execute Python Script_IMAP",
+          "script": "import imaplib\nimport pprint\n\nimap_host = 'imap.gmail.com'\nimap_user = 'shamstest12@gmail.com'\nimap_pass = '$workflow.definition_workflow_01FL61IQ44TPO5fB7y4h54iYjOvoTD98mRw.local.variable_workflow_01FL7OKHJ2NOJ4H6zG5egK06lXKf3CT3ZfW$'\n\n# connect to host using SSL\nimap = imaplib.IMAP4_SSL(imap_host)\n\n## login to server\nimap.login(imap_user, imap_pass)\n\nimap.select('Inbox')\n\ntmp, data = imap.search(None, 'ALL')\nfor num in data[0].split():\n\ttmp, data = imap.fetch(num, '(RFC822)')\n\tprint('Message: {0}\\n'.format(num))\n\tpprint.pprint(data[0][1])\n\tbreak\nimap.close()",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01FL8C1K80XDJ3nzp5UQXPkBpS7rdr39R0z",
+        "name": "Execute Python Script",
+        "title": "Execute Python Script_Ping",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "description": "sadas",
+          "display_name": "Execute Python Script_Ping",
+          "script": "import os\nhostname = \"google.com\"\nresponse = os.system(\"ping -n \" + hostname)\nprint(response)\nif response == 0:\n  print (hostname, 'is up!')\nelse:\n  print (hostname, 'is down!')",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
