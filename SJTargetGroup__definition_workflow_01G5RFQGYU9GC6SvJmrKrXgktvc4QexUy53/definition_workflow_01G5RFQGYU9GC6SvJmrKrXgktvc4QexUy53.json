@@ -1,0 +1,224 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01G5RFQGYU9GC6SvJmrKrXgktvc4QexUy53",
+    "name": "SJ_TargetGr",
+    "title": "SJ_TargetGr",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "SJ_TargetGr",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": true,
+        "target_group": {
+          "target_group_id": "target_group_01G5RHD9NCDDX0dF3rOfM1yUJ5CfB2gPxX8",
+          "run_on_all_targets": false,
+          "selected_target_types": [
+            "web-service.endpoint",
+            "terminal.endpoint"
+          ],
+          "use_criteria": {
+            "choose_target_using_algorithm": "choose_all_with_matching_criteria",
+            "conditions": [
+              {
+                "operator": "gte",
+                "left_operand": "$targetgroup.web-service endpoint.input.port$",
+                "right_operand": 20
+              }
+            ]
+          }
+        }
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01G5RL4TFZ6WM0zIayrafjHu1cBl5STrOsw",
+        "name": "HTTP Request",
+        "title": "Random Numbers",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "display_name": "Random Numbers",
+          "method": "GET",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target_group_criteria": true,
+            "target_group": {
+              "use_criteria": {
+                "choose_target_using_algorithm": "choose_first_with_matching_criteria",
+                "conditions": [
+                  {
+                    "left_operand": "$targetgroup.target_group_01G5RHD9NCDDX0dF3rOfM1yUJ5CfB2gPxX8.common.display_name$",
+                    "operator": "mw",
+                    "right_operand": "Random"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01G5RL6HUJUXE7VbAe2HSQqJ5jpHR4LqORV",
+        "name": "HTTP Request",
+        "title": "External Http",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "display_name": "External Http",
+          "method": "GET",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target_group_criteria": true,
+            "target_group": {
+              "use_criteria": {
+                "choose_target_using_algorithm": "choose_first_with_matching_criteria",
+                "conditions": [
+                  {
+                    "left_operand": "$targetgroup.target_group_01G5RHD9NCDDX0dF3rOfM1yUJ5CfB2gPxX8.common.display_name$",
+                    "operator": "mw",
+                    "right_operand": "External"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01GGS2SRCEROE4Rov2kS8K2OISBubd1aJqa",
+        "name": "Execute Terminal Command(s)",
+        "title": "Execute Terminal Command(s)",
+        "type": "terminal.command",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "command_timeout": 60,
+          "commands": "pwd",
+          "continue_on_failure": false,
+          "display_name": "Execute Terminal Command(s)",
+          "merge_commands": false,
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "succeeded_expects": [
+            "$"
+          ],
+          "target": {
+            "override_workflow_target_group_criteria": true,
+            "target_group": {
+              "use_criteria": {
+                "choose_target_using_algorithm": "choose_first_with_matching_criteria",
+                "conditions": [
+                  {
+                    "left_operand": "$targetgroup.terminal endpoint.input.display_name$",
+                    "operator": "mw",
+                    "right_operand": "Shams"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_01DHUPBICXM1Y0IKdIiWMFVje4xnsDvNVhS": {
+      "unique_name": "definition_target_01DHUPBICXM1Y0IKdIiWMFVje4xnsDvNVhS",
+      "name": "Random Number between 1 and 9",
+      "title": "Random Number between 1 and 9",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "description": "Group",
+        "disable_certificate_validation": false,
+        "display_name": "Random Number between 1 and 9",
+        "host": "www.random.org",
+        "no_runtime_user": true,
+        "path": "/integers/?num=1\u0026base=10\u0026col=1\u0026format=plain\u0026rnd=new\u0026min=1\u0026max=9",
+        "port": 443,
+        "protocol": "https"
+      }
+    },
+    "definition_target_01F6OFVB9QJS16Fx1OvcnjrqKtGXnHot2tV": {
+      "unique_name": "definition_target_01F6OFVB9QJS16Fx1OvcnjrqKtGXnHot2tV",
+      "name": "SJ_External HTTP",
+      "title": "SJ_External HTTP",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": true,
+        "display_name": "SJ_External HTTP",
+        "host": "gorest.co.in",
+        "ignore_proxy": true,
+        "no_runtime_user": true,
+        "path": "/public-api/users",
+        "protocol": "https"
+      }
+    }
+  },
+  "target_groups": {
+    "target_group_01G5RHD9NCDDX0dF3rOfM1yUJ5CfB2gPxX8": {
+      "unique_name": "target_group_01G5RHD9NCDDX0dF3rOfM1yUJ5CfB2gPxX8",
+      "name": "Sj_NewTarGr",
+      "title": "Sj_NewTarGr",
+      "type": "generic.target_group",
+      "base_type": "target_group",
+      "version": "1.0.0",
+      "targets": [
+        {
+          "data_target_type": "web-service.endpoint",
+          "view_target_type": "web-service.endpoint",
+          "include_all_targets": false,
+          "selected_target_ids": [
+            "definition_target_01DHUPBICXM1Y0IKdIiWMFVje4xnsDvNVhS",
+            "definition_target_01F6OFVB9QJS16Fx1OvcnjrqKtGXnHot2tV"
+          ]
+        },
+        {
+          "data_target_type": "terminal.endpoint",
+          "view_target_type": "terminal.endpoint",
+          "include_all_targets": true
+        }
+      ],
+      "object_type": "target_group"
+    }
+  }
+}
