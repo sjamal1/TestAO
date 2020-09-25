@@ -1,0 +1,112 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01IZL9ZT4QW7O4cK39fER46enuWva3y7mxw",
+    "name": "SJ_Parent_Child_Atomic",
+    "title": "SJ_Parent_Child_Atomic",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "SJ_Parent_Child_Atomic",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01IZLAMH9JBMH6r1BZF6kUnd1t1qJUbL6w2",
+        "name": "Parallel Block",
+        "title": "Parallel Block",
+        "type": "logic.parallel",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Parallel Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01IZLAMJXEDS05nY2rrUxlQZ9iFEFULa8AX",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "display_name": "Parallel Branch"
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01IZLAS103FHV1BOLIkVmqK23lOdphJDnQD",
+                "name": "To Lower",
+                "title": "To Lower",
+                "type": "core.string2lower",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "To Lower",
+                  "skip_execution": false,
+                  "source": "ABCD"
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01IZLAML5KJT67WldQdpR1cLGXmnTMnSynE",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01IZLB4P6C30173UqewtmFPkgC3CJWCuJ8L",
+                "name": "Sj_Atomic",
+                "title": "Sj_Atomic",
+                "type": "workflow.atomic_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "display_name": "Sj_Atomic",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "target": {
+                    "no_target": true
+                  },
+                  "workflow_id": "definition_workflow_01IZL8JAUGCC44T69HNZaeUsWPSHwb53tgM"
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "atomic_workflows": [
+    "definition_workflow_01IZL8JAUGCC44T69HNZaeUsWPSHwb53tgM"
+  ]
+}
