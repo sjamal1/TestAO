@@ -1,0 +1,87 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01KVOJUAFVETS0QHYmubiHdPCwUK2vGQHTU",
+    "name": "SJ_Get Internal targets_proxy",
+    "title": "SJ_Get Internal targets_proxy",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "SJ_Get Internal targets_proxy",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01KVOK8T12R5E5KPbOFi3h9dGXhI3Ws08Ro",
+        "name": "HTTP Request",
+        "title": "HTTP Request",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer eyJraWQiOiIxIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOm51bGwsInN1YiI6Ijg4IiwiY3NyZlRva2VuIjoiMWJiN2M3YzBiY2Y1NDZiZjk3NWQ2NjZmMGFlMTEyODUiLCJpc3MiOiJzdWl0ZS1hdXRoIiwidGVuYW50SWQiOiI5IiwiZXhwIjoxNjA3OTY1NjkwLCJpYXQiOjE2MDc5NjQ3NzUsImp0aSI6Ijg3MjNjNTBlLTdiOTEtNGE1OC1hMmJkLTNkZTNlZjdmMjMyZiIsInJvbGV6IjpbIlNVSVRFX1RFTkFOVF9BRE1JTiIsIlNVSVRFX1VTRVJfQURNSU4iLCJMSF9jb250ZW50X2F1dGhvciIsIlNVSVRFX1VTRVIiLCJMSF9zeXN0ZW1fYWRtaW4iLCJMSF9vcGVyYXRvciIsIkxIX3RlbmFudF9hZG1pbiIsIkxIX2FkYXB0ZXJfYXV0aG9yIl19.BEBhAOF6vKuwoPP47rEwVTMARAxLMtt1GzSsCXd4u4zU4O1V67uBSGOaI2jx906JOih66XrEU70pqA32n6zbl5Eyfk4ZiAzQ6aVPf5nOJSO1z0tFyJrtHFqaECVuF-1wGEX1HZav9MSRU7weJwl90P2J3OQNUW3UnSILkrRkb26s8M0jjaYDaexk9ZjhM3woQa9JX0Glaleae5amu8K9aqZfaj5rwobGysKXs_-6XHI6lGPH2Gz-0ASKAibY4-kUO1ABdsYIRtQraXnVCobwTY4zC2w30cD3jAqHw9GaJ5oKuO1Rg0XzgK3P6tx-7F0EyeAyeagkdAoLgQ0hEkSQzg"
+            }
+          ],
+          "display_name": "HTTP Request",
+          "method": "GET",
+          "relative_url": "be-console/api/v1/targets?is_internal=true",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01KQR8EI1W1TP6zSdoVHTp0O3aEcs1Cc3x2"
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_01KQR8EI1W1TP6zSdoVHTp0O3aEcs1Cc3x2": {
+      "unique_name": "definition_target_01KQR8EI1W1TP6zSdoVHTp0O3aEcs1Cc3x2",
+      "name": "SJ_Internal_Target",
+      "title": "SJ_Internal_Target",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "description": "ab52eaf3f7dd84c7089afdf0dd838b12-483092145.us-east-2.elb.amazonaws.com\n",
+        "disable_certificate_validation": true,
+        "display_name": "SJ_Internal_Target",
+        "host": "ab52eaf3f7dd84c7089afdf0dd838b12-483092145.us-east-2.elb.amazonaws.com",
+        "ignore_proxy": true,
+        "no_runtime_user": true,
+        "port": 443,
+        "protocol": "https"
+      }
+    }
+  }
+}
