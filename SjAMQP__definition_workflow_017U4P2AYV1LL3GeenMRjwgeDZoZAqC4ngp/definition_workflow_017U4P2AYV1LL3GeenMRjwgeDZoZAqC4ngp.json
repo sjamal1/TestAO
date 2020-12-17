@@ -1,0 +1,901 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp",
+    "name": "Regression AMQP",
+    "title": "Regression AMQP",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "tabletype_01AHAPBR4FV675cgXI0e4HbGK7XYWEIF9sH",
+        "properties": {
+          "scope": "output",
+          "name": "Results",
+          "type": "datatype.table",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01AIEX2U6A9IK58x6eK7B0xRlWEg9qu60Ei",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "CA-Prerelease-test5.12-Exchange",
+          "scope": "input",
+          "name": "AMQP Exchange Name",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01AGFUAJI66HO1PIHHcB6TYQDuBbLElcUeD",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "CA-Prerelease-test5.12-Queue",
+          "scope": "input",
+          "name": "AMQP Queue Name",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01AGFUYN5FDHS6RpwxfluQpr8Gv8fJqUN1T",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Output Results",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01AGFRQA7A79U2sfSrzIXklq1Ew1TnYvP1h",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "CA- Prerelease5.1.2",
+          "scope": "input",
+          "name": "Routing key",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01AGGCOJBKARW5DvlnXdc6pgh5TeUOuL4WY",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "AMQP This workflow contains\n1. Declare AMQP Queue\n2. Declare AMQP Exhange\n3. Bind AMQP Queue\n4. Pubish AMQP Message\n5. Get AMQP Message",
+      "display_name": "Regression AMQP",
+      "favorite": false,
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "target_type": "amqp.endpoint",
+        "target_id": "definition_target_015PNSCQY9LPX3rtFMEAjxgL5ONoC8USfTW",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_017U8U3AXQYNK73CCDhcvAKxTSnoE4vi7d4",
+        "name": "Declare AMQP Queue",
+        "title": "Declare AMQP Queue",
+        "type": "amqp.declare_queue",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "auto_delete": false,
+          "continue_on_failure": true,
+          "display_name": "Declare AMQP Queue",
+          "durable": true,
+          "name": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.input.variable_workflow_01AGFUYN5FDHS6RpwxfluQpr8Gv8fJqUN1T$",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": false,
+            "override_workflow_target_group_criteria": false,
+            "use_workflow_target": true,
+            "use_workflow_target_group": false
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_017V2F75W6X8J0MRxTH1FSTIV1CK74eIwXz",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_017V2F7B6SPEI4KU0XxAHUiLoTQq6pRQN3E",
+            "name": "Condition Branch",
+            "title": "Pass",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_017U8U3AXQYNK73CCDhcvAKxTSnoE4vi7d4.output.succeeded$",
+                "operator": "eq",
+                "right_operand": true
+              },
+              "continue_on_failure": true,
+              "display_name": "Pass",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_017V32IH79BF73JE5hrpkPsyJphNuxDyJbh",
+                "name": "Add Row to Table",
+                "title": "Add Row to Table",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Add Row to Table",
+                  "input_table": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.output.variable_workflow_01AIEX2U6A9IK58x6eK7B0xRlWEg9qu60Ei$",
+                  "row": [
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "Declare AMQP Queue"
+                    },
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "true"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_017V2F7D6ZIEX5HYnHzJ5LarOjGvwGigSWd",
+            "name": "Condition Branch",
+            "title": "Fail",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_017U8U3AXQYNK73CCDhcvAKxTSnoE4vi7d4.output.succeeded$",
+                "operator": "eq",
+                "right_operand": false
+              },
+              "continue_on_failure": true,
+              "display_name": "Fail",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_017V32JKARVIO1Cf2F6MIf7GmmcO4wyHjFu",
+                "name": "Add Row to Table",
+                "title": "Add Row to Table",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Add Row to Table",
+                  "input_table": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.output.variable_workflow_01AIEX2U6A9IK58x6eK7B0xRlWEg9qu60Ei$",
+                  "row": [
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "Declare AMQP Queue"
+                    },
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "false"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_017U9AKQ43N1Q3yd4PU4ErlfbYSautS0UMg",
+        "name": "Declare AMQP Exchange",
+        "title": "Declare AMQP Exchange",
+        "type": "amqp.declare_exchange",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "auto_delete": false,
+          "continue_on_failure": true,
+          "display_name": "Declare AMQP Exchange",
+          "durable": false,
+          "name": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.input.variable_workflow_01AGFUAJI66HO1PIHHcB6TYQDuBbLElcUeD$",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": false,
+            "override_workflow_target_group_criteria": false,
+            "use_workflow_target": true,
+            "use_workflow_target_group": false
+          },
+          "type": "direct"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_017V2FNFTLD9631Bi8B9TcNll5vtKYARVMk",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_017V2FNMDP75X7ZBqdesmjoIUDtMmRAt1r7",
+            "name": "Condition Branch",
+            "title": "Pass",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_017U9AKQ43N1Q3yd4PU4ErlfbYSautS0UMg.output.succeeded$",
+                "operator": "eq",
+                "right_operand": true
+              },
+              "continue_on_failure": true,
+              "display_name": "Pass",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_017V32L7TRQGG3tBXHAdJNieNvi2WjKjYiz",
+                "name": "Add Row to Table",
+                "title": "Add Row to Table",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Add Row to Table",
+                  "input_table": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.output.variable_workflow_01AIEX2U6A9IK58x6eK7B0xRlWEg9qu60Ei$",
+                  "row": [
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "Declare AMQP Exchange"
+                    },
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "true"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_017V2FNOAWL962ewvrFVt2DTj22qj5PHbKH",
+            "name": "Condition Branch",
+            "title": "Fail",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_017U9AKQ43N1Q3yd4PU4ErlfbYSautS0UMg.output.succeeded$",
+                "operator": "eq",
+                "right_operand": false
+              },
+              "continue_on_failure": true,
+              "display_name": "Fail",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_017V32M6UICIJ7lr6VbXoIajKDgn3O2IKzp",
+                "name": "Add Row to Table",
+                "title": "Add Row to Table",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Add Row to Table",
+                  "input_table": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.output.variable_workflow_01AIEX2U6A9IK58x6eK7B0xRlWEg9qu60Ei$",
+                  "row": [
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "Declare AMQP Exchange"
+                    },
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "false"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_017U9D0G4VLBK17S37ncE0HRl6aaFzlXutN",
+        "name": "Bind AMQP Queue",
+        "title": "Bind AMQP Queue",
+        "type": "amqp.bind_queue",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Bind AMQP Queue",
+          "exchange_name": "$activity.definition_activity_017U9AKQ43N1Q3yd4PU4ErlfbYSautS0UMg.output.exchange_name$",
+          "name": "$activity.definition_activity_017U8U3AXQYNK73CCDhcvAKxTSnoE4vi7d4.output.queue_name$",
+          "routing_key": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.input.variable_workflow_01AGGCOJBKARW5DvlnXdc6pgh5TeUOuL4WY$",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": false,
+            "override_workflow_target_group_criteria": false,
+            "use_workflow_target": true,
+            "use_workflow_target_group": false
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_017V2G632YQ4R7fBxLD11plAwT9JO1B8pI6",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_017V2G68KLM7Q03Crg0R8bNpNrl340BOutj",
+            "name": "Condition Branch",
+            "title": "Pass",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_017U9D0G4VLBK17S37ncE0HRl6aaFzlXutN.output.succeeded$",
+                "operator": "eq",
+                "right_operand": true
+              },
+              "continue_on_failure": true,
+              "display_name": "Pass",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_017V32NRYNIEK704gTkLQY4HAZU2M9LareD",
+                "name": "Add Row to Table",
+                "title": "Add Row to Table",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Add Row to Table",
+                  "input_table": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.output.variable_workflow_01AIEX2U6A9IK58x6eK7B0xRlWEg9qu60Ei$",
+                  "row": [
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "Bind AMQP Queue"
+                    },
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "true"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_017V2G6ADUBXI56JfOBO7BOXxoxOxAYI7yV",
+            "name": "Condition Branch",
+            "title": "Fail",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_017U9D0G4VLBK17S37ncE0HRl6aaFzlXutN.output.succeeded$",
+                "operator": "eq",
+                "right_operand": false
+              },
+              "continue_on_failure": true,
+              "display_name": "Fail",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_017V32OP8FYHZ0zlpITuQkqBFh2S01fttEM",
+                "name": "Add Row to Table",
+                "title": "Add Row to Table",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Add Row to Table",
+                  "input_table": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.output.variable_workflow_01AIEX2U6A9IK58x6eK7B0xRlWEg9qu60Ei$",
+                  "row": [
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "Bind AQP Queue"
+                    },
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "false"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_017V2GYPEJ5HZ0prs9eWVJnS2lywLbexkyj",
+        "name": "Publish AMQP Message",
+        "title": "Publish AMQP Message",
+        "type": "amqp.publish_message",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "body": "Message from Prerelease5.1.2 Envrionment\n\nTenant : chandra",
+          "continue_on_failure": true,
+          "delivery_mode": 1,
+          "display_name": "Publish AMQP Message",
+          "exchange_name": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.input.variable_workflow_01AGFUAJI66HO1PIHHcB6TYQDuBbLElcUeD$",
+          "routing_key": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.input.variable_workflow_01AGGCOJBKARW5DvlnXdc6pgh5TeUOuL4WY$",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": false,
+            "override_workflow_target_group_criteria": false,
+            "use_workflow_target": true,
+            "use_workflow_target_group": false
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_017V2H1EV3CD70jp5ReWfnNGnvpwAbrjJEU",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_017V2H1JAQB1434FdfCO2a8eBp8BxTVVxJF",
+            "name": "Condition Branch",
+            "title": "Pass",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_017V2GYPEJ5HZ0prs9eWVJnS2lywLbexkyj.output.succeeded$",
+                "operator": "eq",
+                "right_operand": true
+              },
+              "continue_on_failure": true,
+              "display_name": "Pass",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_017V32Q06DXHH0gnqQu61eIYql8j8pMvOyr",
+                "name": "Add Row to Table",
+                "title": "Add Row to Table",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Add Row to Table",
+                  "input_table": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.output.variable_workflow_01AIEX2U6A9IK58x6eK7B0xRlWEg9qu60Ei$",
+                  "row": [
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "Publish AMQP Message"
+                    },
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "true"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_017V2H1KXYQCI52sdfHOP145eKqAWrCOUOa",
+            "name": "Condition Branch",
+            "title": "Fail",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_017V2GYPEJ5HZ0prs9eWVJnS2lywLbexkyj.output.succeeded$",
+                "operator": "eq",
+                "right_operand": false
+              },
+              "continue_on_failure": true,
+              "display_name": "Fail",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_017V32R1HELVW1gGxsGnRPAv5Wz6h7dx3Nw",
+                "name": "Add Row to Table",
+                "title": "Add Row to Table",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Add Row to Table",
+                  "input_table": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.output.variable_workflow_01AIEX2U6A9IK58x6eK7B0xRlWEg9qu60Ei$",
+                  "row": [
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "Publish AMQP Message"
+                    },
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "false"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_017V2M32ZEU7R6OleYtE0wrZKFMswZiwsKm",
+        "name": "Get AMQP Message",
+        "title": "Get AMQP Message",
+        "type": "amqp.get_message",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Get AMQP Message",
+          "name": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.input.variable_workflow_01AGFUYN5FDHS6RpwxfluQpr8Gv8fJqUN1T$",
+          "noack": false,
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": false,
+            "override_workflow_target_group_criteria": false,
+            "use_workflow_target": true,
+            "use_workflow_target_group": false
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_017V32XWA9QXO4dKfzScAxVgWyOgisoYjZF",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_017V32Y2RTQSF6CwLYaKryJP7jznuH1yzoo",
+            "name": "Condition Branch",
+            "title": "Pass",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_017V2M32ZEU7R6OleYtE0wrZKFMswZiwsKm.output.succeeded$",
+                "operator": "eq",
+                "right_operand": true
+              },
+              "continue_on_failure": true,
+              "display_name": "Pass",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_017V32T95QRE83v1QRo1DUnzW0ECB3GZknV",
+                "name": "Add Row to Table",
+                "title": "Add Row to Table",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Add Row to Table",
+                  "input_table": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.output.variable_workflow_01AIEX2U6A9IK58x6eK7B0xRlWEg9qu60Ei$",
+                  "row": [
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "GET AMQP MESSAGE"
+                    },
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "true"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_017V32Y4TFAN84RGvJ85tnhJvUNcrq53Hi7",
+            "name": "Condition Branch",
+            "title": "Fail",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_017V2M32ZEU7R6OleYtE0wrZKFMswZiwsKm.output.succeeded$",
+                "operator": "eq",
+                "right_operand": true
+              },
+              "continue_on_failure": true,
+              "display_name": "Fail",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_017V32UJ2B9PE3GFeU87g47jmMoIR0CZjVG",
+                "name": "Add Row to Table",
+                "title": "Add Row to Table",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Add Row to Table",
+                  "input_table": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.output.variable_workflow_01AIEX2U6A9IK58x6eK7B0xRlWEg9qu60Ei$",
+                  "row": [
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "GET AMQP MESSAGE"
+                    },
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "false"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01AGFR0ERA02R2nbmEn3CQ1OVAzWPXKnFP5",
+        "name": "Set Variables",
+        "title": "Results",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Results",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.output.variable_workflow_01AGFRQA7A79U2sfSrzIXklq1Ew1TnYvP1h$",
+              "variable_value_new": "Activity Name :                                       Pass/Fail\n---------------------------------------------------------------------------------------------------\n\nDeclare AMQP Queue :$activity.definition_activity_017U8U3AXQYNK73CCDhcvAKxTSnoE4vi7d4.output.succeeded$\n\nDeclare AMQP Exchange :$activity.definition_activity_017U9AKQ43N1Q3yd4PU4ErlfbYSautS0UMg.output.succeeded$\n\nBind AMQP : $activity.definition_activity_017U9D0G4VLBK17S37ncE0HRl6aaFzlXutN.output.succeeded$\n\nPublish AMQP Message : $activity.definition_activity_017V2GYPEJ5HZ0prs9eWVJnS2lywLbexkyj.output.succeeded$\n\nGET AMQP Message : $activity.definition_activity_017V2M32ZEU7R6OleYtE0wrZKFMswZiwsKm.output.succeeded$\n\nCreated Queue Name : $workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.input.variable_workflow_01AGFUYN5FDHS6RpwxfluQpr8Gv8fJqUN1T$\n\nCreatedExchange Name :$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.input.variable_workflow_01AGFUAJI66HO1PIHHcB6TYQDuBbLElcUeD$\n\nCreated Routing Key :$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.input.variable_workflow_01AGGCOJBKARW5DvlnXdc6pgh5TeUOuL4WY$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_015PNSCQY9LPX3rtFMEAjxgL5ONoC8USfTW": {
+      "unique_name": "definition_target_015PNSCQY9LPX3rtFMEAjxgL5ONoC8USfTW",
+      "name": "CA AMQP TARGET",
+      "title": "CA AMQP TARGET",
+      "type": "amqp.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01KQJZJTWA0BF3KxTvb16ygqHqDLE5Ze7LS",
+        "description": "AMQP TARGET",
+        "display_name": "CA AMQP TARGET",
+        "host": "3.17.204.145",
+        "ignore_certificate_errors": true,
+        "port": 5672,
+        "ssl_enabled": false,
+        "vhost": "/"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_01KQJZJTWA0BF3KxTvb16ygqHqDLE5Ze7LS": {
+      "unique_name": "definition_runtime_user_01KQJZJTWA0BF3KxTvb16ygqHqDLE5Ze7LS",
+      "name": "AMQP Keys",
+      "title": "AMQP Keys",
+      "type": "runtime_user.amqp_password_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "AMQP Keys",
+        "password": "*****",
+        "username": "*****"
+      }
+    }
+  },
+  "table_types": {
+    "tabletype_01AHAPBR4FV675cgXI0e4HbGK7XYWEIF9sH": {
+      "unique_name": "tabletype_01AHAPBR4FV675cgXI0e4HbGK7XYWEIF9sH",
+      "data_type": "datatype.tabletype",
+      "display_name": "Output Results",
+      "columns": [
+        {
+          "name": "ActivityName",
+          "title": "Activity Name",
+          "type": "string"
+        },
+        {
+          "name": "Message",
+          "title": "Message",
+          "type": "string"
+        },
+        {
+          "name": "pass/fail",
+          "title": "Pass /Fail",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  }
+}
