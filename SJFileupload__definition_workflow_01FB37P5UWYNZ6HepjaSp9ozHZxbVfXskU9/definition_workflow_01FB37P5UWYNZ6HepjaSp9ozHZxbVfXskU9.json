@@ -1,0 +1,247 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01FB37P5UWYNZ6HepjaSp9ozHZxbVfXskU9",
+    "name": "FileUpload",
+    "title": "FileUpload",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.secure_string",
+        "properties": {
+          "value": "*****",
+          "scope": "local",
+          "name": "ss",
+          "type": "datatype.secure_string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01FB3N85EI6SP5Rki531EuxHfgblZRKyn3t",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.boolean",
+        "properties": {
+          "value": false,
+          "scope": "local",
+          "name": "FailTest",
+          "type": "datatype.boolean",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01FB38FEMZOJE4l9fi9JmLVSr4MF7HtC6v2",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.file",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "InputFile",
+          "type": "datatype.file",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01FB386VEF2AU6wFe9uXsSye1gUn9bUOU9d",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "FileUpload",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01FB37U8ZBTRK6FowBUaBmUAX9h4PrZnSox",
+        "name": "Upload File",
+        "title": "Upload File",
+        "type": "email.upload_file",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Upload File",
+          "http_request": {
+            "allow_auto_redirect": true,
+            "body_data": {
+              "body_type": "form-data",
+              "form_data": [
+                {
+                  "key": "Uploadfile",
+                  "key_type": "file",
+                  "path": "$workflow.definition_workflow_01FB37P5UWYNZ6HepjaSp9ozHZxbVfXskU9.input.variable_workflow_01FB386VEF2AU6wFe9uXsSye1gUn9bUOU9d$"
+                }
+              ]
+            },
+            "continue_on_error_status_code": false,
+            "custom_headers": [
+              {
+                "name": "test",
+                "value": "$workflow.definition_workflow_01FB37P5UWYNZ6HepjaSp9ozHZxbVfXskU9.local.variable_workflow_01FB3N85EI6SP5Rki531EuxHfgblZRKyn3t$"
+              }
+            ],
+            "method": "POST",
+            "relative_url": "/2.0/repositories/sjamal12/filetest/src"
+          },
+          "runtime_user": {
+            "override_target_runtime_user": true,
+            "runtime_user_id": "definition_runtime_user_01KY9KFLJZ7CW5DI72vqfOp72adhi8PskCA"
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01FB3HZ6LN4G80KUyKXpgeKPO2SkyRVEgV6"
+          },
+          "target_type": "web-service.endpoint"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01FB37XVO3HUB7Lx8onepgOGk8tY5KunUlo",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01FB37XZWVO540IfYEppf52kPmzLYIYOikz",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_01FB37U8ZBTRK6FowBUaBmUAX9h4PrZnSox.output.succeeded$",
+                "operator": "eq",
+                "right_operand": true
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01FB38HZN49DT3u6QEcKoEcDiqazoSfQxFU",
+                "name": "Set Variables",
+                "title": "Set Variables",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Set Variables",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01FB37P5UWYNZ6HepjaSp9ozHZxbVfXskU9.local.variable_workflow_01FB38FEMZOJE4l9fi9JmLVSr4MF7HtC6v2$",
+                      "variable_value_new": true
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01FB37Y27WIP71FqOe2pemtzQe9siu5SvBZ",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_01FB37U8ZBTRK6FowBUaBmUAX9h4PrZnSox.output.succeeded$",
+                "operator": "eq",
+                "right_operand": false
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01FB38J4J16MK3F30GjvkF3stWxrhoZK10t",
+                "name": "Set Variables",
+                "title": "Set Variables",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Set Variables",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01FB37P5UWYNZ6HepjaSp9ozHZxbVfXskU9.local.variable_workflow_01FB38FEMZOJE4l9fi9JmLVSr4MF7HtC6v2$",
+                      "variable_value_new": false
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_01FB3HZ6LN4G80KUyKXpgeKPO2SkyRVEgV6": {
+      "unique_name": "definition_target_01FB3HZ6LN4G80KUyKXpgeKPO2SkyRVEgV6",
+      "name": "BBtar",
+      "title": "BBtar",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01KY9KFLJZ7CW5DI72vqfOp72adhi8PskCA",
+        "disable_certificate_validation": false,
+        "display_name": "BBtar",
+        "host": "api.bitbucket.org",
+        "ignore_proxy": false,
+        "no_runtime_user": false,
+        "protocol": "https"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_01KY9KFLJZ7CW5DI72vqfOp72adhi8PskCA": {
+      "unique_name": "definition_runtime_user_01KY9KFLJZ7CW5DI72vqfOp72adhi8PskCA",
+      "name": "sj_BitBucket",
+      "title": "sj_BitBucket",
+      "type": "runtime_user.web-service_basic_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "auth_option": "*****",
+        "basic_password": "*****",
+        "basic_username": "*****",
+        "display_name": "sj_BitBucket"
+      }
+    }
+  }
+}
