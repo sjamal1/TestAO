@@ -1,0 +1,2355 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01IX6JF4UNOUR68eMXTisno0Bk5ya0mI0HV",
+    "name": "S_python_Large_Workflow",
+    "title": "S_python_Large_Workflow",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 1,
+          "scope": "local",
+          "name": "count1",
+          "type": "datatype.integer",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01KYDT01TE9CK5raHPrFZ7ILUeIJmbGJw0n",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 1,
+          "scope": "local",
+          "name": "count2",
+          "type": "datatype.integer",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01J2DYAF0LOAH0IUZlntT6geQdAK3XGJHjM",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 0,
+          "scope": "local",
+          "name": "v1",
+          "type": "datatype.integer",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01IX82NFEYSHR3ytpxE60sD7yRejQ27KGIj",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.file",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "InputFile",
+          "type": "datatype.file",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01KYDZIUNAMGL5hNuVyzwM1lFdIuzEO9JJQ",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "S_python_Large_Workflow",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01KYDWQFIE2ED5erCB7IvvMbSHKqsArdWzq",
+        "name": "FileUpload",
+        "title": "FileUpload",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "FileUpload",
+          "input": {
+            "variable_workflow_01FB386VEF2AU6wFe9uXsSye1gUn9bUOU9d": "$workflow.definition_workflow_01IX6JF4UNOUR68eMXTisno0Bk5ya0mI0HV.input.variable_workflow_01KYDZIUNAMGL5hNuVyzwM1lFdIuzEO9JJQ$"
+          },
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_01FB37P5UWYNZ6HepjaSp9ozHZxbVfXskU9"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01IX80OE815HP0e0psP0M6L3eK7uCrjSY3T",
+        "name": "While Loop",
+        "title": "While Loop",
+        "type": "logic.while",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "While Loop",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01IX80T4MUYOK00swRRuexw54IwZDRobpfL",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$workflow.definition_workflow_01IX6JF4UNOUR68eMXTisno0Bk5ya0mI0HV.local.variable_workflow_01IX82NFEYSHR3ytpxE60sD7yRejQ27KGIj$",
+                "operator": "ne",
+                "right_operand": 10
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01IX7ZO93OEAS6AoyS8EjFVV2n5hiFMRQV3",
+                "name": "Execute Python Script",
+                "title": "Execute Python Script",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Execute Python Script",
+                  "script": "import random\nimport sys\nr1 = sys.argv[1]\nr1 = random.randint(0, 20)\n",
+                  "script_arguments": [
+                    "$workflow.definition_workflow_01IX6JF4UNOUR68eMXTisno0Bk5ya0mI0HV.local.variable_workflow_01IX82NFEYSHR3ytpxE60sD7yRejQ27KGIj$"
+                  ],
+                  "script_queries": [
+                    {
+                      "script_query": "r1",
+                      "script_query_name": "random Number",
+                      "script_query_type": "integer"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01IX8CJE6JRTX57hyDSjlnOc7CjXyaoBII6",
+                "name": "Set Variables",
+                "title": "Set Variables",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Set Variables",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01IX6JF4UNOUR68eMXTisno0Bk5ya0mI0HV.local.variable_workflow_01IX82NFEYSHR3ytpxE60sD7yRejQ27KGIj$",
+                      "variable_value_new": "$activity.definition_activity_01IX7ZO93OEAS6AoyS8EjFVV2n5hiFMRQV3.output.script_queries.random Number$"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01KYDTQNMCQRU3XlQxnIgWcytWlPPaHuXsn",
+        "name": "While Loop",
+        "title": "While Loop",
+        "type": "logic.while",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "While Loop",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01KYDTQQSZJAH4yZCPzHF8ftss3yPcDPUKf",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$workflow.definition_workflow_01IX6JF4UNOUR68eMXTisno0Bk5ya0mI0HV.local.variable_workflow_01KYDT01TE9CK5raHPrFZ7ILUeIJmbGJw0n$",
+                "operator": "lte",
+                "right_operand": 20
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01KYDTXXVQMB06uyP55flWQau8UfFpOqHkZ",
+                "name": "Parallel Block",
+                "title": "Parallel Block",
+                "type": "logic.parallel",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Parallel Block",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_01KYDTY12UDW46M4dKACizB7oNUDDEFf9OQ",
+                    "name": "Parallel Branch",
+                    "title": "Parallel Branch",
+                    "type": "logic.parallel_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Parallel Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01KYDW6JCH8A658VepVUvaJNECWkbrqlDhl",
+                        "name": "SJ_Terminal Actions",
+                        "title": "SJ_Terminal Actions",
+                        "type": "workflow.sub_workflow",
+                        "base_type": "subworkflow",
+                        "properties": {
+                          "display_name": "SJ_Terminal Actions",
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "target": {
+                            "no_target": true
+                          },
+                          "workflow_id": "definition_workflow_01J4NG73FTSA45g8GlLQwYHzatBFB8aMSWY"
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_01KYDTY24VX813hyfnWjpiUI63I36zqdwic",
+                    "name": "Parallel Branch",
+                    "title": "Parallel Branch",
+                    "type": "logic.parallel_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "display_name": "Parallel Branch"
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01KYDWEEI0YNY7JDFNJnz50KHV1YAgsTQ1T",
+                        "name": "Regression AMQP",
+                        "title": "Regression AMQP",
+                        "type": "workflow.sub_workflow",
+                        "base_type": "subworkflow",
+                        "properties": {
+                          "display_name": "Regression AMQP",
+                          "input": {
+                            "variable_workflow_01AGFUAJI66HO1PIHHcB6TYQDuBbLElcUeD": "CA-Prerelease-test5.12-Exchange",
+                            "variable_workflow_01AGFUYN5FDHS6RpwxfluQpr8Gv8fJqUN1T": "CA-Prerelease-test5.12-Queue",
+                            "variable_workflow_01AGGCOJBKARW5DvlnXdc6pgh5TeUOuL4WY": "CA- Prerelease5.1.2"
+                          },
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "target": {
+                            "execute_on_this_target": true,
+                            "target_id": "definition_target_015PNSCQY9LPX3rtFMEAjxgL5ONoC8USfTW",
+                            "target_type": "amqp.endpoint"
+                          },
+                          "workflow_id": "definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp"
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01KYDUCP4240X7I2I8xT0JLcxJKytg8IcWl",
+                "name": "Set Variables",
+                "title": "Set Variables",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Set Variables",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01IX6JF4UNOUR68eMXTisno0Bk5ya0mI0HV.local.variable_workflow_01KYDT01TE9CK5raHPrFZ7ILUeIJmbGJw0n$",
+                      "variable_value_new": "$workflow.definition_workflow_01IX6JF4UNOUR68eMXTisno0Bk5ya0mI0HV.local.variable_workflow_01KYDT01TE9CK5raHPrFZ7ILUeIJmbGJw0n$ + 1"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01IX6M61NOXN52mfahuLwt9xK6iLcg6YeTd",
+        "name": "Parallel Block",
+        "title": "Parallel Block",
+        "type": "logic.parallel",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Parallel Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01IX6M9HFL9J00NABBKIZ3F4BB694xLUCyn",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01IX9TE6ZJCDG1IgvrxjlNnwMzDIGRppsio",
+                "name": "Execute Python Script",
+                "title": "Basic ",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Basic ",
+                  "script": "print('Hello World!')\nprint('Welcome to Real Python!')",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01IX9TGYN6GMN38YfyXMnUvgZOU4NqLs3Wf",
+                "name": "Execute Python Script",
+                "title": "Sleep 5 Seconds",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Sleep 5 Seconds",
+                  "script": "import time\n\ntime.sleep(5)",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01IX9TJ9KVYR47Ys1xHNkjJ5tw1my4mrBn4",
+                "name": "Execute Python Script",
+                "title": "Execute Python Script for getting current Date",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Execute Python Script for getting current Date",
+                  "script": "from datetime import date\ntoday = date.today()\nprint(\"Today's date:\", today)",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01IX6MBLA508U6OMrOVUcXiIcDEKAWHat7B",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01IX9TKTOEWF703Sn8o2V4a10SznvN6arbN",
+                "name": "Execute Python Script",
+                "title": "Getting current dates in different formats",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Getting current dates in different formats",
+                  "script": "from datetime import date\ntoday = date.today()\n# dd/mm/YY\nd1 = today.strftime(\"%d/%m/%Y\")\nprint(\"d1 =\", d1)\n# Textual month, day and year\t\nd2 = today.strftime(\"%B %d, %Y\")\nprint(\"d2 =\", d2)\n# mm/dd/y\nd3 = today.strftime(\"%m/%d/%y\")\nprint(\"d3 =\", d3)\n# Month abbreviation, day and year\t\nd4 = today.strftime(\"%b-%d-%Y\")\nprint(\"d4 =\", d4)",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01IX9TM8VZCQQ1HH2SmCPzc4E3nEi6QXxMl",
+                "name": "Execute Python Script",
+                "title": "Print Prime Numbers",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Print Prime Numbers",
+                  "script": "# Python program to print all  \n# prime number in an interval \n  \nstart = 11\nend = 25\n  \nfor val in range(start, end + 1): \n      \n   # If num is divisible by any number   \n   # between 2 and val, it is not prime  \n   if val \u003e 1: \n       for n in range(2, val): \n           if (val % n) == 0: \n               break\n       else: \n           print(val)",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01J2DLKYPRKXK7a3R5DlaeCCsolaT3c1nkr",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01J2DM03X5RTQ6LD3Urg8XsTdaD3gh5xBK8",
+                "name": "SJ_NewPython_action_using_TCPIP_SMTP",
+                "title": "SJ_NewPython_action_using_TCPIP_SMTP",
+                "type": "workflow.sub_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "display_name": "SJ_NewPython_action_using_TCPIP_SMTP",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "target": {
+                    "no_target": true
+                  },
+                  "workflow_id": "definition_workflow_01FL61IQ44TPO5fB7y4h54iYjOvoTD98mRw"
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01J2DXX1ZIGHL0FZW0vvRgUEQ8IisvkVRgl",
+        "name": "Group",
+        "title": "Group",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Group",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01J2DXZ0FJSNE1YsLJV1bnHMVu0vZoKj5ly",
+            "name": "While Loop",
+            "title": "While Loop",
+            "type": "logic.while",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "While Loop",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01J2DXZ41FN0B6PwxvKTVXPcFDdfi9DhaHT",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$workflow.definition_workflow_01IX6JF4UNOUR68eMXTisno0Bk5ya0mI0HV.local.variable_workflow_01J2DYAF0LOAH0IUZlntT6geQdAK3XGJHjM$",
+                    "operator": "lte",
+                    "right_operand": 50
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01J2DYHMLL7107JbKwT7uAtp3d4N207w3bC",
+                    "name": "Python_SecureSrting_Regression",
+                    "title": "Python_SecureSrting_Regression",
+                    "type": "workflow.sub_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "display_name": "Python_SecureSrting_Regression",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "target": {
+                        "no_target": true
+                      },
+                      "workflow_id": "definition_workflow_01J2DSZU6YN3P10MvBmadjIWIEdPNg52pFS"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01J2DYOR9L5J35WnZotifNji6XsW6rMh2RT",
+                    "name": "Set Variables",
+                    "title": "Set Variables",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Set Variables",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01IX6JF4UNOUR68eMXTisno0Bk5ya0mI0HV.local.variable_workflow_01J2DYAF0LOAH0IUZlntT6geQdAK3XGJHjM$",
+                          "variable_value_new": "$workflow.definition_workflow_01IX6JF4UNOUR68eMXTisno0Bk5ya0mI0HV.local.variable_workflow_01J2DYAF0LOAH0IUZlntT6geQdAK3XGJHjM$ + 1"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_015PNSCQY9LPX3rtFMEAjxgL5ONoC8USfTW": {
+      "unique_name": "definition_target_015PNSCQY9LPX3rtFMEAjxgL5ONoC8USfTW",
+      "name": "CA AMQP TARGET",
+      "title": "CA AMQP TARGET",
+      "type": "amqp.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01KQJZJTWA0BF3KxTvb16ygqHqDLE5Ze7LS",
+        "description": "AMQP TARGET",
+        "display_name": "CA AMQP TARGET",
+        "host": "3.17.204.145",
+        "ignore_certificate_errors": true,
+        "port": 5672,
+        "ssl_enabled": false,
+        "vhost": "/"
+      }
+    },
+    "definition_target_01FB3HZ6LN4G80KUyKXpgeKPO2SkyRVEgV6": {
+      "unique_name": "definition_target_01FB3HZ6LN4G80KUyKXpgeKPO2SkyRVEgV6",
+      "name": "BBtar",
+      "title": "BBtar",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01KY9KFLJZ7CW5DI72vqfOp72adhi8PskCA",
+        "disable_certificate_validation": false,
+        "display_name": "BBtar",
+        "host": "api.bitbucket.org",
+        "ignore_proxy": false,
+        "no_runtime_user": false,
+        "protocol": "https"
+      }
+    },
+    "definition_target_01KYDNHXC5CBV4QIsMVsrtj7aebg1s8qZ2r": {
+      "unique_name": "definition_target_01KYDNHXC5CBV4QIsMVsrtj7aebg1s8qZ2r",
+      "name": "SJ_Teminal",
+      "title": "SJ_Teminal",
+      "type": "terminal.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01KYCU3Q2HYJT0GAB7HZrKFU4FYIdDCJE8t",
+        "display_name": "SJ_Teminal",
+        "host": "3.17.204.145",
+        "port": 22,
+        "prompt_pattern": "$",
+        "protocol": "ssh"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_01KQJZJTWA0BF3KxTvb16ygqHqDLE5Ze7LS": {
+      "unique_name": "definition_runtime_user_01KQJZJTWA0BF3KxTvb16ygqHqDLE5Ze7LS",
+      "name": "AMQP Keys",
+      "title": "AMQP Keys",
+      "type": "runtime_user.amqp_password_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "AMQP Keys",
+        "password": "*****",
+        "username": "*****"
+      }
+    },
+    "definition_runtime_user_01KY9KFLJZ7CW5DI72vqfOp72adhi8PskCA": {
+      "unique_name": "definition_runtime_user_01KY9KFLJZ7CW5DI72vqfOp72adhi8PskCA",
+      "name": "sj_BitBucket",
+      "title": "sj_BitBucket",
+      "type": "runtime_user.web-service_basic_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "auth_option": "*****",
+        "basic_password": "*****",
+        "basic_username": "*****",
+        "display_name": "sj_BitBucket"
+      }
+    },
+    "definition_runtime_user_01KYCU3Q2HYJT0GAB7HZrKFU4FYIdDCJE8t": {
+      "unique_name": "definition_runtime_user_01KYCU3Q2HYJT0GAB7HZrKFU4FYIdDCJE8t",
+      "name": "Sj_Terminal_Key",
+      "title": "Sj_Terminal_Key",
+      "type": "runtime_user.terminal_key_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "Sj_Terminal_Key",
+        "key": "*****",
+        "user": "*****"
+      }
+    }
+  },
+  "table_types": {
+    "tabletype_01AHAPBR4FV675cgXI0e4HbGK7XYWEIF9sH": {
+      "unique_name": "tabletype_01AHAPBR4FV675cgXI0e4HbGK7XYWEIF9sH",
+      "data_type": "datatype.tabletype",
+      "display_name": "Output Results",
+      "columns": [
+        {
+          "name": "ActivityName",
+          "title": "Activity Name",
+          "type": "string"
+        },
+        {
+          "name": "Message",
+          "title": "Message",
+          "type": "string"
+        },
+        {
+          "name": "pass/fail",
+          "title": "Pass /Fail",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01FB37P5UWYNZ6HepjaSp9ozHZxbVfXskU9",
+        "name": "FileUpload",
+        "title": "FileUpload",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.boolean",
+            "properties": {
+              "value": false,
+              "scope": "local",
+              "name": "FailTest",
+              "type": "datatype.boolean",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01FB38FEMZOJE4l9fi9JmLVSr4MF7HtC6v2",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.file",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "InputFile",
+              "type": "datatype.file",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01FB386VEF2AU6wFe9uXsSye1gUn9bUOU9d",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.secure_string",
+            "properties": {
+              "value": "*****",
+              "scope": "local",
+              "name": "ss",
+              "type": "datatype.secure_string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01FB3N85EI6SP5Rki531EuxHfgblZRKyn3t",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "FileUpload",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "specify_on_workflow_start": false,
+            "target_default": true
+          },
+          "target": {
+            "execute_on_target_group": false,
+            "execute_on_workflow_target": false,
+            "no_target": true,
+            "specify_on_workflow_start": false
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01FB37U8ZBTRK6FowBUaBmUAX9h4PrZnSox",
+            "name": "Upload File",
+            "title": "Upload File",
+            "type": "email.upload_file",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "Upload File",
+              "http_request": {
+                "allow_auto_redirect": true,
+                "body_data": {
+                  "body_type": "form-data",
+                  "form_data": [
+                    {
+                      "key": "Uploadfile",
+                      "key_type": "file",
+                      "path": "$workflow.definition_workflow_01FB37P5UWYNZ6HepjaSp9ozHZxbVfXskU9.input.variable_workflow_01FB386VEF2AU6wFe9uXsSye1gUn9bUOU9d$"
+                    }
+                  ]
+                },
+                "continue_on_error_status_code": false,
+                "custom_headers": [
+                  {
+                    "name": "test",
+                    "value": "$workflow.definition_workflow_01FB37P5UWYNZ6HepjaSp9ozHZxbVfXskU9.local.variable_workflow_01FB3N85EI6SP5Rki531EuxHfgblZRKyn3t$"
+                  }
+                ],
+                "method": "POST",
+                "relative_url": "/2.0/repositories/sjamal12/filetest/src"
+              },
+              "runtime_user": {
+                "override_target_runtime_user": true,
+                "runtime_user_id": "definition_runtime_user_01KY9KFLJZ7CW5DI72vqfOp72adhi8PskCA"
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "definition_target_01FB3HZ6LN4G80KUyKXpgeKPO2SkyRVEgV6"
+              },
+              "target_type": "web-service.endpoint"
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01FB37XVO3HUB7Lx8onepgOGk8tY5KunUlo",
+            "name": "Condition Block",
+            "title": "Condition Block",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Condition Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01FB37XZWVO540IfYEppf52kPmzLYIYOikz",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_01FB37U8ZBTRK6FowBUaBmUAX9h4PrZnSox.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": true
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01FB38HZN49DT3u6QEcKoEcDiqazoSfQxFU",
+                    "name": "Set Variables",
+                    "title": "Set Variables",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Set Variables",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01FB37P5UWYNZ6HepjaSp9ozHZxbVfXskU9.local.variable_workflow_01FB38FEMZOJE4l9fi9JmLVSr4MF7HtC6v2$",
+                          "variable_value_new": true
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01FB37Y27WIP71FqOe2pemtzQe9siu5SvBZ",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_01FB37U8ZBTRK6FowBUaBmUAX9h4PrZnSox.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": false
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01FB38J4J16MK3F30GjvkF3stWxrhoZK10t",
+                    "name": "Set Variables",
+                    "title": "Set Variables",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Set Variables",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01FB37P5UWYNZ6HepjaSp9ozHZxbVfXskU9.local.variable_workflow_01FB38FEMZOJE4l9fi9JmLVSr4MF7HtC6v2$",
+                          "variable_value_new": false
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    },
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01J4NG73FTSA45g8GlLQwYHzatBFB8aMSWY",
+        "name": "SJ_Terminal Actions",
+        "title": "SJ_Terminal Actions",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": null,
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "SJ_Terminal Actions",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "specify_on_workflow_start": false,
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01J4NGIC8ZDQK7EU3XePsoGtIBh7S5Ov7Yu",
+            "name": "Execute Terminal Command(s)",
+            "title": "Execute Terminal Command(s)",
+            "type": "terminal.command",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "command_timeout": 60,
+              "commands": "df -h\necho \"test\"\ndf -h\necho \"test\"\ndf -h\necho \"test\"\ndf -h\necho \"test\"\ndf -h\necho \"test\"\ndf -h\necho \"test\"\ndf -h\necho \"test\"\ndf -h\necho \"test\"\ndf -h\necho \"test\"\ndf -h\necho \"test\"\ndf -h\necho \"test\"\ndf -h\necho \"test\"\ndf -h\necho \"test\"\ndf -h\necho \"test\"\ndf -h\necho \"test\"\ndf -h\necho \"test\"\ndf -h\necho \"test\"\ndf -h\necho \"test\"\ndf -h\necho \"test\"\ndf -h\necho \"test\"\ndf -h\necho \"test\"\ndf -h\necho \"test\"\ndf -h\necho \"test\"\ndf -h\necho \"test\"\n",
+              "continue_on_failure": false,
+              "display_name": "Execute Terminal Command(s)",
+              "merge_commands": false,
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "definition_target_01KYDNHXC5CBV4QIsMVsrtj7aebg1s8qZ2r"
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01KJWAT67A2A71dBUmCiGQ8fbzMouH4zqa3",
+            "name": "Execute Terminal Command(s)",
+            "title": "Execute Terminal Command(s)",
+            "type": "terminal.command",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "command_timeout": 60,
+              "commands": "top",
+              "continue_on_failure": false,
+              "display_name": "Execute Terminal Command(s)",
+              "merge_commands": false,
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "special_character": 3,
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "definition_target_01KYDNHXC5CBV4QIsMVsrtj7aebg1s8qZ2r"
+              }
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    },
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01FL61IQ44TPO5fB7y4h54iYjOvoTD98mRw",
+        "name": "SJ_NewPython_action_using_TCPIP_SMTP",
+        "title": "SJ_NewPython_action_using_TCPIP_SMTP",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.secure_string",
+            "properties": {
+              "value": "*****",
+              "scope": "local",
+              "name": "pwd",
+              "type": "datatype.secure_string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01FL7OKHJ2NOJ4H6zG5egK06lXKf3CT3ZfW",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "SJ_NewPython_action_using_TCPIP_SMTP",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "specify_on_workflow_start": false,
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01FL61XF8J0XF2RVc9BcFhooWyNl4sgvVSE",
+            "name": "Execute Python Script",
+            "title": "Execute Python Script_TCP_IP",
+            "type": "python3.script",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Execute Python Script_TCP_IP",
+              "script": "import socket\n\nTCP_IP = 'yahoo.com'\nTCP_PORT = 443\nBUFFER_SIZE = 1024\nMESSAGE = 'Hello, World'.encode()\ns = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\ns.connect((TCP_IP, TCP_PORT))\ns.send(MESSAGE)\ndata = s.recv(BUFFER_SIZE)\ns.close()\nprint(\"received data:\", data, MESSAGE)",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01FLI8F4PD9VO6sUgyjrYCeR6k0G1qeA8JA",
+            "name": "Execute Python Script",
+            "title": "Execute Python Script_UDP",
+            "type": "python3.script",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Execute Python Script_UDP",
+              "script": "import socket\nUDP_IP = \"52.205.242.66\"\nUDP_PORT = 443\nMESSAGE = \"Hello, World!\".encode()\nprint (\"UDP target IP:\", UDP_IP)\nprint (\"UDP target port:\", UDP_PORT)\nprint (\"message:\", MESSAGE)\nsock = socket.socket(socket.AF_INET, # Internet\nsocket.SOCK_DGRAM) # UDP\nsock.sendto(MESSAGE, (UDP_IP, UDP_PORT))",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01FL7HV93NYRJ0kJ84nXW0minqEIYG8L9ww",
+            "name": "Execute Python Script",
+            "title": "Execute Python Script_SMTP",
+            "type": "python3.script",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Execute Python Script_SMTP",
+              "script": "import smtplib, ssl\nfrom email.message import EmailMessage\n\nmsg = EmailMessage()\nmsg.set_content(\"This is the test email from SecureX\")\nmsg[\"Subject\"] = \"An Email Alert\"\nmsg[\"From\"] = \"jamaltest12@gmail.com\"\nmsg[\"To\"] = \"shamstest12@gmail.com\"\n\n#context=ssl.create_default_context()\n\nwith smtplib.SMTP(\"smtp.gmail.com\", port=587) as smtp:\n    smtp.starttls()\n    smtp.login(msg[\"From\"], \"$workflow.definition_workflow_01FL61IQ44TPO5fB7y4h54iYjOvoTD98mRw.local.variable_workflow_01FL7OKHJ2NOJ4H6zG5egK06lXKf3CT3ZfW$\")\n    smtp.send_message(msg)",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01FLKFWDQT3U42eswixgqFs6Mvt2vAHNRty",
+            "name": "Sleep",
+            "title": "Sleep",
+            "type": "core.sleep",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Sleep",
+              "skip_execution": false,
+              "sleep_interval": 35
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01FLKCWY22YXE68NdtlCqIrrFM0GZJqQeya",
+            "name": "Execute Python Script",
+            "title": "Execute Python Script_IMAP",
+            "type": "python3.script",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Execute Python Script_IMAP",
+              "script": "import imaplib\nimport pprint\n\nimap_host = 'imap.gmail.com'\nimap_user = 'jamaltest12@gmail.com'\nimap_pass = '$workflow.definition_workflow_01FL61IQ44TPO5fB7y4h54iYjOvoTD98mRw.local.variable_workflow_01FL7OKHJ2NOJ4H6zG5egK06lXKf3CT3ZfW$'\n\n# connect to host using SSL\nimap = imaplib.IMAP4_SSL(imap_host)\n\n## login to server\nimap.login(imap_user, imap_pass)\n\nimap.select('Inbox')\n\ntmp, data = imap.search(None, 'ALL')\nfor num in data[0].split():\n\ttmp, data = imap.fetch(num, '(RFC822)')\n\tprint('Message: {0}\\n'.format(num))\n\tpprint.pprint(data[0][1])\n\tbreak\nimap.close()",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01FL8C1K80XDJ3nzp5UQXPkBpS7rdr39R0z",
+            "name": "Execute Python Script",
+            "title": "Execute Python Script_Ping",
+            "type": "python3.script",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "description": "sadas",
+              "display_name": "Execute Python Script_Ping",
+              "script": "import os\nhostname = \"google.com\"\nresponse = os.system(\"ping -n \" + hostname)\nprint(response)\nif response == 0:\n  print (hostname, 'is up!')\nelse:\n  print (hostname, 'is down!')",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    },
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01J2DSZU6YN3P10MvBmadjIWIEdPNg52pFS",
+        "name": "Python_SecureSrting_Regression",
+        "title": "Python_SecureSrting_Regression",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.secure_string",
+            "properties": {
+              "value": "*****",
+              "scope": "local",
+              "name": "ss3",
+              "type": "datatype.secure_string",
+              "description": "test",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01J2DSZTT33J70sdI1ndr4T1CuAO1pcOucw",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.secure_string",
+            "properties": {
+              "value": "*****",
+              "scope": "local",
+              "name": "ss2",
+              "type": "datatype.secure_string",
+              "description": "1234",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01J2DSZTT2YQR4G4lYAaabkQYPZQlMuI80T",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.boolean",
+            "properties": {
+              "value": false,
+              "scope": "local",
+              "name": "SetVarSS",
+              "type": "datatype.boolean",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01J2DSZTT2U3I57gYokItVzy1xKTDFJa1HR",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.secure_string",
+            "properties": {
+              "value": "*****",
+              "scope": "local",
+              "name": "ss1",
+              "type": "datatype.secure_string",
+              "description": "test",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01J2DSZTT2XPX5hlD4W48bgxG8y27ORP9Vk",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "Python_SecureSrting_Regression",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "specify_on_workflow_start": false,
+            "target_default": true
+          },
+          "target": {
+            "execute_on_target_group": false,
+            "execute_on_workflow_target": false,
+            "no_target": true,
+            "specify_on_workflow_start": false
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01J2DT0GNPJ612muLdVbx6pngRHQO4WVdLj",
+            "name": "Parallel Block",
+            "title": "Parallel Block 1",
+            "type": "logic.parallel",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Parallel Block 1",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01J2DT1U9EZYG70JpFVj4FvcTPmMxwO25Lr",
+                "name": "Parallel Branch",
+                "title": "Python",
+                "type": "logic.parallel_block",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Python",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01J2DT1YZTZE74gsaanR8zIilWF479yTUQK",
+                    "name": "Execute Python Script",
+                    "title": "Invalid Python",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Invalid Python",
+                      "script": "$workflow.definition_workflow_01J2DSZU6YN3P10MvBmadjIWIEdPNg52pFS.local.variable_workflow_01J2DSZTT33J70sdI1ndr4T1CuAO1pcOucw$",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01J2DT24N54CG4bQLPGxORwb461DKnApBN6",
+                    "name": "Execute Python Script",
+                    "title": "Explicit Print",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Explicit Print",
+                      "script": "import sys\nprint(sys.argv[1])",
+                      "script_arguments": [
+                        "$workflow.definition_workflow_01J2DSZU6YN3P10MvBmadjIWIEdPNg52pFS.local.variable_workflow_01J2DSZTT33J70sdI1ndr4T1CuAO1pcOucw$"
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01J2DT2ADW3FO5geqZlWws24Nl4qCZSIrvk",
+                    "name": "Execute Python Script",
+                    "title": "Output Script Var",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Output Script Var",
+                      "script": "import sys\n$workflow.definition_workflow_01J2DSZU6YN3P10MvBmadjIWIEdPNg52pFS.local.variable_workflow_01J2DSZTT33J70sdI1ndr4T1CuAO1pcOucw$ = sys.argv[1]",
+                      "script_arguments": [
+                        "$workflow.definition_workflow_01J2DSZU6YN3P10MvBmadjIWIEdPNg52pFS.local.variable_workflow_01J2DSZTT33J70sdI1ndr4T1CuAO1pcOucw$"
+                      ],
+                      "script_queries": [
+                        {
+                          "script_query": "$workflow.definition_workflow_01J2DSZU6YN3P10MvBmadjIWIEdPNg52pFS.local.variable_workflow_01J2DSZTT33J70sdI1ndr4T1CuAO1pcOucw$",
+                          "script_query_name": "SSVar",
+                          "script_query_type": "secure_string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01J2DT2G5X2A17aDnxR3BS5c8BFXftjhLIH",
+                    "name": "Execute Python Script",
+                    "title": "Obscure Value in Output",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Obscure Value in Output",
+                      "script": "import sys\n\nval = sys.argv[1]\n\nrev = \"\".join(reversed(val))",
+                      "script_arguments": [
+                        "$workflow.definition_workflow_01J2DSZU6YN3P10MvBmadjIWIEdPNg52pFS.local.variable_workflow_01J2DSZTT33J70sdI1ndr4T1CuAO1pcOucw$"
+                      ],
+                      "script_queries": [
+                        {
+                          "script_query": "rev",
+                          "script_query_name": "reversed value",
+                          "script_query_type": "secure_string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01J2DT2M40KO04rk0KyAOQSicTL5leb8IbF",
+                    "name": "Execute Python Script",
+                    "title": "Extract Secure String Value From Output Script Var",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Extract Secure String Value From Output Script Var",
+                      "script": "import sys\nval1 = sys.argv[1]\nprint(val1)",
+                      "script_arguments": [
+                        "$activity.definition_activity_01J2DT2ADW3FO5geqZlWws24Nl4qCZSIrvk.output.script_queries.SSVar$"
+                      ],
+                      "script_queries": [
+                        {
+                          "script_query": "val1",
+                          "script_query_name": "ss_value",
+                          "script_query_type": "secure_string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01J2DT2SNCCT27NuBzZZxUqpIG2vbu48IW9",
+                    "name": "Execute Python Script",
+                    "title": "Extract Secure String Value From Obscure Value in Output",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Extract Secure String Value From Obscure Value in Output",
+                      "script": "import sys\nval1 = sys.argv[1]\nprint(val1)",
+                      "script_arguments": [
+                        "$activity.definition_activity_01J2DT2G5X2A17aDnxR3BS5c8BFXftjhLIH.output.script_queries.reversed value$"
+                      ],
+                      "script_queries": [
+                        {
+                          "script_query": "val1",
+                          "script_query_name": "ss_value",
+                          "script_query_type": "secure_string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01J2DT2YUB5I30JOFhN1pGeGWaFe3VOjaMH",
+                    "name": "Condition Block",
+                    "title": "Condition Block",
+                    "type": "logic.if_else",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Condition Block",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "blocks": [
+                      {
+                        "unique_name": "definition_activity_01J2DT35HRDBI2BaoxehEiSgSxKqwNvoNlG",
+                        "name": "Condition Branch",
+                        "title": "Condition Branch",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": "$activity.definition_activity_01J2DT1YZTZE74gsaanR8zIilWF479yTUQK.output.error.message$",
+                                  "operator": "nmw",
+                                  "right_operand": "test"
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_01J2DT24N54CG4bQLPGxORwb461DKnApBN6.output.response_body$",
+                                  "operator": "eq",
+                                  "right_operand": "test"
+                                }
+                              },
+                              "operator": "and",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_01J2DT2M40KO04rk0KyAOQSicTL5leb8IbF.output.response_body$",
+                                "operator": "eq",
+                                "right_operand": "test"
+                              }
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_01J2DT2SNCCT27NuBzZZxUqpIG2vbu48IW9.output.response_body$",
+                              "operator": "eq",
+                              "right_operand": "tset"
+                            }
+                          },
+                          "continue_on_failure": true,
+                          "display_name": "Condition Branch",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_01J2DT3B26VRJ1ULHyxGhbRO00b20aQsqig",
+                            "name": "Set Variables",
+                            "title": "PASS",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "PASS",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_01J2DSZU6YN3P10MvBmadjIWIEdPNg52pFS.local.variable_workflow_01J2DSZTT2U3I57gYokItVzy1xKTDFJa1HR$",
+                                  "variable_value_new": true
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_01J2DT3HWZKJX1PeQ20ercJkMBYEkMjux6I",
+                        "name": "Condition Branch",
+                        "title": "Condition Branch",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": "$activity.definition_activity_01J2DT1YZTZE74gsaanR8zIilWF479yTUQK.output.error.message$",
+                                  "operator": "mw",
+                                  "right_operand": "test"
+                                },
+                                "operator": "or",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_01J2DT24N54CG4bQLPGxORwb461DKnApBN6.output.response_body$",
+                                  "operator": "ne",
+                                  "right_operand": "test"
+                                }
+                              },
+                              "operator": "or",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_01J2DT2M40KO04rk0KyAOQSicTL5leb8IbF.output.response_body$",
+                                "operator": "ne",
+                                "right_operand": "test"
+                              }
+                            },
+                            "operator": "or",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_01J2DT2SNCCT27NuBzZZxUqpIG2vbu48IW9.output.response_body$",
+                              "operator": "ne",
+                              "right_operand": "tset"
+                            }
+                          },
+                          "continue_on_failure": true,
+                          "display_name": "Condition Branch",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_01J2DT3NHPNVI6Bh0RpqsiVGRvI7yo0Peh4",
+                            "name": "Set Variables",
+                            "title": "FAIL",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "FAIL",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_01J2DSZU6YN3P10MvBmadjIWIEdPNg52pFS.local.variable_workflow_01J2DSZTT2U3I57gYokItVzy1xKTDFJa1HR$",
+                                  "variable_value_new": false
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    },
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp",
+        "name": "Regression AMQP",
+        "title": "Regression AMQP",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Output Results",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01AGFRQA7A79U2sfSrzIXklq1Ew1TnYvP1h",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "CA- Prerelease5.1.2",
+              "scope": "input",
+              "name": "Routing key",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01AGGCOJBKARW5DvlnXdc6pgh5TeUOuL4WY",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "CA-Prerelease-test5.12-Exchange",
+              "scope": "input",
+              "name": "AMQP Exchange Name",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01AGFUAJI66HO1PIHHcB6TYQDuBbLElcUeD",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "CA-Prerelease-test5.12-Queue",
+              "scope": "input",
+              "name": "AMQP Queue Name",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01AGFUYN5FDHS6RpwxfluQpr8Gv8fJqUN1T",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "tabletype_01AHAPBR4FV675cgXI0e4HbGK7XYWEIF9sH",
+            "properties": {
+              "scope": "output",
+              "name": "Results",
+              "type": "datatype.table",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01AIEX2U6A9IK58x6eK7B0xRlWEg9qu60Ei",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "description": "AMQP This workflow contains\n1. Declare AMQP Queue\n2. Declare AMQP Exhange\n3. Bind AMQP Queue\n4. Pubish AMQP Message\n5. Get AMQP Message",
+          "display_name": "Regression AMQP",
+          "favorite": false,
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "specify_on_workflow_start": false,
+            "target_default": true
+          },
+          "target": {
+            "target_type": "amqp.endpoint",
+            "target_id": "definition_target_015PNSCQY9LPX3rtFMEAjxgL5ONoC8USfTW",
+            "execute_on_workflow_target": true
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_017U8U3AXQYNK73CCDhcvAKxTSnoE4vi7d4",
+            "name": "Declare AMQP Queue",
+            "title": "Declare AMQP Queue",
+            "type": "amqp.declare_queue",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "auto_delete": false,
+              "continue_on_failure": true,
+              "display_name": "Declare AMQP Queue",
+              "durable": true,
+              "name": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.input.variable_workflow_01AGFUYN5FDHS6RpwxfluQpr8Gv8fJqUN1T$",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": false,
+                "override_workflow_target_group_criteria": false,
+                "use_workflow_target": true,
+                "use_workflow_target_group": false
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_017V2F75W6X8J0MRxTH1FSTIV1CK74eIwXz",
+            "name": "Condition Block",
+            "title": "Condition Block",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Condition Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_017V2F7B6SPEI4KU0XxAHUiLoTQq6pRQN3E",
+                "name": "Condition Branch",
+                "title": "Pass",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_017U8U3AXQYNK73CCDhcvAKxTSnoE4vi7d4.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": true
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Pass",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_017V32IH79BF73JE5hrpkPsyJphNuxDyJbh",
+                    "name": "Add Row to Table",
+                    "title": "Add Row to Table",
+                    "type": "core.addrowtotable",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Add Row to Table",
+                      "input_table": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.output.variable_workflow_01AIEX2U6A9IK58x6eK7B0xRlWEg9qu60Ei$",
+                      "row": [
+                        {
+                          "key": "ActivityName",
+                          "type": "string",
+                          "value": "Declare AMQP Queue"
+                        },
+                        {
+                          "key": "pass/fail",
+                          "type": "string",
+                          "value": "true"
+                        },
+                        {
+                          "key": "Message",
+                          "type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_017V2F7D6ZIEX5HYnHzJ5LarOjGvwGigSWd",
+                "name": "Condition Branch",
+                "title": "Fail",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_017U8U3AXQYNK73CCDhcvAKxTSnoE4vi7d4.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": false
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Fail",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_017V32JKARVIO1Cf2F6MIf7GmmcO4wyHjFu",
+                    "name": "Add Row to Table",
+                    "title": "Add Row to Table",
+                    "type": "core.addrowtotable",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Add Row to Table",
+                      "input_table": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.output.variable_workflow_01AIEX2U6A9IK58x6eK7B0xRlWEg9qu60Ei$",
+                      "row": [
+                        {
+                          "key": "ActivityName",
+                          "type": "string",
+                          "value": "Declare AMQP Queue"
+                        },
+                        {
+                          "key": "pass/fail",
+                          "type": "string",
+                          "value": "false"
+                        },
+                        {
+                          "key": "Message",
+                          "type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_017U9AKQ43N1Q3yd4PU4ErlfbYSautS0UMg",
+            "name": "Declare AMQP Exchange",
+            "title": "Declare AMQP Exchange",
+            "type": "amqp.declare_exchange",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "auto_delete": false,
+              "continue_on_failure": true,
+              "display_name": "Declare AMQP Exchange",
+              "durable": false,
+              "name": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.input.variable_workflow_01AGFUAJI66HO1PIHHcB6TYQDuBbLElcUeD$",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": false,
+                "override_workflow_target_group_criteria": false,
+                "use_workflow_target": true,
+                "use_workflow_target_group": false
+              },
+              "type": "direct"
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_017V2FNFTLD9631Bi8B9TcNll5vtKYARVMk",
+            "name": "Condition Block",
+            "title": "Condition Block",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Condition Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_017V2FNMDP75X7ZBqdesmjoIUDtMmRAt1r7",
+                "name": "Condition Branch",
+                "title": "Pass",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_017U9AKQ43N1Q3yd4PU4ErlfbYSautS0UMg.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": true
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Pass",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_017V32L7TRQGG3tBXHAdJNieNvi2WjKjYiz",
+                    "name": "Add Row to Table",
+                    "title": "Add Row to Table",
+                    "type": "core.addrowtotable",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Add Row to Table",
+                      "input_table": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.output.variable_workflow_01AIEX2U6A9IK58x6eK7B0xRlWEg9qu60Ei$",
+                      "row": [
+                        {
+                          "key": "ActivityName",
+                          "type": "string",
+                          "value": "Declare AMQP Exchange"
+                        },
+                        {
+                          "key": "pass/fail",
+                          "type": "string",
+                          "value": "true"
+                        },
+                        {
+                          "key": "Message",
+                          "type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_017V2FNOAWL962ewvrFVt2DTj22qj5PHbKH",
+                "name": "Condition Branch",
+                "title": "Fail",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_017U9AKQ43N1Q3yd4PU4ErlfbYSautS0UMg.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": false
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Fail",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_017V32M6UICIJ7lr6VbXoIajKDgn3O2IKzp",
+                    "name": "Add Row to Table",
+                    "title": "Add Row to Table",
+                    "type": "core.addrowtotable",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Add Row to Table",
+                      "input_table": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.output.variable_workflow_01AIEX2U6A9IK58x6eK7B0xRlWEg9qu60Ei$",
+                      "row": [
+                        {
+                          "key": "ActivityName",
+                          "type": "string",
+                          "value": "Declare AMQP Exchange"
+                        },
+                        {
+                          "key": "pass/fail",
+                          "type": "string",
+                          "value": "false"
+                        },
+                        {
+                          "key": "Message",
+                          "type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_017U9D0G4VLBK17S37ncE0HRl6aaFzlXutN",
+            "name": "Bind AMQP Queue",
+            "title": "Bind AMQP Queue",
+            "type": "amqp.bind_queue",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Bind AMQP Queue",
+              "exchange_name": "$activity.definition_activity_017U9AKQ43N1Q3yd4PU4ErlfbYSautS0UMg.output.exchange_name$",
+              "name": "$activity.definition_activity_017U8U3AXQYNK73CCDhcvAKxTSnoE4vi7d4.output.queue_name$",
+              "routing_key": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.input.variable_workflow_01AGGCOJBKARW5DvlnXdc6pgh5TeUOuL4WY$",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": false,
+                "override_workflow_target_group_criteria": false,
+                "use_workflow_target": true,
+                "use_workflow_target_group": false
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_017V2G632YQ4R7fBxLD11plAwT9JO1B8pI6",
+            "name": "Condition Block",
+            "title": "Condition Block",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Condition Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_017V2G68KLM7Q03Crg0R8bNpNrl340BOutj",
+                "name": "Condition Branch",
+                "title": "Pass",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_017U9D0G4VLBK17S37ncE0HRl6aaFzlXutN.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": true
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Pass",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_017V32NRYNIEK704gTkLQY4HAZU2M9LareD",
+                    "name": "Add Row to Table",
+                    "title": "Add Row to Table",
+                    "type": "core.addrowtotable",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Add Row to Table",
+                      "input_table": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.output.variable_workflow_01AIEX2U6A9IK58x6eK7B0xRlWEg9qu60Ei$",
+                      "row": [
+                        {
+                          "key": "ActivityName",
+                          "type": "string",
+                          "value": "Bind AMQP Queue"
+                        },
+                        {
+                          "key": "pass/fail",
+                          "type": "string",
+                          "value": "true"
+                        },
+                        {
+                          "key": "Message",
+                          "type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_017V2G6ADUBXI56JfOBO7BOXxoxOxAYI7yV",
+                "name": "Condition Branch",
+                "title": "Fail",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_017U9D0G4VLBK17S37ncE0HRl6aaFzlXutN.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": false
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Fail",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_017V32OP8FYHZ0zlpITuQkqBFh2S01fttEM",
+                    "name": "Add Row to Table",
+                    "title": "Add Row to Table",
+                    "type": "core.addrowtotable",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Add Row to Table",
+                      "input_table": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.output.variable_workflow_01AIEX2U6A9IK58x6eK7B0xRlWEg9qu60Ei$",
+                      "row": [
+                        {
+                          "key": "ActivityName",
+                          "type": "string",
+                          "value": "Bind AQP Queue"
+                        },
+                        {
+                          "key": "pass/fail",
+                          "type": "string",
+                          "value": "false"
+                        },
+                        {
+                          "key": "Message",
+                          "type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_017V2GYPEJ5HZ0prs9eWVJnS2lywLbexkyj",
+            "name": "Publish AMQP Message",
+            "title": "Publish AMQP Message",
+            "type": "amqp.publish_message",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "body": "Message from Prerelease5.1.2 Envrionment\n\nTenant : chandra",
+              "continue_on_failure": true,
+              "delivery_mode": 1,
+              "display_name": "Publish AMQP Message",
+              "exchange_name": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.input.variable_workflow_01AGFUAJI66HO1PIHHcB6TYQDuBbLElcUeD$",
+              "routing_key": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.input.variable_workflow_01AGGCOJBKARW5DvlnXdc6pgh5TeUOuL4WY$",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": false,
+                "override_workflow_target_group_criteria": false,
+                "use_workflow_target": true,
+                "use_workflow_target_group": false
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_017V2H1EV3CD70jp5ReWfnNGnvpwAbrjJEU",
+            "name": "Condition Block",
+            "title": "Condition Block",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Condition Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_017V2H1JAQB1434FdfCO2a8eBp8BxTVVxJF",
+                "name": "Condition Branch",
+                "title": "Pass",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_017V2GYPEJ5HZ0prs9eWVJnS2lywLbexkyj.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": true
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Pass",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_017V32Q06DXHH0gnqQu61eIYql8j8pMvOyr",
+                    "name": "Add Row to Table",
+                    "title": "Add Row to Table",
+                    "type": "core.addrowtotable",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Add Row to Table",
+                      "input_table": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.output.variable_workflow_01AIEX2U6A9IK58x6eK7B0xRlWEg9qu60Ei$",
+                      "row": [
+                        {
+                          "key": "ActivityName",
+                          "type": "string",
+                          "value": "Publish AMQP Message"
+                        },
+                        {
+                          "key": "pass/fail",
+                          "type": "string",
+                          "value": "true"
+                        },
+                        {
+                          "key": "Message",
+                          "type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_017V2H1KXYQCI52sdfHOP145eKqAWrCOUOa",
+                "name": "Condition Branch",
+                "title": "Fail",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_017V2GYPEJ5HZ0prs9eWVJnS2lywLbexkyj.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": false
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Fail",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_017V32R1HELVW1gGxsGnRPAv5Wz6h7dx3Nw",
+                    "name": "Add Row to Table",
+                    "title": "Add Row to Table",
+                    "type": "core.addrowtotable",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Add Row to Table",
+                      "input_table": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.output.variable_workflow_01AIEX2U6A9IK58x6eK7B0xRlWEg9qu60Ei$",
+                      "row": [
+                        {
+                          "key": "ActivityName",
+                          "type": "string",
+                          "value": "Publish AMQP Message"
+                        },
+                        {
+                          "key": "pass/fail",
+                          "type": "string",
+                          "value": "false"
+                        },
+                        {
+                          "key": "Message",
+                          "type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_017V2M32ZEU7R6OleYtE0wrZKFMswZiwsKm",
+            "name": "Get AMQP Message",
+            "title": "Get AMQP Message",
+            "type": "amqp.get_message",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Get AMQP Message",
+              "name": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.input.variable_workflow_01AGFUYN5FDHS6RpwxfluQpr8Gv8fJqUN1T$",
+              "noack": false,
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": false,
+                "override_workflow_target_group_criteria": false,
+                "use_workflow_target": true,
+                "use_workflow_target_group": false
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_017V32XWA9QXO4dKfzScAxVgWyOgisoYjZF",
+            "name": "Condition Block",
+            "title": "Condition Block",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Condition Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_017V32Y2RTQSF6CwLYaKryJP7jznuH1yzoo",
+                "name": "Condition Branch",
+                "title": "Pass",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_017V2M32ZEU7R6OleYtE0wrZKFMswZiwsKm.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": true
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Pass",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_017V32T95QRE83v1QRo1DUnzW0ECB3GZknV",
+                    "name": "Add Row to Table",
+                    "title": "Add Row to Table",
+                    "type": "core.addrowtotable",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Add Row to Table",
+                      "input_table": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.output.variable_workflow_01AIEX2U6A9IK58x6eK7B0xRlWEg9qu60Ei$",
+                      "row": [
+                        {
+                          "key": "ActivityName",
+                          "type": "string",
+                          "value": "GET AMQP MESSAGE"
+                        },
+                        {
+                          "key": "pass/fail",
+                          "type": "string",
+                          "value": "true"
+                        },
+                        {
+                          "key": "Message",
+                          "type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_017V32Y4TFAN84RGvJ85tnhJvUNcrq53Hi7",
+                "name": "Condition Branch",
+                "title": "Fail",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_017V2M32ZEU7R6OleYtE0wrZKFMswZiwsKm.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": true
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Fail",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_017V32UJ2B9PE3GFeU87g47jmMoIR0CZjVG",
+                    "name": "Add Row to Table",
+                    "title": "Add Row to Table",
+                    "type": "core.addrowtotable",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Add Row to Table",
+                      "input_table": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.output.variable_workflow_01AIEX2U6A9IK58x6eK7B0xRlWEg9qu60Ei$",
+                      "row": [
+                        {
+                          "key": "ActivityName",
+                          "type": "string",
+                          "value": "GET AMQP MESSAGE"
+                        },
+                        {
+                          "key": "pass/fail",
+                          "type": "string",
+                          "value": "false"
+                        },
+                        {
+                          "key": "Message",
+                          "type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01AGFR0ERA02R2nbmEn3CQ1OVAzWPXKnFP5",
+            "name": "Set Variables",
+            "title": "Results",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Results",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.output.variable_workflow_01AGFRQA7A79U2sfSrzIXklq1Ew1TnYvP1h$",
+                  "variable_value_new": "Activity Name :                                       Pass/Fail\n---------------------------------------------------------------------------------------------------\n\nDeclare AMQP Queue :$activity.definition_activity_017U8U3AXQYNK73CCDhcvAKxTSnoE4vi7d4.output.succeeded$\n\nDeclare AMQP Exchange :$activity.definition_activity_017U9AKQ43N1Q3yd4PU4ErlfbYSautS0UMg.output.succeeded$\n\nBind AMQP : $activity.definition_activity_017U9D0G4VLBK17S37ncE0HRl6aaFzlXutN.output.succeeded$\n\nPublish AMQP Message : $activity.definition_activity_017V2GYPEJ5HZ0prs9eWVJnS2lywLbexkyj.output.succeeded$\n\nGET AMQP Message : $activity.definition_activity_017V2M32ZEU7R6OleYtE0wrZKFMswZiwsKm.output.succeeded$\n\nCreated Queue Name : $workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.input.variable_workflow_01AGFUYN5FDHS6RpwxfluQpr8Gv8fJqUN1T$\n\nCreatedExchange Name :$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.input.variable_workflow_01AGFUAJI66HO1PIHHcB6TYQDuBbLElcUeD$\n\nCreated Routing Key :$workflow.definition_workflow_017U4P2AYV1LL3GeenMRjwgeDZoZAqC4ngp.input.variable_workflow_01AGGCOJBKARW5DvlnXdc6pgh5TeUOuL4WY$"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    }
+  ]
+}
