@@ -1,0 +1,2063 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0",
+    "name": "SJ_automation_webserivce_crudoperations_Proxy_SigAuth_NoRemote",
+    "title": "SJ_automation_webserivce_crudoperations_Proxy_SigAuth_NoRemote",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "tabletype_01AHAPBR4FV675cgXI0e4HbGK7XYWEIF9sH",
+        "properties": {
+          "scope": "output",
+          "name": "Output Results",
+          "type": "datatype.table",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "{\"status\":\"ok\",\"query\":{}}",
+          "scope": "local",
+          "name": "GET Call - Body",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01MD9AM3M8L5N4KV8TOPoUKxarfy9gIinOf",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Results",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01M4T5MD6M2601bDjcytJzHJQ2ffocbNqJI",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Bearer ",
+          "scope": "local",
+          "name": "Token ",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01M4T5MD6LXEY5Sq9C0kCUBghv7a0ppRvr0",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "- This workflow has web services methods GET, POST, PATCH, PUT, OPTIONS , HEAD and DELETE that are executed on a target group including targets with different configuration;\n- Workflow also includes redirect action with a separate target. ",
+      "display_name": "SJ_automation_webserivce_crudoperations_Proxy_SigAuth_NoRemote",
+      "favorite": false,
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": true,
+        "target_group": {
+          "target_group_id": "target_group_01MM0NY38YC9G1wN7VTA967XyhqzbtRhfGC",
+          "run_on_all_targets": true,
+          "selected_target_types": [
+            "web-service.endpoint"
+          ]
+        }
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01M4T5ND8KRUW2J1lpsmHRzct3kuyCLP1He",
+        "name": "HTTP Request",
+        "title": "GET - Action",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": false,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "display_name": "GET - Action",
+          "method": "GET",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target_group": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01M4T5NIDXTGG20j2Vc6uqm3cologoG0crp",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01M4T5NMTOCVG3mRdGGVkHNlQ9nvZEne0HP",
+            "name": "Condition Branch",
+            "title": "Validation Successful",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": "$activity.definition_activity_01M4T5ND8KRUW2J1lpsmHRzct3kuyCLP1He.output.status_code$",
+                    "operator": "eq",
+                    "right_operand": 200
+                  },
+                  "operator": "and",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_01M4T5ND8KRUW2J1lpsmHRzct3kuyCLP1He.output.status_text$",
+                    "operator": "eq",
+                    "right_operand": "200 OK"
+                  }
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_01M4T5ND8KRUW2J1lpsmHRzct3kuyCLP1He.output.succeeded$",
+                  "operator": "eq",
+                  "right_operand": true
+                }
+              },
+              "continue_on_failure": true,
+              "display_name": "Validation Successful",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01M4T5NT8TDX65OSocahzL8qyYhv0HZOfgu",
+                "name": "Add Row to Table",
+                "title": "GET Method Pass",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "GET Method Pass",
+                  "input_table": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.output.variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f$",
+                  "row": [
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "GET METHOD"
+                    },
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "true"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01M4T5NZEFB957PwoeEtcAn8Z2KrUE6dO4M",
+            "name": "Condition Branch",
+            "title": "Validation Unsuccessful",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": "$activity.definition_activity_01M4T5ND8KRUW2J1lpsmHRzct3kuyCLP1He.output.status_code$",
+                  "operator": "eq",
+                  "right_operand": 400
+                },
+                "operator": "or",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_01M4T5ND8KRUW2J1lpsmHRzct3kuyCLP1He.output.error.code$",
+                  "operator": "eq",
+                  "right_operand": "401"
+                }
+              },
+              "continue_on_failure": true,
+              "display_name": "Validation Unsuccessful",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01M4T5O4TKRL71UriuNZ5LCbRZlf5Ausdxu",
+                "name": "Add Row to Table",
+                "title": "GET Method Fail",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "GET Method Fail",
+                  "input_table": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.output.variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f$",
+                  "row": [
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "GET METHOD"
+                    },
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "false"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01M4T5OEEPRCD1ZFylME4WfyuVddf5N1tkF",
+        "name": "HTTP Request",
+        "title": "POST - Action",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "body": "{\n    \"userId\": 5,\n    \"id\": 222,\n    \"title\": \"Test AO\",\n    \"body\": \"AO AO\"\n  }",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "display_name": "POST - Action",
+          "method": "POST",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target_group": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01M4T5OK1AC1018ocGSqgxarYPFScrhQFKS",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01M4T5OO27D0S6ECpctDTPaHKoDgzeItBIz",
+            "name": "Condition Branch",
+            "title": "Validation Successful",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": "$activity.definition_activity_01M4T5OEEPRCD1ZFylME4WfyuVddf5N1tkF.output.status_code$",
+                    "operator": "eq",
+                    "right_operand": 201
+                  },
+                  "operator": "and",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_01M4T5OEEPRCD1ZFylME4WfyuVddf5N1tkF.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": true
+                  }
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_01M4T5OEEPRCD1ZFylME4WfyuVddf5N1tkF.output.status_text$",
+                  "operator": "eq",
+                  "right_operand": "201 Created"
+                }
+              },
+              "continue_on_failure": true,
+              "display_name": "Validation Successful",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01M4T5OTD23QU3JcBSkC5DmfgpdNMuJUSX1",
+                "name": "Add Row to Table",
+                "title": "POST Method Pass",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "POST Method Pass",
+                  "input_table": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.output.variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f$",
+                  "row": [
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "true"
+                    },
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "POST METHOD"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01M4T5OXQ87796i47jRwP6ymE20dGiWOas5",
+            "name": "Condition Branch",
+            "title": "Validation Unsuccessful",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_01M4T5OEEPRCD1ZFylME4WfyuVddf5N1tkF.output.status_code$",
+                "operator": "ne",
+                "right_operand": 201
+              },
+              "continue_on_failure": true,
+              "display_name": "Validation Unsuccessful",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01M4T5P2S6SX20k8T3uHx2FmIneNVBE2XJx",
+                "name": "Add Row to Table",
+                "title": "POSTMethod Fail",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "POSTMethod Fail",
+                  "input_table": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.output.variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f$",
+                  "row": [
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "false"
+                    },
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "POST METHOD"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01M7FTIK86XVR4llHnA8bljKFwqS1FCAfpk",
+        "name": "HTTP Request",
+        "title": "PATCH - Action",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "accept": "application/json",
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "custom_headers": [
+            {
+              "name": "Authorization",
+              "value": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.local.variable_workflow_01M4T5MD6LXEY5Sq9C0kCUBghv7a0ppRvr0$"
+            }
+          ],
+          "display_name": "PATCH - Action",
+          "method": "PATCH",
+          "relative_url": "1",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target_group": true
+          },
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01M7FTOGQ4Y1B5JFbVAfbMBQIaZBuQX0jqC",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01M7FTOIKDXW44bdGUg5NZwWQFR9y3kmkil",
+            "name": "Condition Branch",
+            "title": "Validation Successful",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": "$activity.definition_activity_01M7FTIK86XVR4llHnA8bljKFwqS1FCAfpk.output.status_code$",
+                    "operator": "eq",
+                    "right_operand": 200
+                  },
+                  "operator": "and",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_01M7FTIK86XVR4llHnA8bljKFwqS1FCAfpk.output.status_text$",
+                    "operator": "eq",
+                    "right_operand": "200 OK"
+                  }
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_01M7FTIK86XVR4llHnA8bljKFwqS1FCAfpk.output.succeeded$",
+                  "operator": "eq",
+                  "right_operand": true
+                }
+              },
+              "continue_on_failure": true,
+              "display_name": "Validation Successful",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01M7FTOJNF41P2yXt10FSvAuCTDGziI1Rh3",
+                "name": "Add Row to Table",
+                "title": "PATCH Method Pass",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "PATCH Method Pass",
+                  "input_table": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.output.variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f$",
+                  "row": [
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "true"
+                    },
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "PATCH METHOD"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01M7FTOKNYWQR7MifK1XcSgRbvmb7l3DQIn",
+            "name": "Condition Branch",
+            "title": "Validation Unsuccessful",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_01M7FTIK86XVR4llHnA8bljKFwqS1FCAfpk.output.status_code$",
+                "operator": "ne",
+                "right_operand": 200
+              },
+              "continue_on_failure": true,
+              "display_name": "Validation Unsuccessful",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01M7FTOLRJ9ZM0BGo1wtdfWYOFi078vm7Qd",
+                "name": "Add Row to Table",
+                "title": "PATCH Method Fail",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "PATCH Method Fail",
+                  "input_table": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.output.variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f$",
+                  "row": [
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "false"
+                    },
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "PATCH METHOD"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01M7FYW8ANQDE6kGGSi6Ft6lYWwSO49Tv5O",
+        "name": "HTTP Request",
+        "title": "HEAD - Action",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": false,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "display_name": "HEAD - Action",
+          "method": "HEAD",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target_group": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01M7FZPG5RXFL1rrzQCfojsX2KbdbTazcCs",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01M7FZPITM8XC0MNuymzuIejAENlphVSlJc",
+            "name": "Condition Branch",
+            "title": "Validation Successful",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": "$activity.definition_activity_01M7FYW8ANQDE6kGGSi6Ft6lYWwSO49Tv5O.output.status_code$",
+                    "operator": "eq",
+                    "right_operand": 200
+                  },
+                  "operator": "and",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_01M7FYW8ANQDE6kGGSi6Ft6lYWwSO49Tv5O.output.status_text$",
+                    "operator": "eq",
+                    "right_operand": "200 OK"
+                  }
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_01M7FYW8ANQDE6kGGSi6Ft6lYWwSO49Tv5O.output.succeeded$",
+                  "operator": "eq",
+                  "right_operand": true
+                }
+              },
+              "continue_on_failure": true,
+              "display_name": "Validation Successful",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01M7FZPKE7JD84X4ZlAuWnVubLrvXTvhiNK",
+                "name": "Add Row to Table",
+                "title": "HEAD Method Pass",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "HEAD Method Pass",
+                  "input_table": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.output.variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f$",
+                  "row": [
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "true"
+                    },
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "HEAD METHOD"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01M7FZPLYSY8P0OF0WUw3Bl1YshjTgepQgT",
+            "name": "Condition Branch",
+            "title": "Validation Unsuccessful",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_01M7FYW8ANQDE6kGGSi6Ft6lYWwSO49Tv5O.output.status_code$",
+                "operator": "ne",
+                "right_operand": 200
+              },
+              "continue_on_failure": true,
+              "display_name": "Validation Unsuccessful",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01M7FZPNM9A4I1mtRZWwjO8zcuqAYVao88B",
+                "name": "Add Row to Table",
+                "title": "HEAD  Method Fail",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "HEAD  Method Fail",
+                  "input_table": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.output.variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f$",
+                  "row": [
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "false"
+                    },
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "HEAD METHOD"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01M7GGU2NMG0M6AI7JTN729UcbJ1Sbg8xVi",
+        "name": "HTTP Request",
+        "title": "OPTIONS - Action",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": false,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "display_name": "OPTIONS - Action",
+          "method": "OPTIONS",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target_group": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01M7GGYST52U1715yp2wuZWExYl8rE6qHJk",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01M7GGYVBSM7J0jxXAdsVLjW2tlTiLB6GQa",
+            "name": "Condition Branch",
+            "title": "Validation Successful",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": "$activity.definition_activity_01M7GGU2NMG0M6AI7JTN729UcbJ1Sbg8xVi.output.status_code$",
+                    "operator": "eq",
+                    "right_operand": 204
+                  },
+                  "operator": "and",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_01M7GGU2NMG0M6AI7JTN729UcbJ1Sbg8xVi.output.status_text$",
+                    "operator": "eq",
+                    "right_operand": "204 No Content"
+                  }
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_01M7GGU2NMG0M6AI7JTN729UcbJ1Sbg8xVi.output.succeeded$",
+                  "operator": "eq",
+                  "right_operand": true
+                }
+              },
+              "continue_on_failure": true,
+              "display_name": "Validation Successful",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01M7GGYWRNKBW0MEOpeqsNj61GsiROS4fQ9",
+                "name": "Add Row to Table",
+                "title": "OPTIONS Method Pass",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "OPTIONS Method Pass",
+                  "input_table": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.output.variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f$",
+                  "row": [
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "true"
+                    },
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "OPTIONS METHOD"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01M7GGYY7AOES2wPmDseU1cBxmuTTBCgNW3",
+            "name": "Condition Branch",
+            "title": "Validation Unsuccessful",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_01M7GGU2NMG0M6AI7JTN729UcbJ1Sbg8xVi.output.status_code$",
+                "operator": "ne",
+                "right_operand": 204
+              },
+              "continue_on_failure": true,
+              "display_name": "Validation Unsuccessful",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01M7GGYZOB7YZ55Mb7fxVVkK5ioH4oxY3an",
+                "name": "Add Row to Table",
+                "title": "OPTIONS  Method Fail",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "OPTIONS  Method Fail",
+                  "input_table": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.output.variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f$",
+                  "row": [
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "false"
+                    },
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "OPTIONS METHOD"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01M7H83Y0MHMU37BI4MtG2arxabZypJ1WKs",
+        "name": "HTTP Request",
+        "title": "PUT - Action",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": false,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "display_name": "PUT - Action",
+          "method": "PUT",
+          "relative_url": "1",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target_group": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01M7H8638GZAP77uFDyIX4pJPtXpV5Xh6uf",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01M7H866Q0RH30BO9imgenseg6GK7ZJJ2yK",
+            "name": "Condition Branch",
+            "title": "Validation Successful",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": "$activity.definition_activity_01M7H83Y0MHMU37BI4MtG2arxabZypJ1WKs.output.status_code$",
+                    "operator": "eq",
+                    "right_operand": 200
+                  },
+                  "operator": "and",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_01M7H83Y0MHMU37BI4MtG2arxabZypJ1WKs.output.status_text$",
+                    "operator": "eq",
+                    "right_operand": "200 OK"
+                  }
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_01M7H83Y0MHMU37BI4MtG2arxabZypJ1WKs.output.succeeded$",
+                  "operator": "eq",
+                  "right_operand": true
+                }
+              },
+              "continue_on_failure": true,
+              "display_name": "Validation Successful",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01M7H868UZYXY19nblaQ2JwiUHFNOye3uiS",
+                "name": "Add Row to Table",
+                "title": "PUT Method Pass",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "PUT Method Pass",
+                  "input_table": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.output.variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f$",
+                  "row": [
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "true"
+                    },
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "PUT METHOD"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01M7H86AV2V2J5kILTO5dpEsPDanY9seaEy",
+            "name": "Condition Branch",
+            "title": "Validation Unsuccessful",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_01M7H83Y0MHMU37BI4MtG2arxabZypJ1WKs.output.status_code$",
+                "operator": "eq",
+                "right_operand": 400
+              },
+              "continue_on_failure": true,
+              "display_name": "Validation Unsuccessful",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01M7H86CZCC9F549Y0RNdBdPE7NO9ozMxBi",
+                "name": "Add Row to Table",
+                "title": "PUT Method Fail",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "PUT Method Fail",
+                  "input_table": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.output.variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f$",
+                  "row": [
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "false"
+                    },
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "PUT METHOD"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01M7HFH17Y35X4gPi0BjmkAYPuHxOPUvkKL",
+        "name": "HTTP Request",
+        "title": "DELETE - Action",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": false,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "display_name": "DELETE - Action",
+          "method": "DELETE",
+          "relative_url": "1",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target_group": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01MKAXSQIV9T47I1OnCRQFfq47z5PY7fZq6",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01MKAXSYS56MI0yfG1zZVuTreev0p00JpkG",
+            "name": "Condition Branch",
+            "title": "Validation Successful",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": "$activity.definition_activity_01M7HFH17Y35X4gPi0BjmkAYPuHxOPUvkKL.output.status_code$",
+                    "operator": "eq",
+                    "right_operand": 200
+                  },
+                  "operator": "and",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_01M7HFH17Y35X4gPi0BjmkAYPuHxOPUvkKL.output.status_text$",
+                    "operator": "eq",
+                    "right_operand": "200 OK"
+                  }
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_01M7HFH17Y35X4gPi0BjmkAYPuHxOPUvkKL.output.succeeded$",
+                  "operator": "eq",
+                  "right_operand": true
+                }
+              },
+              "continue_on_failure": true,
+              "display_name": "Validation Successful",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01MKAXSZJE94X07cTM0c0AnbJar8gzC1CIk",
+                "name": "Add Row to Table",
+                "title": "DELETE Method Pass",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "DELETE Method Pass",
+                  "input_table": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.output.variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f$",
+                  "row": [
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "true"
+                    },
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "PUT METHOD"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01MKAXT3R0LRB6LYMjtu3OnA2FC0exLXJFp",
+            "name": "Condition Branch",
+            "title": "Validation Unsuccessful",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_01M7HFH17Y35X4gPi0BjmkAYPuHxOPUvkKL.output.status_code$",
+                "operator": "eq",
+                "right_operand": 400
+              },
+              "continue_on_failure": true,
+              "display_name": "Validation Unsuccessful",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01MKAXT4IDZ6W3FMAlVqa9ehBseRdm2yhgl",
+                "name": "Add Row to Table",
+                "title": "DELETE Method Fail",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "DELETE Method Fail",
+                  "input_table": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.output.variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f$",
+                  "row": [
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "false"
+                    },
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "PUT METHOD"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01MKAPKZFYLGG19CdvjPtWAPhHFAfcLSamJ",
+        "name": "HTTP Request",
+        "title": "Redirect- Action",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "custom_headers": [
+            {
+              "name": "Authorization",
+              "value": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.local.variable_workflow_01M4T5MD6LXEY5Sq9C0kCUBghv7a0ppRvr0$"
+            }
+          ],
+          "display_name": "Redirect- Action",
+          "method": "GET",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01MKAPARZZU6C2GFNkjY18vLtxXxbHj26kX"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01MKAPP35UTLF7VQHc8zYRNqlSV9c2IMq07",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01MKAPPB9M5VO1WUucLYitwIyp37w0L2PT0",
+            "name": "Condition Branch",
+            "title": "Validation Successful",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": "$activity.definition_activity_01MKAPKZFYLGG19CdvjPtWAPhHFAfcLSamJ.output.status_code$",
+                    "operator": "eq",
+                    "right_operand": 200
+                  },
+                  "operator": "and",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_01MKAPKZFYLGG19CdvjPtWAPhHFAfcLSamJ.output.status_text$",
+                    "operator": "eq",
+                    "right_operand": "200 OK"
+                  }
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_01MKAPKZFYLGG19CdvjPtWAPhHFAfcLSamJ.output.succeeded$",
+                  "operator": "eq",
+                  "right_operand": true
+                }
+              },
+              "continue_on_failure": true,
+              "display_name": "Validation Successful",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01MKAPPBZBV8Z203Xf4a5F3esi1zfUtN39i",
+                "name": "Add Row to Table",
+                "title": "Redirect Successful",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Redirect Successful",
+                  "input_table": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.output.variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f$",
+                  "row": [
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "true"
+                    },
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "Redirect Action"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01MKAPPG5HB700kgO20X3IXQlrPUwvw1V7I",
+            "name": "Condition Branch",
+            "title": "Validation Unsuccessful",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_01MKAPKZFYLGG19CdvjPtWAPhHFAfcLSamJ.output.status_code$",
+                "operator": "eq",
+                "right_operand": 301
+              },
+              "continue_on_failure": true,
+              "display_name": "Validation Unsuccessful",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01MKAPPGW8DHW5t1vv5PjWyDLjfGnIy8BdL",
+                "name": "Add Row to Table",
+                "title": "Redirect Unsuccessful",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Redirect Unsuccessful",
+                  "input_table": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.output.variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f$",
+                  "row": [
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "false"
+                    },
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "Redirect Action"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01ML1D9LU711C5eLNPExjMlNbOH6wsX7Sjq",
+        "name": "HTTP Request",
+        "title": "Cookies- Action",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": false,
+          "body": "{\n  \"status\": \"ok\",\n  \"cookies\": {},\n  \"signedCookies\": {}\n}",
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "custom_headers": [
+            {
+              "name": "Authorization",
+              "value": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.local.variable_workflow_01M4T5MD6LXEY5Sq9C0kCUBghv7a0ppRvr0$"
+            }
+          ],
+          "display_name": "Cookies- Action",
+          "method": "POST",
+          "relative_url": "/cookie",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01MQ1N3BTNIYG3kPGrue2uA5McmgODNZ1cp"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01ML1DFRK02LT6p9StvXTLUCtTImZ3NfyqZ",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01ML1DFU9IJAO6zTfBfp2AzNgveVdqxQRo2",
+            "name": "Condition Branch",
+            "title": "Validation Successful",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": "$activity.definition_activity_01ML1D9LU711C5eLNPExjMlNbOH6wsX7Sjq.output.status_code$",
+                    "operator": "eq",
+                    "right_operand": 200
+                  },
+                  "operator": "and",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_01ML1D9LU711C5eLNPExjMlNbOH6wsX7Sjq.output.status_text$",
+                    "operator": "eq",
+                    "right_operand": "200 OK"
+                  }
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_01ML1D9LU711C5eLNPExjMlNbOH6wsX7Sjq.output.succeeded$",
+                  "operator": "eq",
+                  "right_operand": true
+                }
+              },
+              "continue_on_failure": true,
+              "display_name": "Validation Successful",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01ML1DFVVTWV45JU4dSVZSKPV9wKenCwXxW",
+                "name": "Add Row to Table",
+                "title": "Action with Cookies Successful",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Action with Cookies Successful",
+                  "input_table": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.output.variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f$",
+                  "row": [
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "true"
+                    },
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "Action with Cookies"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01ML1DFXHGBH60ZSrX53Ikm9RLGi4bZyQFH",
+            "name": "Condition Branch",
+            "title": "Validation Unsuccessful",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_01ML1D9LU711C5eLNPExjMlNbOH6wsX7Sjq.output.status_code$",
+                "operator": "eq",
+                "right_operand": 400
+              },
+              "continue_on_failure": true,
+              "display_name": "Validation Unsuccessful",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01ML1DFZ4BX023EIOVyVxOWlKskMGEbS5id",
+                "name": "Add Row to Table",
+                "title": "Action with Cookies Unsuccessful",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Action with Cookies Unsuccessful",
+                  "input_table": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.output.variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f$",
+                  "row": [
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "false"
+                    },
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "Action with Cookies"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01N4HAK4BOIIB3zQpV8KznuU9PzItO1rYkd",
+        "name": "HTTP Request",
+        "title": "Proxy-Action",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": false,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "custom_headers": [
+            {
+              "name": "Authorization",
+              "value": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.local.variable_workflow_01M4T5MD6LXEY5Sq9C0kCUBghv7a0ppRvr0$"
+            }
+          ],
+          "display_name": "Proxy-Action",
+          "method": "GET",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01N2XX6OAYQ8S58wBJdWgw7mbPLtYplbLzQ"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01N4HDDL3KSZ65F3DHoLViN8OboZkGwwHEN",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01N4HDDN3RU7X20ct7qMq7hOneQp0buJVmB",
+            "name": "Condition Branch",
+            "title": "Validation Successful",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": "$activity.definition_activity_01N4HAK4BOIIB3zQpV8KznuU9PzItO1rYkd.output.status_code$",
+                    "operator": "eq",
+                    "right_operand": 200
+                  },
+                  "operator": "and",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_01N4HAK4BOIIB3zQpV8KznuU9PzItO1rYkd.output.status_text$",
+                    "operator": "eq",
+                    "right_operand": "200 OK"
+                  }
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_01N4HAK4BOIIB3zQpV8KznuU9PzItO1rYkd.output.succeeded$",
+                  "operator": "eq",
+                  "right_operand": true
+                }
+              },
+              "continue_on_failure": true,
+              "display_name": "Validation Successful",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01N4HDDO0J9QW2IxRUfN0M5JhNhDc3XJ4zg",
+                "name": "Add Row to Table",
+                "title": "Action with Proxy Successful",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Action with Proxy Successful",
+                  "input_table": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.output.variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f$",
+                  "row": [
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "true"
+                    },
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "Action with Cookies"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01N4HDDOYJOPW620T6WAiWyJvnnMe0NmiZg",
+            "name": "Condition Branch",
+            "title": "Validation Unsuccessful",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_01N4HAK4BOIIB3zQpV8KznuU9PzItO1rYkd.output.status_code$",
+                "operator": "ne",
+                "right_operand": 200
+              },
+              "continue_on_failure": true,
+              "display_name": "Validation Unsuccessful",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01N4HDDPUZZWS2kTyxQcOXiLZ4GaqUkKtWA",
+                "name": "Add Row to Table",
+                "title": "Action with Proxy Unsuccessful",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Action with Proxy Unsuccessful",
+                  "input_table": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.output.variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f$",
+                  "row": [
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "false"
+                    },
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "Action with Cookies"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01N4O8XJ8QPUA0rlfwvrFtMwM4MG1hKulQP",
+        "name": "HTTP Request",
+        "title": "Signature Authentication",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": false,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "custom_headers": [
+            {
+              "name": "Authorization",
+              "value": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.local.variable_workflow_01M4T5MD6LXEY5Sq9C0kCUBghv7a0ppRvr0$"
+            }
+          ],
+          "display_name": "Signature Authentication",
+          "method": "POST",
+          "relative_url": "/verify",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01N4MMSX1Y0XA45mOs4yOe3JrHOoK54BtRO"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01N4ODO5SZPG93Le0BIgsYx0Gw91irvvmLC",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01N4ODO7PD6223G7iJMYfgNYVExQj5WyBEh",
+            "name": "Condition Branch",
+            "title": "Validation Successful",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": "$activity.definition_activity_01N4O8XJ8QPUA0rlfwvrFtMwM4MG1hKulQP.output.status_code$",
+                    "operator": "eq",
+                    "right_operand": 200
+                  },
+                  "operator": "and",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_01N4O8XJ8QPUA0rlfwvrFtMwM4MG1hKulQP.output.status_text$",
+                    "operator": "eq",
+                    "right_operand": "200 OK"
+                  }
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_01N4O8XJ8QPUA0rlfwvrFtMwM4MG1hKulQP.output.succeeded$",
+                  "operator": "eq",
+                  "right_operand": true
+                }
+              },
+              "continue_on_failure": true,
+              "display_name": "Validation Successful",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01N4ODO8MTAEB3IjTFve3iIrOLBrlFESOPJ",
+                "name": "Add Row to Table",
+                "title": "Action with Signature Auth Successful",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Action with Signature Auth Successful",
+                  "input_table": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.output.variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f$",
+                  "row": [
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "true"
+                    },
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "Action with Cookies"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01N4ODO9MHU431mD8ICSg4fJMqLSBMFd32l",
+            "name": "Condition Branch",
+            "title": "Validation Unsuccessful",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_01N4O8XJ8QPUA0rlfwvrFtMwM4MG1hKulQP.output.status_code$",
+                "operator": "ne",
+                "right_operand": 200
+              },
+              "continue_on_failure": true,
+              "display_name": "Validation Unsuccessful",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01N4ODOANZ0G1747mK6IX4IP8vRZHFIs9IL",
+                "name": "Add Row to Table",
+                "title": "Action with Signature Auth Unsuccessful",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Action with Signature Auth Unsuccessful",
+                  "input_table": "$workflow.definition_workflow_01M4T5MDSP5SF55jzifl2DuPAdU0e2TOWx0.output.variable_workflow_01M4T5MD6M0Q13YKzSIjc8kforoxIvWq91f$",
+                  "row": [
+                    {
+                      "key": "pass/fail",
+                      "type": "string",
+                      "value": "false"
+                    },
+                    {
+                      "key": "ActivityName",
+                      "type": "string",
+                      "value": "Action with Cookies"
+                    },
+                    {
+                      "key": "Message",
+                      "type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01ME5ALYX1WHB4ouN21Fkn2hJny36KJagQu",
+        "name": "Completed",
+        "title": "Completed",
+        "type": "logic.completed",
+        "base_type": "activity",
+        "properties": {
+          "completion_type": "succeeded",
+          "continue_on_failure": false,
+          "display_name": "Completed",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_01HI09GG68T6R3c5UZCYjlnF64hud6rjRE9"
+    ]
+  },
+  "categories": {
+    "category_01HI09GG68T6R3c5UZCYjlnF64hud6rjRE9": {
+      "unique_name": "category_01HI09GG68T6R3c5UZCYjlnF64hud6rjRE9",
+      "name": "Regression",
+      "title": "Regression",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  },
+  "targets": {
+    "definition_target_01MKAPARZZU6C2GFNkjY18vLtxXxbHj26kX": {
+      "unique_name": "definition_target_01MKAPARZZU6C2GFNkjY18vLtxXxbHj26kX",
+      "name": "HTTP Endpoint (Client Certs) with Redirect_NoRemote1",
+      "title": "HTTP Endpoint (Client Certs) with Redirect_NoRemote1",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01LGSRGRYKMLY4W73QjU1EJVWxr7UvzZvLc",
+        "description": "redirect path options:\n /redirect?url=http://www.google.com\n/https://httpbin.org",
+        "disable_certificate_validation": true,
+        "display_name": "HTTP Endpoint (Client Certs) with Redirect_NoRemote1",
+        "host": "18.222.34.169",
+        "ignore_proxy": false,
+        "no_runtime_user": false,
+        "path": "/redirect?url=http://www.cisco.com",
+        "port": 3000,
+        "protocol": "http"
+      }
+    },
+    "definition_target_01MQ1N3BTNIYG3kPGrue2uA5McmgODNZ1cp": {
+      "unique_name": "definition_target_01MQ1N3BTNIYG3kPGrue2uA5McmgODNZ1cp",
+      "name": "SJ_HTTP_Cookie_NoRemote",
+      "title": "SJ_HTTP_Cookie_NoRemote",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": true,
+        "display_name": "SJ_HTTP_Cookie_NoRemote",
+        "host": "18.222.34.169",
+        "ignore_proxy": false,
+        "no_runtime_user": true,
+        "port": 3000,
+        "protocol": "http"
+      }
+    },
+    "definition_target_01N2XX6OAYQ8S58wBJdWgw7mbPLtYplbLzQ": {
+      "unique_name": "definition_target_01N2XX6OAYQ8S58wBJdWgw7mbPLtYplbLzQ",
+      "name": "sj_new_Proxy_target_NoRemote",
+      "title": "sj_new_Proxy_target_NoRemote",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": true,
+        "display_name": "sj_new_Proxy_target_NoRemote",
+        "host": "www.google.com",
+        "ignore_proxy": false,
+        "no_runtime_user": true,
+        "protocol": "https",
+        "proxy_password": "*****",
+        "proxy_url": "http://18.222.34.169:3128",
+        "proxy_username": "admin"
+      }
+    },
+    "definition_target_01N4MMSX1Y0XA45mOs4yOe3JrHOoK54BtRO": {
+      "unique_name": "definition_target_01N4MMSX1Y0XA45mOs4yOe3JrHOoK54BtRO",
+      "name": "SJ_Signature_Auth_Key_Target_NoRemote",
+      "title": "SJ_Signature_Auth_Key_Target_NoRemote",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01N4MMAFXE9RS38zeGdziyIPs8RKQivCNJH",
+        "disable_certificate_validation": false,
+        "display_name": "SJ_Signature_Auth_Key_Target_NoRemote",
+        "host": "18.220.135.43",
+        "ignore_proxy": true,
+        "no_runtime_user": false,
+        "port": 8888,
+        "protocol": "http"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_01LGSRGRYKMLY4W73QjU1EJVWxr7UvzZvLc": {
+      "unique_name": "definition_runtime_user_01LGSRGRYKMLY4W73QjU1EJVWxr7UvzZvLc",
+      "name": "EM HTTP Client Cert Authentication",
+      "title": "EM HTTP Client Cert Authentication",
+      "type": "runtime_user.web-service_client_certificate_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "crt": "*****",
+        "display_name": "EM HTTP Client Cert Authentication",
+        "key": "*****",
+        "passphrase": "*****"
+      }
+    },
+    "definition_runtime_user_01N4MMAFXE9RS38zeGdziyIPs8RKQivCNJH": {
+      "unique_name": "definition_runtime_user_01N4MMAFXE9RS38zeGdziyIPs8RKQivCNJH",
+      "name": "SJ_Signature_Auth_Key",
+      "title": "SJ_Signature_Auth_Key",
+      "type": "runtime_user.web-service_signature_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "algorithm": "*****",
+        "display_name": "SJ_Signature_Auth_Key",
+        "key_id": "*****",
+        "priv_key": "*****",
+        "priv_passphrase": "*****"
+      }
+    }
+  },
+  "target_groups": {
+    "target_group_01MM0NY38YC9G1wN7VTA967XyhqzbtRhfGC": {
+      "unique_name": "target_group_01MM0NY38YC9G1wN7VTA967XyhqzbtRhfGC",
+      "name": "HTTP Endpoint Target Group_NoRemote",
+      "title": "HTTP Endpoint Target Group_NoRemote",
+      "type": "generic.target_group",
+      "base_type": "target_group",
+      "version": "1.0.0",
+      "targets": [
+        {
+          "data_target_type": "web-service.endpoint",
+          "view_target_type": "web-service.endpoint",
+          "include_all_targets": false,
+          "criteria": [
+            {
+              "left_operand": "$input.description$",
+              "operator": "eq",
+              "right_operand": "Jsonbuilder"
+            }
+          ]
+        }
+      ],
+      "object_type": "target_group"
+    }
+  },
+  "table_types": {
+    "tabletype_01AHAPBR4FV675cgXI0e4HbGK7XYWEIF9sH": {
+      "unique_name": "tabletype_01AHAPBR4FV675cgXI0e4HbGK7XYWEIF9sH",
+      "data_type": "datatype.tabletype",
+      "display_name": "Output Results",
+      "columns": [
+        {
+          "name": "ActivityName",
+          "title": "Activity Name",
+          "type": "string"
+        },
+        {
+          "name": "Message",
+          "title": "Message",
+          "type": "string"
+        },
+        {
+          "name": "pass/fail",
+          "title": "Pass /Fail",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  }
+}
